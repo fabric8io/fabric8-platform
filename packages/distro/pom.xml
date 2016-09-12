@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2005-2015 Red Hat, Inc.
+
+     Red Hat licenses this file to you under the Apache License, version
+     2.0 (the "License"); you may not use this file except in compliance
+     with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied.  See the License for the specific language governing
+     permissions and limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>io.fabric8.platform.packages</groupId>
+    <artifactId>packages</artifactId>
+    <version>2.2-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.fabric8.platform.distro</groupId>
+  <artifactId>distro</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Fabric8 :: Platform :: Packages :: Distro</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.fabric8.platform</groupId>
+      <artifactId>fabric8-console</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>exposecontroller</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.fabric8.forge.packages</groupId>
+      <artifactId>cd-pipeline</artifactId>
+      <version>${fabric8.forge.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.packages</groupId>
+      <artifactId>fabric8-platform</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.packages</groupId>
+      <artifactId>chat-irc</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.packages</groupId>
+      <artifactId>chat-letschat</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.packages</groupId>
+      <artifactId>chat-slack</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>fabric8-docker-registry</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>git-collector</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>gitlab</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>gerrit</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>ingress-nginx</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.packages</groupId>
+      <artifactId>social</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.packages</groupId>
+      <artifactId>management</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+
+    <!-- individual apps -->
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>chaos-monkey</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>artifactory</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>kiwiirc</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>jenkins</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>gogs</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>letschat</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>maven-shell</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>manageiq</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>nexus</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>content-repository</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+
+    <!-- COMMENT OUT UNTIL SONARQUBE CONVERTED TO GENERATE VALID kubernetes.json -->
+    <!-- <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>sonarqube</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency> -->
+
+    <dependency>
+      <groupId>io.fabric8.forge.apps</groupId>
+      <artifactId>fabric8-forge</artifactId>
+      <version>${fabric8.forge.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>${fabric8.maven.plugin.version}</version>
+        <configuration>
+          <enricher>
+            <excludes>
+              <exclude>fmp-controller</exclude>
+            </excludes>
+          </enricher>
+        </configuration>
+        <executions>
+          <execution>
+            <id>fmp</id>
+            <goals>
+              <goal>distro</goal>
+              <!--
+                            <goal>helm</goal>
+              -->
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
