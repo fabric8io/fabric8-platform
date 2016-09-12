@@ -32,11 +32,15 @@
   <name>Fabric8 :: Platform :: Packages :: Distro</name>
 
   <dependencies>
+<!--
+        TODO - include the console too!!!
+
     <dependency>
       <groupId>io.fabric8.platform</groupId>
       <artifactId>fabric8-console</artifactId>
       <version>${project.version}</version>
     </dependency>
+-->
     <dependency>
       <groupId>io.fabric8.devops.apps</groupId>
       <artifactId>exposecontroller</artifactId>
