@@ -165,6 +165,27 @@
       <artifactId>fabric8-forge</artifactId>
       <version>${fabric8.forge.version}</version>
     </dependency>
+
+
+    <!-- kubeflix -->
+    <dependency>
+      <groupId>io.fabric8.kubeflix.packages</groupId>
+      <artifactId>kubeflix</artifactId>
+      <version>${kubeflix.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>io.fabric8.kubeflix</groupId>
+      <artifactId>turbine-server</artifactId>
+      <version>${kubeflix.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.kubeflix</groupId>
+      <artifactId>hystrix-dashboard</artifactId>
+      <version>${kubeflix.version}</version>
+      <type>war</type>
+    </dependency>
   </dependencies>
 
   <build>

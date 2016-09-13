@@ -6,6 +6,7 @@ def updateDependencies(source){
   properties << ['<fabric8.maven.plugin.version>','io/fabric8/fabric8-maven-plugin']
   properties << ['<fabric8.devops.version>','io/fabric8/devops/apps/jenkins']
   properties << ['<fabric8.forge.version>','io/fabric8/devops/apps/jenkins']
+  properties << ['<kubeflix.version','io/fabric8/devops/apps/turbine-server']
 
   // TODO fabric8 console release version too!
 }
