@@ -34,7 +34,7 @@
   <dependencies>
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>fabric8-platform</artifactId>
+      <artifactId>console</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
