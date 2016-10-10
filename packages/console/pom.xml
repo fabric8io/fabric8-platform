@@ -26,21 +26,26 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.fabric8.platform.packages</groupId>
-  <artifactId>fabric8-platform</artifactId>
+  <artifactId>console</artifactId>
 
-  <name>Fabric8 Platform :: Packages :: Platform</name>
-  <description>The Fabric8 Microservices Platform</description>
+  <name>Fabric8 Platform :: Packages :: Console</name>
+  <description>The Fabric8 Microservices Console</description>
 
   <dependencies>
     <dependency>
+      <groupId>io.fabric8.platform.console</groupId>
+      <artifactId>fabric8-console</artifactId>
+      <version>${fabric8.console.version}</version>
+    </dependency>
+    <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>fabric8-platform</artifactId>
+      <artifactId>app-catalog</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.forge.packages</groupId>
-      <artifactId>cd-pipeline</artifactId>
-      <version>${fabric8.forge.version}</version>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>exposecontroller</artifactId>
+      <version>${fabric8.devops.version}</version>
     </dependency>
   </dependencies>
 

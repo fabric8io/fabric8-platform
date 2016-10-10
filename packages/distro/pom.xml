@@ -32,15 +32,11 @@
   <name>Fabric8 :: Platform :: Packages :: Distro</name>
 
   <dependencies>
-<!--
-        TODO - include the console too!!!
-
     <dependency>
-      <groupId>io.fabric8.platform</groupId>
+      <groupId>io.fabric8.platform.console</groupId>
       <artifactId>fabric8-console</artifactId>
-      <version>${project.version}</version>
+      <version>${fabric8.console.version}</version>
     </dependency>
--->
     <dependency>
       <groupId>io.fabric8.devops.apps</groupId>
       <artifactId>exposecontroller</artifactId>
@@ -51,6 +47,11 @@
       <groupId>io.fabric8.forge.packages</groupId>
       <artifactId>cd-pipeline</artifactId>
       <version>${fabric8.forge.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.packages</groupId>
+      <artifactId>console</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
