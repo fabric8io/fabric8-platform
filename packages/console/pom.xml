@@ -41,6 +41,12 @@
       <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>app-catalog</artifactId>
       <version>${project.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.fabric8.devops.apps</groupId>
