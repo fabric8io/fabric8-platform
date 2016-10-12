@@ -41,6 +41,7 @@
       <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>app-catalog</artifactId>
       <version>${project.version}</version>
+      <!-- lets not include all the dependences as we don't want to install them with the console ;) -->
       <exclusions>
         <exclusion>
           <groupId>*</groupId>
