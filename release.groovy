@@ -46,7 +46,7 @@ def release(project){
 
 def mergePullRequest(prId){
   mergeAndWaitForPullRequest{
-    project = 'fabric8io/fabric8-forge'
+    project = 'fabric8io/fabric8-platform'
     pullRequestId = prId
   }
 
