@@ -1,16 +1,4 @@
 #!/usr/bin/groovy
-def updateDependencies(source){
-
-  def properties = []
-  properties << ['<fabric8.version>','io/fabric8/kubernetes-api']
-  properties << ['<fabric8.maven.plugin.version>','io/fabric8/fabric8-maven-plugin']
-  properties << ['<fabric8.devops.version>','io/fabric8/devops/apps/jenkins']
-  properties << ['<fabric8.forge.version>','io/fabric8/devops/apps/jenkins']
-  properties << ['<kubeflix.version','io/fabric8/devops/apps/turbine-server']
-
-  // TODO fabric8 console release version too!
-}
-
 def stage(){
   return stageProject{
     project = 'fabric8io/fabric8-platform'
@@ -44,11 +32,4 @@ def release(project){
   }
 }
 
-def mergePullRequest(prId){
-  mergeAndWaitForPullRequest{
-    project = 'fabric8io/fabric8-platform'
-    pullRequestId = prId
-  }
-
-}
 return this;
