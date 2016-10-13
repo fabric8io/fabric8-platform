@@ -38,9 +38,9 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.forge.packages</groupId>
+      <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>cd-pipeline</artifactId>
-      <version>${fabric8.forge.version}</version>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 

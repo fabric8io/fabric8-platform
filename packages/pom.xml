@@ -37,6 +37,7 @@
   <modules>
     <module>app-catalog</module>
     <module>console</module>
+    <module>cd-pipeline</module>
     <module>fabric8-platform</module>
     <module>distro</module>
   </modules>

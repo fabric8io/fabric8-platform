@@ -1,0 +1,1 @@
+Provides the core [Continuous Delivery platform](http://fabric8.io/guide/cdelivery.html) using [Gogs](http://gogs.io/), [Jenkins](https://jenkins-ci.org/), [Nexus](http://www.sonatype.org/nexus/), [Gerrit](https://www.gerritcodereview.com/) and [SonarQube](http://www.sonarqube.org/)
