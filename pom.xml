@@ -73,7 +73,7 @@
     <fabric8.version>2.2.157</fabric8.version>
     <fabric8.console.version>2.2.183</fabric8.console.version>
     <fabric8.devops.version>2.2.273</fabric8.devops.version>
-    <fabric8.forge.version>2.3.53</fabric8.forge.version>
+    <fabric8.forge.version>2.3.54</fabric8.forge.version>
     <fabric8.maven.plugin.version>3.1.73</fabric8.maven.plugin.version>
     <kubeflix.version>1.0.20</kubeflix.version>
     <maven.require.version>3.1.1</maven.require.version>
