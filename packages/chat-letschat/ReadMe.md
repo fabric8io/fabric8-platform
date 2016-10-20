@@ -1,0 +1,1 @@
+Provides [Chat](http://fabric8.io/guide/chat.html) using [Hubot](https://hubot.github.com/) as the bot framework and [Let's Chat](https://github.com/sdelements/lets-chat) as the chat server

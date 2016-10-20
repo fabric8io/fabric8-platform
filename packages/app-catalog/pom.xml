@@ -64,26 +64,6 @@
           -->
 
           <dependency>
-            <groupId>io.fabric8.forge.packages</groupId>
-            <artifactId>cd-pipeline</artifactId>
-            <version>${fabric8.forge.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.packages</groupId>
-            <artifactId>chat-irc</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.packages</groupId>
-            <artifactId>chat-letschat</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.packages</groupId>
-            <artifactId>chat-slack</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
             <groupId>io.fabric8.devops.apps</groupId>
             <artifactId>exposecontroller</artifactId>
             <version>${fabric8.devops.version}</version>
@@ -113,15 +93,47 @@
             <artifactId>ingress-nginx</artifactId>
             <version>${fabric8.devops.version}</version>
           </dependency>
+
+          <!-- packages -->
           <dependency>
-            <groupId>io.fabric8.devops.packages</groupId>
+            <groupId>io.fabric8.platform.packages</groupId>
             <artifactId>social</artifactId>
-            <version>${fabric8.devops.version}</version>
+            <version>${project.version}</version>
           </dependency>
           <dependency>
-            <groupId>io.fabric8.devops.packages</groupId>
+            <groupId>io.fabric8.platform.packages</groupId>
             <artifactId>management</artifactId>
-            <version>${fabric8.devops.version}</version>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>logging</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>metrics</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>cd-pipeline</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>chat-irc</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>chat-letschat</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>chat-slack</artifactId>
+            <version>${project.version}</version>
           </dependency>
 
           <!-- individual apps -->
@@ -173,6 +185,45 @@
           <dependency>
             <groupId>io.fabric8.devops.apps</groupId>
             <artifactId>content-repository</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+
+          <!-- logging -->
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>kibana</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>fluentd</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+
+          <!-- metrics -->
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>prometheus</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>prometheus-blackbox-exporter</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>prometheus-node-exporter</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>grafana</artifactId>
             <version>${fabric8.devops.version}</version>
           </dependency>
 

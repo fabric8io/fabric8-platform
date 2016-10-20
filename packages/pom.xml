@@ -35,9 +35,17 @@
   </properties>
 
   <modules>
+    <module>chat-irc</module>
+    <module>chat-letschat</module>
+    <module>chat-slack</module>
+    <module>logging</module>
+    <module>management</module>
+    <module>metrics</module>
+    <module>social</module>
+    <module>cd-pipeline</module>
+
     <module>app-catalog</module>
     <module>console</module>
-    <module>cd-pipeline</module>
     <module>fabric8-platform</module>
     <module>distro</module>
   </modules>
