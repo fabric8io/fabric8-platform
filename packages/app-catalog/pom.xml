@@ -53,16 +53,11 @@
           </execution>
         </executions>
         <dependencies>
-          <!--
-              TODO - include the console too!!!
-
           <dependency>
-            <groupId>io.fabric8.platform</groupId>
-            <artifactId>fabric8-console</artifactId>
-            <version>${project.version}</version>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>configmapcontroller</artifactId>
+            <version>${fabric8.devops.version}</version>
           </dependency>
-          -->
-
           <dependency>
             <groupId>io.fabric8.devops.apps</groupId>
             <artifactId>exposecontroller</artifactId>
@@ -95,6 +90,11 @@
           </dependency>
 
           <!-- packages -->
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>console</artifactId>
+            <version>${project.version}</version>
+          </dependency>
           <dependency>
             <groupId>io.fabric8.platform.packages</groupId>
             <artifactId>social</artifactId>

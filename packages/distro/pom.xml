@@ -33,9 +33,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.fabric8.platform.console</groupId>
-      <artifactId>fabric8-console</artifactId>
-      <version>${fabric8.console.version}</version>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>configmapcontroller</artifactId>
+      <version>${fabric8.devops.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.devops.apps</groupId>
