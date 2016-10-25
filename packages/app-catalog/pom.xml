@@ -131,6 +131,59 @@
             <version>${project.version}</version>
           </dependency>
 
+          <!-- ipaas -->
+          <dependency>
+            <groupId>io.fabric8.ipaas.packages</groupId>
+            <artifactId>apiman</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.packages</groupId>
+            <artifactId>messaging</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.apps</groupId>
+            <artifactId>message-broker</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.apps</groupId>
+            <artifactId>message-gateway</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.apps</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+
+          <!-- kubeflix -->
+          <dependency>
+            <groupId>io.fabric8.kubeflix.packages</groupId>
+            <artifactId>kubeflix</artifactId>
+            <version>${kubeflix.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>turbine-server</artifactId>
+            <version>${kubeflix.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>hystrix-dashboard</artifactId>
+            <version>${kubeflix.version}</version>
+            <type>war</type>
+          </dependency>
+
+
+          <!-- kubernetes zipkin -->
+          <dependency>
+            <groupId>io.fabric8.zipkin.packages</groupId>
+            <artifactId>zipkin</artifactId>
+            <version>${kubernetes.zipkin.version}</version>
+          </dependency>
+
           <!-- individual apps -->
           <dependency>
             <groupId>io.fabric8.devops.apps</groupId>
