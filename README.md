@@ -1,6 +1,6 @@
 # Fabric8 Developer Platform
 
-This project generates the distribution of the [fabric8 developer platform](https://fabric8.io/).
+This project generates the distribution of the [fabric8 developer platform](https://fabric8.io/)
 
  <p align="center">
    <a href="http://fabric8.io/">
