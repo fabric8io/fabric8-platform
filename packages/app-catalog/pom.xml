@@ -240,6 +240,11 @@
             <artifactId>taiga</artifactId>
             <version>${fabric8.devops.version}</version>
           </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>keycloak</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
 
           <!-- logging -->
           <dependency>
