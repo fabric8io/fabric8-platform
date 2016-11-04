@@ -9,6 +9,9 @@ node{
     stage 'Stage'
     def stagedProject = pipeline.stage()
 
+    stage 'Approve'
+    pipeline.approve(stagedProject)
+
     stage 'Promote'
     pipeline.release(stagedProject)
   }
