@@ -37,7 +37,7 @@ def approve(project){
   def stagedPlatformKube = "https://oss.sonatype.org/content/repositories/staging/io/fabric8/platform/packages/fabric8-platform/${releaseVersion}/fabric8-platform-${releaseVersion}-kubernetes.yml"
   def stagedPlatformOpenShift = "https://oss.sonatype.org/content/repositories/staging/io/fabric8/platform/packages/fabric8-platform/${releaseVersion}/fabric8-platform-${releaseVersion}-openshift.yml"
 
-  def msg = """
+  def proceedMessage = """
   The fabric8-platform is available for QA.  Please review and approve.
 
   minishift
