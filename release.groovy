@@ -55,7 +55,7 @@ def approve(project){
   def id = approveRequestedEvent(app: "${env.JOB_NAME}", environment: 'community')
 
   try {
-    input id: 'Proceed', message: "\n${config.proceedMessage}"
+    input id: 'Proceed', message: "\n${proceedMessage}"
   } catch (err) {
     approveReceivedEvent(id: id, approved: false)
     throw err
