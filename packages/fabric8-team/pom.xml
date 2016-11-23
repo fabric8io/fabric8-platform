@@ -19,37 +19,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>io.fabric8.platform</groupId>
-    <artifactId>parent</artifactId>
+    <groupId>io.fabric8.platform.packages</groupId>
+    <artifactId>packages</artifactId>
     <version>2.2-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.fabric8.platform.packages</groupId>
-  <artifactId>packages</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>fabric8-team</artifactId>
 
-  <name>Fabric8 :: Platform :: Packages</name>
+  <name>Fabric8 Platform :: Packages :: Team</name>
+  <description>The Fabric8 Microservices Platform :: Team</description>
 
-  <properties>
-  </properties>
-
-  <modules>
-    <module>chat-irc</module>
-    <module>chat-letschat</module>
-    <module>chat-slack</module>
-    <module>logging</module>
-    <module>management</module>
-    <module>metrics</module>
-    <module>social</module>
-    <module>cd-pipeline</module>
-
-    <module>app-catalog</module>
-    <module>console</module>
-    <module>fabric8-team</module>
-    <module>fabric8-platform</module>
-    <module>distro</module>
-  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>io.fabric8.platform.packages</groupId>
+      <artifactId>console</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.packages</groupId>
+      <artifactId>cd-pipeline</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -57,6 +50,13 @@
         <groupId>io.fabric8</groupId>
         <artifactId>fabric8-maven-plugin</artifactId>
         <version>${fabric8.maven.plugin.version}</version>
+        <configuration>
+          <enricher>
+            <excludes>
+              <exclude>fmp-controller</exclude>
+            </excludes>
+          </enricher>
+        </configuration>
         <executions>
           <execution>
             <id>fmp</id>
@@ -69,4 +69,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

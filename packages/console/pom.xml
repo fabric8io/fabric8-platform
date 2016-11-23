@@ -64,16 +64,6 @@
             <artifactId>app-catalog</artifactId>
             <version>${project.version}</version>
           </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>configmapcontroller</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>exposecontroller</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
         </dependencies>
 
       </plugin>
