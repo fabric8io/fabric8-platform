@@ -28,7 +28,11 @@ podTemplate(label: label, serviceAccount: 'jenkins', containers: [
     container(name: 'maven') {
 
       stage 'Install gofabric8'
-      sh "mvn fabric8:install"
+      sh """
+cd packages
+mvn fabric8:install
+cd ..
+"""
       sh "~/.fabric8/bin/kubectl create namespace ${testNamespace}"
       sh "~/.fabric8/bin/kubectl get namespace"
 
