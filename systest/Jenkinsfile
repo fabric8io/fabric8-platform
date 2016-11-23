@@ -40,6 +40,7 @@ cd ..
       sh "mvn clean install"
 
       stage 'Deploy local build'
+      sh "~/.fabric8/bin/gofabric8 copy-endpoints -t=${testNamespace} glusterfs-cluster"
       sh "~/.fabric8/bin/gofabric8 start --package=packages/fabric8-platform/target/classes/META-INF/fabric8/kubernetes.yml --namespace=${testNamespace}"
 
       echo "Deployed master of fabric8-platform into namespace: ${testNamespace}"
