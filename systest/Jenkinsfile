@@ -8,6 +8,12 @@ def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').rep
 
 def testNamespace = "test-${env.JOB_NAME}-${env.BUILD_NUMBER}".replace('_', '-').replace('/', '-')
 
+def fromNamespace = env.KUBERNETES_NAMESPACE
+if (!fromNamespace) {
+  echo "WARNING: using a default from namespace as KUBERNETES_NAMESPACE is not defined!"
+  fromNamespace = "demo"
+}
+
 podTemplate(label: label, serviceAccount: 'jenkins', containers: [
         [name: 'maven', image: 'fabric8/maven-builder', command: 'cat', ttyEnabled: true, envVars: [
                 [key: 'MAVEN_OPTS', value: '-Duser.home=/home/jenkins/'],
@@ -33,14 +39,14 @@ cd packages
 mvn fabric8:install
 cd ..
 """
-      //sh "~/.fabric8/bin/kubectl create namespace ${testNamespace}"
-      //sh "~/.fabric8/bin/kubectl get namespace"
+
+      stage "Setup namespace"
+      sh "~/.fabric8/bin/gofabric8 copy-endpoints -f=${fromNamespace} -t=${testNamespace} glusterfs-cluster"
 
       stage 'Build master'
       sh "mvn clean install"
 
-      stage 'Deploy local build'
-      sh "~/.fabric8/bin/gofabric8 copy-endpoints -t=${testNamespace} glusterfs-cluster"
+      stage 'Rollout local build'
       sh "~/.fabric8/bin/gofabric8 start --package=packages/fabric8-platform/target/classes/META-INF/fabric8/kubernetes.yml --namespace=${testNamespace}"
 
       echo "Deployed master of fabric8-platform into namespace: ${testNamespace}"
