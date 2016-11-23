@@ -1,0 +1,47 @@
+#!/usr/bin/groovy
+@Library('github.com/fabric8io/fabric8-pipeline-library@master')
+
+// lets build things locally
+
+def utils = new io.fabric8.Utils()
+def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
+
+def testNamespace = "test_${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
+
+podTemplate(label: label, serviceAccount: 'jenkins', containers: [
+        [name: 'maven', image: 'fabric8/maven-builder', command: 'cat', ttyEnabled: true, envVars: [
+                [key: 'MAVEN_OPTS', value: '-Duser.home=/home/jenkins/'],
+                [key: 'DOCKER_CONFIG', value: '/home/jenkins/.docker/'],
+                [key: 'KUBERNETES_MASTER', value: 'kubernetes.default']]],
+        [name: 'jnlp', image: 'iocanel/jenkins-jnlp-client:latest', command:'/usr/local/bin/start.sh', args: '${computer.jnlpmac} ${computer.name}', ttyEnabled: false,
+                envVars: [[key: 'DOCKER_HOST', value: 'unix:/var/run/docker.sock']]]],
+        volumes: [
+                [$class: 'PersistentVolumeClaim', mountPath: '/home/jenkins/.mvnrepository', claimName: 'jenkins-mvn-local-repo'],
+                [$class: 'SecretVolume', mountPath: '/home/jenkins/.m2/', secretName: 'jenkins-maven-settings'],
+                [$class: 'SecretVolume', mountPath: '/home/jenkins/.docker', secretName: 'jenkins-docker-cfg'],
+                [$class: 'HostPathVolume', mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock']
+        ]) {
+  node(label) {
+    git 'https://github.com/fabric8io/fabric8-platform.git'
+
+    echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
+    container(name: 'maven') {
+
+      stage 'Install gofabric8'
+      sh "mvn fabric8:install"
+      sh "~/.fabric8/bin/kubectl create namespace ${testNamespace}"
+      sh "~/.fabric8/bin/kubectl get namespace"
+
+      stage 'Build master'
+      sh "mvn clean install"
+
+      stage 'Deploy local build'
+      sh "~/.fabric8/bin/gofabric8 start --package=packages/fabric8-platform/target/classes/META-INF/fabric8/kubernetes.yml --namespace=${testNamespace}"
+
+      echo "Deployed master of fabric8-platform into namespace: ${testNamespace}"
+
+      stage 'Integration Test'
+      echo "TODO now we should do some tests of the app once it all starts up!"
+    }
+  }
+}
