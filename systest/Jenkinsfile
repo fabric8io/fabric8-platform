@@ -33,8 +33,8 @@ cd packages
 mvn fabric8:install
 cd ..
 """
-      sh "~/.fabric8/bin/kubectl create namespace ${testNamespace}"
-      sh "~/.fabric8/bin/kubectl get namespace"
+      //sh "~/.fabric8/bin/kubectl create namespace ${testNamespace}"
+      //sh "~/.fabric8/bin/kubectl get namespace"
 
       stage 'Build master'
       sh "mvn clean install"
