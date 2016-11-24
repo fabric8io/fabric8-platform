@@ -4,6 +4,8 @@
 // lets build things locally
 
 def utils = new io.fabric8.Utils()
+def flow = new io.fabric8.Fabric8Commands()
+
 def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
 
 def testNamespace = "systest-fabric8-platform"
@@ -30,7 +32,7 @@ podTemplate(label: label, serviceAccount: 'jenkins', containers: [
     container(name: 'maven') {
 
 
-      deleteNamespace(testNamespace)
+      flow.deleteNamespace(testNamespace)
 
       stage 'Install gofabric8'
       sh """
