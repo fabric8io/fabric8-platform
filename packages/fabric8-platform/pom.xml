@@ -34,7 +34,12 @@
   <dependencies>
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>fabric8-team</artifactId>
+      <artifactId>console</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.packages</groupId>
+      <artifactId>cd-pipeline</artifactId>
       <version>${project.version}</version>
     </dependency>
 
