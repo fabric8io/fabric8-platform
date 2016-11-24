@@ -37,7 +37,7 @@ podTemplate(label: label, serviceAccount: 'jenkins', containers: [
       stage 'Install gofabric8'
       sh """
 cd packages
-mvn fabric8:install
+mvn -U fabric8:install
 cd ..
 """
 
@@ -45,7 +45,7 @@ cd ..
       sh "~/.fabric8/bin/gofabric8 copy-endpoints -f=${fromNamespace} -t=${testNamespace} glusterfs-cluster"
 
       stage 'Build master'
-      sh "mvn clean install"
+      sh "mvn -U clean install"
 
       stage 'Rollout local build'
       sh "~/.fabric8/bin/gofabric8 start --package=packages/fabric8-team/target/classes/META-INF/fabric8/kubernetes.yml --namespace=${testNamespace}"
