@@ -17,6 +17,7 @@ podTemplate(label: label, serviceAccount: 'jenkins', containers: [
                 [key: 'MAVEN_OPTS', value: '-Duser.home=/home/jenkins/'],
                 [key: 'DOCKER_CONFIG', value: '/home/jenkins/.docker/'],
                 [key: 'KUBERNETES_MASTER', value: 'kubernetes.default']]],
+                [key: 'TERM', value: 'dumb'], // this removes colour from gofabric8
         [name: 'jnlp', image: 'iocanel/jenkins-jnlp-client:latest', command:'/usr/local/bin/start.sh', args: '${computer.jnlpmac} ${computer.name}', ttyEnabled: false,
                 envVars: [[key: 'DOCKER_HOST', value: 'unix:/var/run/docker.sock']]]],
         volumes: [
