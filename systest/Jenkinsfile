@@ -6,13 +6,9 @@
 def utils = new io.fabric8.Utils()
 def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
 
-def testNamespace = "test-${env.JOB_NAME}-${env.BUILD_NUMBER}".replace('_', '-').replace('/', '-')
-
-def fromNamespace = env.KUBERNETES_NAMESPACE
-if (!fromNamespace) {
-  echo "WARNING: using a default from namespace as KUBERNETES_NAMESPACE is not defined!"
-  fromNamespace = "demo"
-}
+def testNamespace = "systest-fabric8-platform"
+//def testNamespace = "test-${env.JOB_NAME}-${env.BUILD_NUMBER}".replace('_', '-').replace('/', '-')
+def fromNamespace = utils.getNamespace()
 
 podTemplate(label: label, serviceAccount: 'jenkins', containers: [
         [name: 'maven', image: 'fabric8/maven-builder', command: 'cat', ttyEnabled: true, envVars: [
@@ -32,6 +28,9 @@ podTemplate(label: label, serviceAccount: 'jenkins', containers: [
 
     echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
     container(name: 'maven') {
+
+
+      deleteNamespace(testNamespace)
 
       stage 'Install gofabric8'
       sh """
