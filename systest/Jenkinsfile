@@ -8,7 +8,7 @@ def flow = new io.fabric8.Fabric8Commands()
 
 def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
 
-def testNamespace = "systest-fabric8-platform"
+def testNamespace = "systest-fabric8"
 //def testNamespace = "test-${env.JOB_NAME}-${env.BUILD_NUMBER}".replace('_', '-').replace('/', '-')
 def fromNamespace = utils.getNamespace()
 
