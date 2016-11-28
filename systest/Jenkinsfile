@@ -51,10 +51,19 @@ cd ..
       stage 'Rollout local build'
       sh "~/.fabric8/bin/gofabric8 start --package=packages/fabric8-team/target/classes/META-INF/fabric8/kubernetes.yml --namespace=${testNamespace}"
 
+      stage 'Wait for rollout'
+      sh "~/.fabric8/bin/gofabric8 wait-for --all --timeout=60min --namespace=${testNamespace}"
+
       echo "Deployed master of fabric8-platform into namespace: ${testNamespace}"
 
       stage 'Integration Test'
-      echo "TODO now we should do some tests of the app once it all starts up!"
+      git 'https://github.com/fabric8io/fabric8-forge.git'
+      sh """
+cd fabric8-forge
+echo "cloned fabric8-forge"
+pwd
+./systest.sh
+"""
     }
   }
 }
