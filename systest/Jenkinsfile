@@ -52,7 +52,7 @@ cd ..
       sh "~/.fabric8/bin/gofabric8 start --package=packages/fabric8-team/target/classes/META-INF/fabric8/kubernetes.yml --show-console=false --namespace=${testNamespace}"
 
       stage 'Wait for rollout'
-      sh "~/.fabric8/bin/gofabric8 wait-for --all --timeout=60min --namespace=${testNamespace}"
+      sh "~/.fabric8/bin/gofabric8 wait-for --all --timeout=60m --namespace=${testNamespace}"
 
       echo "Deployed master of fabric8-platform into namespace: ${testNamespace}"
 
