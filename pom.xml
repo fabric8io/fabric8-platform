@@ -71,7 +71,7 @@
 
   <properties>
     <fabric8.version>2.2.157</fabric8.version>
-    <fabric8.console.version>2.2.195</fabric8.console.version>
+    <fabric8.console.version>2.2.196</fabric8.console.version>
     <fabric8.devops.version>2.2.297</fabric8.devops.version>
     <fabric8.forge.version>2.3.79</fabric8.forge.version>
     <fabric8.ipaas.version>2.2.162</fabric8.ipaas.version>
