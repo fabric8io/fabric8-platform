@@ -25,31 +25,14 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.fabric8.platform.packages</groupId>
-  <artifactId>packages</artifactId>
+  <groupId>io.fabric8.platform.apps</groupId>
+  <artifactId>apps</artifactId>
   <packaging>pom</packaging>
 
-  <name>Fabric8 :: Platform :: Packages</name>
-
-  <properties>
-  </properties>
+  <name>Fabric8 :: Platform :: Apps</name>
 
   <modules>
-    <module>chat-irc</module>
-    <module>chat-letschat</module>
-    <module>chat-slack</module>
-    <module>funktion</module>
-    <module>logging</module>
-    <module>management</module>
-    <module>metrics</module>
-    <module>social</module>
-    <module>cd-pipeline</module>
-
-    <module>app-catalog</module>
-    <module>console</module>
-    <module>fabric8-team</module>
-    <module>fabric8-platform</module>
-    <module>distro</module>
+    <module>funktion-operator</module>
   </modules>
 
   <build>

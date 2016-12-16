@@ -130,6 +130,11 @@
             <artifactId>chat-slack</artifactId>
             <version>${project.version}</version>
           </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>funktion</artifactId>
+            <version>${project.version}</version>
+          </dependency>
 
           <!-- ipaas -->
           <dependency>
@@ -156,6 +161,23 @@
             <groupId>io.fabric8.ipaas.apps</groupId>
             <artifactId>zookeeper</artifactId>
             <version>${fabric8.ipaas.version}</version>
+          </dependency>
+
+          <!-- funktion -->
+          <dependency>
+            <groupId>io.fabric8.platform.apps</groupId>
+            <artifactId>funktion-operator</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.funktion</groupId>
+            <artifactId>funktion-runtimes</artifactId>
+            <version>${funktion-java.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.funktion</groupId>
+            <artifactId>connector-package</artifactId>
+            <version>${funktion-java.version}</version>
           </dependency>
 
           <!-- kubeflix -->

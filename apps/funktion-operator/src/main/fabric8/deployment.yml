@@ -1,0 +1,10 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: "fabric8/funktion-operator:${funktion.version}"
+        imagePullPolicy: "IfNotPresent"
+        name: "funktion-operator"
+        command: ["/bin/operator", "operate"]
+      serviceAccountName: "funktion-operator"
