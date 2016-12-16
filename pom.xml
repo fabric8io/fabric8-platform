@@ -127,6 +127,7 @@
   </pluginRepositories>
 
   <modules>
+    <module>apps</module>
     <module>packages</module>
   </modules>
 
