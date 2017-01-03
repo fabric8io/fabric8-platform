@@ -174,11 +174,6 @@
             <artifactId>funktion-runtimes</artifactId>
             <version>${funktion-java.version}</version>
           </dependency>
-          <dependency>
-            <groupId>io.fabric8.funktion</groupId>
-            <artifactId>connector-package</artifactId>
-            <version>${funktion-java.version}</version>
-          </dependency>
 
           <!-- kubeflix -->
           <dependency>
