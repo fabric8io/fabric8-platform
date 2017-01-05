@@ -41,13 +41,24 @@ def approve(project){
   The fabric8-platform is available for QA.  Please review and approve.
 
   minishift
-
-  gofabric8 start --minishift --package=${stagedPlatformOpenShift}
+                                                                       
+  curl ${stagedPlatformOpenShift} > fabric8-platform-${releaseVersion}-openshift.yml
+  gofabric8 start --minishift --package=fabric8-platform-${releaseVersion}-openshift.yml
 
   minikube
 
-  gofabric8 start --package=${stagedPlatformKube}
+  curl ${stagedPlatformKube} > fabric8-platform-${releaseVersion}-kubernetes.yml
+  gofabric8 start --package=fabric8-platform-${releaseVersion}-kubernetes.yml
 
+  
+  Once all the pods have started you can run a system test via:
+
+  git clone https://github.com/fabric8io/fabric8-forge.git
+  cd fabric8-forge
+  ./systest.sh
+  
+  More details on the system tests: https://github.com/fabric8io/fabric8-forge/blob/master/fabric8-forge-rest-client/ReadMe.md
+  
   Approve release?
   """
 
