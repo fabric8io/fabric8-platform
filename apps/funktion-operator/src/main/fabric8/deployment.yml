@@ -3,8 +3,8 @@ spec:
   template:
     spec:
       containers:
-      - image: "fabric8/funktion-operator:${funktion.version}"
+      - image: "funktion/funktion:${funktion.version}"
         imagePullPolicy: "IfNotPresent"
-        name: "funktion-operator"
+        name: "funktion"
         command: ["/bin/operator", "operate"]
       serviceAccountName: "funktion-operator"
