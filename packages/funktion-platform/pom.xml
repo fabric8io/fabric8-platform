@@ -24,9 +24,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>funktion</artifactId>
+  <artifactId>funktion-platform</artifactId>
 
-  <name>Fabric8 Platform :: Packages :: Funktion</name>
+  <name>Fabric8 Platform :: Packages :: Funktion Platform</name>
 
   <build>
     <plugins>
@@ -44,14 +44,24 @@
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>io.fabric8.platform.apps</groupId>
-            <artifactId>funktion-operator</artifactId>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>funktion</artifactId>
             <version>${project.version}</version>
           </dependency>
           <dependency>
-            <groupId>io.fabric8.funktion</groupId>
-            <artifactId>funktion-runtimes</artifactId>
-            <version>${funktion-connectors.version}</version>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>console</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>configmapcontroller</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>exposecontroller</artifactId>
+            <version>${fabric8.devops.version}</version>
           </dependency>
         </dependencies>
       </plugin>
