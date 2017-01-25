@@ -21,6 +21,13 @@ The fabric8 developer platform is based on lots of different open source project
 * [fabric8-console](https://github.com/fabric8io/fabric8-console) the web console for fabric8
 * [fabric8-forge](https://github.com/fabric8io/fabric8-forge) contains the main [JBoss Forge addons and REST service](https://fabric8.io/guide/forge.html) which provides developer wizards to create and edit projects
 
+We are working on migrating the consoles to [Angular 2](https://angular.io/). All the Angular 2 based UI work is hosted in the [fabric8-ui github organisation](https://github.com/fabric8-ui/). 
+
+Here are the Angular 2 versions of the consoles:
+
+* [fabric8-runtime-console](https://github.com/fabric8-ui/fabric8-runtime-console) the Angular 2 based web console for fabric8
+
+
 #### CI / CD 
 
 * [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library) provides a set of reusable [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) steps and functions that you can reuse inside your `Jenkinsfile` via the [@Library annotation](https://github.com/fabric8io/fabric8-pipeline-library#how-to-use-this-library) 
