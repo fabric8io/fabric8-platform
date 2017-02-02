@@ -53,21 +53,22 @@
             </goals>
           </execution>
         </executions>
-        <dependencies>
-          <dependency>
-            <groupId>io.fabric8.platform.console</groupId>
-            <artifactId>fabric8-console</artifactId>
-            <version>${fabric8.console.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.platform.packages</groupId>
-            <artifactId>app-catalog</artifactId>
-            <version>${project.version}</version>
-          </dependency>
-        </dependencies>
-
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.fabric8.platform.console</groupId>
+      <artifactId>fabric8-console</artifactId>
+      <version>${fabric8.console.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.packages</groupId>
+      <artifactId>app-catalog</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
 
 </project>

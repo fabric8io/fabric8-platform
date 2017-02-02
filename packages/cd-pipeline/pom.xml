@@ -16,7 +16,8 @@
      permissions and limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>io.fabric8.platform.packages</groupId>
     <artifactId>packages</artifactId>
@@ -28,8 +29,6 @@
 
   <name>Fabric8 Platform :: Packages :: Continuous Delivery Pipeline</name>
   <description>Creates the Continuous Delivery Pipeline via: gogs, jenkins, nexus, gerrit and sonaqube</description>
-
-  <dependencies></dependencies>
 
   <build>
     <plugins>
@@ -53,36 +52,37 @@
             </goals>
           </execution>
         </executions>
-        <dependencies>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>gogs</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>fabric8-docker-registry</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>nexus</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>jenkins</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <!-- project wizard -->
-          <dependency>
-            <groupId>io.fabric8.forge.apps</groupId>
-            <artifactId>fabric8-forge</artifactId>
-            <version>${fabric8.forge.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>gogs</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>fabric8-docker-registry</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>nexus</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>jenkins</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <!-- project wizard -->
+    <dependency>
+      <groupId>io.fabric8.forge.apps</groupId>
+      <artifactId>fabric8-forge</artifactId>
+      <version>${fabric8.forge.version}</version>
+    </dependency>
+  </dependencies>
 
 </project>
