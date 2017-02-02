@@ -16,7 +16,8 @@
      permissions and limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>io.fabric8.platform.packages</groupId>
     <artifactId>packages</artifactId>
@@ -42,22 +43,23 @@
             </excludes>
           </enricher>
         </configuration>
-        <dependencies>
-
-          <!-- CD social -->
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>taiga</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>orion</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+
+    <!-- CD social -->
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>taiga</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>orion</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+  </dependencies>
 
 </project>
