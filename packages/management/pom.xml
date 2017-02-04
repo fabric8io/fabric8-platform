@@ -16,8 +16,7 @@
      permissions and limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>io.fabric8.platform.packages</groupId>
     <artifactId>packages</artifactId>
@@ -43,21 +42,20 @@
             </excludes>
           </enricher>
         </configuration>
+        <dependencies>
+          <!-- kubernetes.yamls from dependencies are automatically picked up by the f8-dependency enricher -->
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>logging</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>metrics</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
-
-  <dependencies>
-    <!-- kubernetes.yamls from dependencies are automatically picked up by the f8-dependency enricher -->
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>logging</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>metrics</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
 </project>
