@@ -29,6 +29,28 @@
 
   <name>Fabric8 :: Platform :: Packages :: App Catalog</name>
 
+<!--
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-project</artifactId>
+        <version>${fabric8.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+-->
+
+  <dependencies>
+    <dependency>
+      <groupId>io.fabric8</groupId>
+      <artifactId>kubernetes-api</artifactId>
+      <version>${fabric8.version}</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -51,273 +73,308 @@
             </goals>
           </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-api</artifactId>
+            <version>${fabric8.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>openshift-client</artifactId>
+            <version>${kubernetes-client.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-api</artifactId>
+            <version>${fabric8.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>configmapcontroller</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>exposecontroller</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>fabric8-docker-registry</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>git-collector</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>gitlab</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>gerrit</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>ingress-nginx</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+
+          <!-- packages -->
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>social</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>management</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>logging</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>metrics</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>cd-pipeline</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>chat-irc</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>chat-letschat</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>chat-slack</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.platform.packages</groupId>
+            <artifactId>funktion</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+
+          <!-- ipaas -->
+          <dependency>
+            <groupId>io.fabric8.ipaas.packages</groupId>
+            <artifactId>apiman</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.packages</groupId>
+            <artifactId>messaging</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.apps</groupId>
+            <artifactId>message-broker</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.apps</groupId>
+            <artifactId>message-gateway</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.ipaas.apps</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${fabric8.ipaas.version}</version>
+          </dependency>
+
+          <!-- funktion -->
+          <dependency>
+            <groupId>io.fabric8.platform.apps</groupId>
+            <artifactId>funktion-operator</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.funktion</groupId>
+            <artifactId>funktion-runtimes</artifactId>
+            <version>${funktion-connectors.version}</version>
+          </dependency>
+
+          <!-- kubeflix -->
+          <dependency>
+            <groupId>io.fabric8.kubeflix.packages</groupId>
+            <artifactId>kubeflix</artifactId>
+            <version>${kubeflix.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>turbine-server</artifactId>
+            <version>${kubeflix.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>hystrix-dashboard</artifactId>
+            <version>${kubeflix.version}</version>
+            <type>war</type>
+          </dependency>
+
+
+          <!-- kubernetes zipkin -->
+          <dependency>
+            <groupId>io.fabric8.zipkin.packages</groupId>
+            <artifactId>zipkin</artifactId>
+            <version>${kubernetes.zipkin.version}</version>
+          </dependency>
+
+          <!-- individual apps -->
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>chaos-monkey</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>artifactory</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>kiwiirc</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>jenkins</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>gogs</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>letschat</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>maven-shell</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>manageiq</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>nexus</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>content-repository</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>taiga</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>keycloak</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+
+          <!-- logging -->
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>kibana</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>fluentd</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+
+          <!-- metrics -->
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>prometheus</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>prometheus-blackbox-exporter</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>prometheus-node-exporter</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>grafana</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency>
+
+          <!-- COMMENT OUT UNTIL SONARQUBE CONVERTED TO GENERATE VALID kubernetes.json -->
+          <!-- <dependency>
+            <groupId>io.fabric8.devops.apps</groupId>
+            <artifactId>sonarqube</artifactId>
+            <version>${fabric8.devops.version}</version>
+          </dependency> -->
+
+          <dependency>
+            <groupId>io.fabric8.forge.apps</groupId>
+            <artifactId>fabric8-forge</artifactId>
+            <version>${fabric8.forge.version}</version>
+          </dependency>
+
+
+          <!-- kubeflix -->
+          <dependency>
+            <groupId>io.fabric8.kubeflix.packages</groupId>
+            <artifactId>kubeflix</artifactId>
+            <version>${kubeflix.version}</version>
+          </dependency>
+
+
+          <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>turbine-server</artifactId>
+            <version>${kubeflix.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>hystrix-dashboard</artifactId>
+            <version>${kubeflix.version}</version>
+            <type>war</type>
+          </dependency>
+        </dependencies>
       </plugin>
+
     </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>configmapcontroller</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>exposecontroller</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>fabric8-docker-registry</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>git-collector</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>gitlab</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>gerrit</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>ingress-nginx</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-
-    <!-- packages -->
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>social</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>management</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>logging</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>metrics</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>cd-pipeline</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>chat-irc</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>chat-letschat</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>chat-slack</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>funktion</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <!-- ipaas -->
-    <dependency>
-      <groupId>io.fabric8.ipaas.packages</groupId>
-      <artifactId>apiman</artifactId>
-      <version>${fabric8.ipaas.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.ipaas.packages</groupId>
-      <artifactId>messaging</artifactId>
-      <version>${fabric8.ipaas.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.ipaas.apps</groupId>
-      <artifactId>message-broker</artifactId>
-      <version>${fabric8.ipaas.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.ipaas.apps</groupId>
-      <artifactId>message-gateway</artifactId>
-      <version>${fabric8.ipaas.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.ipaas.apps</groupId>
-      <artifactId>zookeeper</artifactId>
-      <version>${fabric8.ipaas.version}</version>
-    </dependency>
-
-    <!-- funktion -->
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>funktion-operator</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.funktion</groupId>
-      <artifactId>funktion-runtimes</artifactId>
-      <version>${funktion-connectors.version}</version>
-    </dependency>
-
-    <!-- kubeflix -->
-    <dependency>
-      <groupId>io.fabric8.kubeflix.packages</groupId>
-      <artifactId>kubeflix</artifactId>
-      <version>${kubeflix.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.kubeflix</groupId>
-      <artifactId>turbine-server</artifactId>
-      <version>${kubeflix.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.kubeflix</groupId>
-      <artifactId>hystrix-dashboard</artifactId>
-      <version>${kubeflix.version}</version>
-      <type>war</type>
-    </dependency>
-
-
-    <!-- kubernetes zipkin -->
-    <dependency>
-      <groupId>io.fabric8.zipkin.packages</groupId>
-      <artifactId>zipkin</artifactId>
-      <version>${kubernetes.zipkin.version}</version>
-    </dependency>
-
-    <!-- individual apps -->
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>chaos-monkey</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>artifactory</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>kiwiirc</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>jenkins</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>gogs</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>letschat</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>maven-shell</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>manageiq</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>nexus</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>content-repository</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>taiga</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>keycloak</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-
-    <!-- logging -->
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>elasticsearch</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>kibana</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>fluentd</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-
-    <!-- metrics -->
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>prometheus</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>prometheus-blackbox-exporter</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>prometheus-node-exporter</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>grafana</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-
-    <!-- COMMENT OUT UNTIL SONARQUBE CONVERTED TO GENERATE VALID kubernetes.json -->
-    <!-- <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>sonarqube</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency> -->
-
-    <dependency>
-      <groupId>io.fabric8.forge.apps</groupId>
-      <artifactId>fabric8-forge</artifactId>
-      <version>${fabric8.forge.version}</version>
-    </dependency>
-
-
-  </dependencies>
 
 </project>
