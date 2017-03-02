@@ -70,7 +70,7 @@
   </scm>
 
   <properties>
-    <kubernetes-client.version>2.2.0</kubernetes-client.version>
+    <kubernetes-client.version>2.2.1</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
     <fabric8.console.version>2.2.199</fabric8.console.version>
     <fabric8.devops.version>2.2.325</fabric8.devops.version>
