@@ -77,7 +77,7 @@
     <fabric8.forge.version>2.3.88</fabric8.forge.version>
     <fabric8.ipaas.version>2.2.168</fabric8.ipaas.version>
     <funktion-connectors.version>1.1.44</funktion-connectors.version>
-    <funktion.version>1.0.9</funktion.version>
+    <funktion.version>1.0.10</funktion.version>
     <kubeflix.version>1.0.28</kubeflix.version>
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
 
