@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: wit
+  labels:
+    service: wit
+spec:
+  ports:
+    - name: "8080"
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    service: wit
+  type: ClusterIP

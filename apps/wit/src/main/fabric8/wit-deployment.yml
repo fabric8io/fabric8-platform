@@ -1,0 +1,123 @@
+kind: DeploymentConfig
+apiVersion: v1
+metadata:
+  labels:
+    service: wit
+  name: wit
+spec:
+  replicas: 1
+  selector:
+    service: wit
+  template:
+    metadata:
+      labels:
+        service: wit
+    spec:
+      containers:
+      - image: fabric8/almighty-core:0.0.1
+        env:
+        - name: ALMIGHTY_POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: db.host
+        - name: ALMIGHTY_POSTGRES_PORT
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: db.port
+        - name: ALMIGHTY_POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: db.user
+        - name: ALMIGHTY_POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: db.password
+        - name: ALMIGHTY_KEYCLOAK_REALM
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: keycloak.realm
+        - name: ALMIGHTY_TOKEN_PUBLICKEY
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: token.publickey
+        - name: ALMIGHTY_KEYCLOAK_URL
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: keycloak.url
+        - name: ALMIGHTY_KEYCLOAK_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: keycloak.secret
+        - name: ALMIGHTY_POSTGRES_SSLMODE
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: postgres.sslmode
+        - name: ALMIGHTY_POSTGRES_CONNECTION_MAXIDLE
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: postgres.connection.maxidle
+        - name: ALMIGHTY_POSTGRES_CONNECTION_MAXOPEN
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: postgres.connection.maxopen
+        - name: ALMIGHTY_AUTH_NOTAPPROVED_REDIRECT
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: auth_notapproved_redirect
+        - name: ALMIGHTY_TENANT_SERVICEURL
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: tenantsvc.url
+        - name: ALMIGHTY_CHESTARTERURL
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: chestarter.url
+        - name: ALMIGHTY_REDIRECT_VALID
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: redirect.valid
+        - name: ALMIGHTY_OPENSHIFT_TENANT_MASTERURL
+          valueFrom:
+            configMapKeyRef:
+              name: wit
+              key: openshift.tenant.masterurl
+        imagePullPolicy: IfNotPresent
+        name: wit
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /api/status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /api/status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
