@@ -1,0 +1,7 @@
+metadata:
+  name: configmapcontroller-edit
+subjects:
+- kind: ServiceAccount
+  name: configmapcontroller
+roleRef:
+  name: edit
