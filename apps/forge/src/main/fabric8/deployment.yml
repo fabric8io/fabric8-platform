@@ -1,0 +1,49 @@
+metadata:
+  annotations:
+    configmap.fabric8.io/update-on-change: "forge"
+spec:
+  template:
+    spec:
+      containers:
+      - image: fabric8/generator-backend:${forge.version}
+        env:
+        - name: OPENSHIFT_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: forge
+              key: apiserver.url
+        - name: KEYCLOAK_SAAS_URL
+          valueFrom:
+            configMapKeyRef:
+              name: forge
+              key: keycloak.url
+        - name: LAUNCHPAD_BACKEND_CATALOG_GIT_REF
+          value: devtools-saas
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        workingDir: /home
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 9779
+          name: prometheus
+          protocol: TCP
+        - containerPort: 8778
+          name: jolokia
+          protocol: TCP
+        readinessProbe:
+          timeoutSeconds: 3
+          initialDelaySeconds: 3
+          httpGet:
+            path: "forge/version"
+            port: 8080
+        livenessProbe:
+          timeoutSeconds: 3
+          initialDelaySeconds: 120
+          failureThreshold: 10
+          httpGet:
+            path: "forge/version"
+            port: 8080
