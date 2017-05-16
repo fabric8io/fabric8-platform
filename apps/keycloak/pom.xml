@@ -23,10 +23,10 @@
   <parent>
     <groupId>io.fabric8.platform.apps</groupId>
     <artifactId>apps</artifactId>
-    <version>2.2-SNAPSHOT</version>
+    <version>3.0-SNAPSHOT</version>
   </parent>
   
-  <artifactId>keycloak-db</artifactId>
+  <artifactId>keycloak</artifactId>
 
   <name>Keycloak</name>
   <description>

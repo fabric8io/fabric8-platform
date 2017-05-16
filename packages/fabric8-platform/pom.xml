@@ -21,7 +21,7 @@
   <parent>
     <groupId>io.fabric8.platform.packages</groupId>
     <artifactId>packages</artifactId>
-    <version>2.2-SNAPSHOT</version>
+    <version>3.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -33,27 +33,37 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>console</artifactId>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>configmapcontroller</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>cd-pipeline</artifactId>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>exposecontroller</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>fabric8-ui</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>wit</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>forge</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>keycloak</artifactId>
       <version>${project.version}</version>
     </dependency>
 
-    <!-- lets add some global services -->
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>configmapcontroller</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
-      <artifactId>exposecontroller</artifactId>
-      <version>${fabric8.devops.version}</version>
-    </dependency>
+    <!-- TODO add fabric8-tenant + fabric8-sassy -->
   </dependencies>
 
   <build>
