@@ -6,7 +6,7 @@ metadata:
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
     expose.service-key.config.fabric8.io/wit: wit.api.url
-    expose.service-key.config.fabric8.io/generator-backend: forge.api.url
+    expose.service-key.config.fabric8.io/forge: forge.api.url
     expose.config.fabric8.io/apiserver-protocol-key: apiserver.protocol
 data:
   apiserver.host: kubernetes
