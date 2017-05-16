@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    expose.config.fabric8.io/apiserver-key: apiserver.host
+    expose.config.fabric8.io/apiserver-url-key: apiserver.url
+    expose.service-key.config.fabric8.io/keycloak: keycloak.url
+    expose.service-key.config.fabric8.io/wit: wit.api.url
+    expose.service-key.config.fabric8.io/generator-backend: forge.api.url
+    expose.config.fabric8.io/apiserver-protocol-key: apiserver.protocol
+data:
+  apiserver.host: kubernetes
+  apiserver.url: http://kubernetes
+  apiserver.protocol: http
+  keycloak.url: http://keycloak
+  forge.api.url: http://generator-backend
+  wit.api.url: http://wit
+  openshift.console.url: ""
+  recommender.api.url: ""
