@@ -70,7 +70,7 @@
   </scm>
 
   <properties>
-    <configmapcontroller.version>2.3.5</configmapcontroller.version>
+    <configmapcontroller.version>2.3.6</configmapcontroller.version>
     <exposecontroller.version>2.3.7</exposecontroller.version>
 
     <kubernetes-client.version>2.3.1</kubernetes-client.version>

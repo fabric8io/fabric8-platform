@@ -1,9 +1,11 @@
 kind: DeploymentConfig
 apiVersion: v1
 metadata:
+  name: db
   labels:
     service: db
-  name: db
+  annotations:
+    configmap.fabric8.io/update-on-change: "wit"
 spec:
   replicas: 1
   selector:

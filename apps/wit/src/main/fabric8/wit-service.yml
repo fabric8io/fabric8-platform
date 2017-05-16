@@ -4,6 +4,9 @@ metadata:
   name: wit
   labels:
     service: wit
+    expose: "true"
+  annotations:
+    api.service.kubernetes.io/path: "/api"
 spec:
   ports:
     - name: "8080"
