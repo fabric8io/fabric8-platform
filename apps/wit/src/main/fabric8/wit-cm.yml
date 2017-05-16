@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wit
+type: Opaque
+data:
+  auth_notapproved_redirect: https://manage.openshift.com/openshiftio
+  chestarter.url: http://che-starter:10000
+  keycloak.url: http://keycloak-fabric8.192.168.64.82.nip.io
+  openshift.tenant.masterurl: http://kubernetes.default/
+  postgres.connection.maxidle: "90"
+  postgres.connection.maxopen: "90"
+  #postgres.sslmode: require
+  postgres.sslmode: disable
+  redirect.valid: ".*"
+  tenant.serviceurl: http://kubernetes.default/

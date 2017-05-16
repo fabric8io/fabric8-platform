@@ -1,0 +1,36 @@
+kind: DeploymentConfig
+apiVersion: v1
+metadata:
+  labels:
+    service: db
+  name: db
+spec:
+  replicas: 1
+  selector:
+    service: db
+  template:
+    metadata:
+      labels:
+        service: db
+    spec:
+      containers:
+      - image: registry.centos.org/postgresql/postgresql:9.6
+        env:
+        - name: POSTGRESQL_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: db.password
+        imagePullPolicy: IfNotPresent
+        name: db
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/pgsql
+          name: keycloak-postgresql-data
+          readOnly: false
+      volumes:
+      - name: keycloak-postgresql-data
+        persistentVolumeClaim:
+          claimName: keycloak-postgresql-data
