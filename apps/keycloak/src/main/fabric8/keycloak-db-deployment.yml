@@ -4,11 +4,12 @@ spec:
       containers:
       - image: registry.centos.org/postgresql/postgresql:9.6
         env:
-        - name: POSTGRESQL_ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db
-              key: db.root_password
+        - name: POSTGRESQL_DATABASE
+          value: keycloak
+        - name: POSTGRESQL_PASSWORD
+          value: keycloak
+        - name: POSTGRESQL_USER
+          value: keycloak
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5432

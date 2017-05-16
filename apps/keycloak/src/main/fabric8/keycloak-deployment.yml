@@ -3,27 +3,24 @@ spec:
   template:
     spec:
       containers:
-      - image: fabric8/keycloak:${keycloak.version}
+      - image: fabric8/keycloak-postgres:${keycloak.version}
         env:
         - name: POSTGRES_HOSTNAME
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db
-              key: db.url
+          value: keycloak
         - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db
-              key: db.user
+          value: keycloak
         - name: POSTGRES_PASSWORD
+          value: keycloak
+        - name: KEYCLOAK_USER
           valueFrom:
             secretKeyRef:
-              name: keycloak-db
-              key: db.password
-        - name: KEYCLOAK_USER
-          value: admin
+              name: keycloak
+              key: kc.user
         - name: KEYCLOAK_PASSWORD
-          value: admin
+          valueFrom:
+            secretKeyRef:
+              name: keycloak
+              key: kc.password
         readinessProbe:
           httpGet:
             path: "/auth"

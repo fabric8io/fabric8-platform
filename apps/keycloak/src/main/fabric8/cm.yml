@@ -1,0 +1,3 @@
+data:
+  db.url: keycloak-db
+  db.port: 5432

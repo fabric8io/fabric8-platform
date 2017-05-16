@@ -32,7 +32,7 @@
   <description>The Fabric8 Microservices Platform :: Team</description>
 
   <dependencies>
-    <dependency>
+    <!--<dependency>
       <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>console</artifactId>
       <version>${project.version}</version>
@@ -41,7 +41,7 @@
       <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>cd-pipeline</artifactId>
       <version>${project.version}</version>
-    </dependency>
+    </dependency>-->
   </dependencies>
 
   <build>
