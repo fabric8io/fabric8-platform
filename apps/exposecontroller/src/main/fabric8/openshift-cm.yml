@@ -1,0 +1,9 @@
+metadata:
+  name: ${project.artifactId}
+  annotations:
+      fabric8.io/target-platform: "openshift"
+data:
+  config.yml: |
+    exposer: Route
+    watch-current-namespace: true
+    domain:
