@@ -26,7 +26,7 @@
     <version>3.0-SNAPSHOT</version>
   </parent>
   
-  <artifactId>keycloak-db</artifactId>
+  <artifactId>keycloak</artifactId>
 
   <name>Keycloak</name>
   <description>

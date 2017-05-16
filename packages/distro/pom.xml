@@ -33,14 +33,34 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
+      <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>configmapcontroller</artifactId>
-      <version>${fabric8.devops.version}</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.devops.apps</groupId>
+      <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>exposecontroller</artifactId>
-      <version>${fabric8.devops.version}</version>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>fabric8-ui</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>wit</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>forge</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>keycloak</artifactId>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
@@ -70,16 +90,6 @@
     </dependency>
 
     <!-- packages -->
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>cd-pipeline</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>console</artifactId>
-      <version>${project.version}</version>
-    </dependency>
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>fabric8-platform</artifactId>
@@ -174,12 +184,6 @@
       <artifactId>sonarqube</artifactId>
       <version>${fabric8.devops.version}</version>
     </dependency> -->
-
-    <dependency>
-      <groupId>io.fabric8.forge.apps</groupId>
-      <artifactId>fabric8-forge</artifactId>
-      <version>${fabric8.forge.version}</version>
-    </dependency>
   </dependencies>
 
   <build>

@@ -44,10 +44,12 @@
     <module>management</module>
     <module>metrics</module>
     <module>social</module>
+<!--
     <module>cd-pipeline</module>
 
     <module>app-catalog</module>
     <module>console</module>
+-->
     <module>fabric8-team</module>
     <module>fabric8-platform</module>
     <module>distro</module>

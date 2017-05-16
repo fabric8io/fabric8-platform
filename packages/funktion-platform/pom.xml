@@ -28,6 +28,19 @@
 
   <name>Fabric8 Platform :: Packages :: Funktion Platform</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>configmapcontroller</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>exposecontroller</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -47,21 +60,6 @@
             <groupId>io.fabric8.platform.packages</groupId>
             <artifactId>funktion</artifactId>
             <version>${project.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.platform.packages</groupId>
-            <artifactId>console</artifactId>
-            <version>${project.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>configmapcontroller</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>exposecontroller</artifactId>
-            <version>${fabric8.devops.version}</version>
           </dependency>
         </dependencies>
       </plugin>
