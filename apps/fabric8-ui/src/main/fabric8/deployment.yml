@@ -1,0 +1,88 @@
+metadata:
+  annotations:
+    configmap.fabric8.io/update-on-change: "fabric8-ui"
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: "fabric8/fabric8-ui:${fabric8-ui.version}"
+        imagePullPolicy: "IfNotPresent"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 20
+          timeoutSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 120
+          timeoutSeconds: 10
+        env:
+        - name: "K8S_API_SERVER"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: apiserver.host
+        - name: "WS_K8S_API_SERVER"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: apiserver.host
+        - name: "FABRIC8_SSO_API_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: keycloak.url
+        - name: "FABRIC8_WIT_API_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: wit.api.url
+        - name: "FABRIC8_FORGE_API_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: forge.api.url
+        - name: "OPENSHIFT_CONSOLE_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: openshift.console.url
+        - name: "FABRIC8_RECOMMENDER_API_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: recommender.api.url
+        - name: "PROXIED_K8S_API_SERVER"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: apiserver.host
+        - name: "PROXY_PASS_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: apiserver.url
+        - name: "K8S_API_SERVER_PROTOCOL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8-ui
+              key: apiserver.protocol
+        - name: "K8S_API_SERVER_BASE_PATH"
+          value: "/_p/oso"
+#        - name: "OAUTH_ISSUER"
+#          value: ${OAUTH_ISSUER}
+#        - name: "OAUTH_CLIENT_ID"
+#          value: ${OAUTH_CLIENT_ID}
+#        - name: "OAUTH_SCOPE"
+#          value: ${OAUTH_SCOPE}
+#        - name: "OAUTH_AUTHORIZE_URI"
+#          value: ${OAUTH_AUTHORIZE_URI}
+#        - name: "AUTH_LOGOUT_URI"
+#          value: ${AUTH_LOGOUT_URI}
+#        - name: "FABRIC8_PIPELINES_NAMESPACE"
+#          value: ${FABRIC8_PIPELINES_NAMESPACE}

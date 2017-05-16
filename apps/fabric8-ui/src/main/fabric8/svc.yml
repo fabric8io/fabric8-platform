@@ -1,0 +1,9 @@
+metadata:
+  annotations:
+    fabric8.io/app-menu: development
+spec:
+  ports:
+  - name: "http"
+    port: 80
+    protocol: "TCP"
+    targetPort: 8080

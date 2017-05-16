@@ -1,0 +1,7 @@
+spec:
+  to:
+    kind: Service
+    name: "fabric8-ui"
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

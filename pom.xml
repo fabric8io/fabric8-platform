@@ -72,6 +72,8 @@
   <properties>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <exposecontroller.version>2.3.7</exposecontroller.version>
+    <!-- TODO replace with real releases ASAP -->
+    <fabric8-ui.version>SNAPSHOT.va1b8d978</fabric8-ui.version>
 
     <kubernetes-client.version>2.3.1</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
