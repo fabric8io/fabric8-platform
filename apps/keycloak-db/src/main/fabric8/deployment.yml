@@ -1,0 +1,23 @@
+spec:
+  template:
+    spec:
+      containers:
+      - image: registry.centos.org/postgresql/postgresql:9.6
+        env:
+        - name: POSTGRESQL_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db
+              key: db.root_password
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/pgsql
+          name: keycloak-postgresql-data
+          readOnly: false
+      volumes:
+      - name: keycloak-postgresql-data
+        persistentVolumeClaim:
+          claimName: keycloak-postgresql-data
