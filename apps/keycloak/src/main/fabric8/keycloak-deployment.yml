@@ -6,7 +6,7 @@ spec:
       - image: fabric8/keycloak-postgres:${keycloak.version}
         env:
         - name: POSTGRES_HOSTNAME
-          value: keycloak
+          value: keycloak-db
         - name: POSTGRES_USER
           value: keycloak
         - name: POSTGRES_PASSWORD

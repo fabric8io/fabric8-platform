@@ -1,9 +1,6 @@
-metadata:
-  labels:
-    expose: "true"
 spec:
   ports:
-  - name: "http"
-    port: 80
-    protocol: "TCP"
-    targetPort: 8080
+    - name: "postgres"
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
