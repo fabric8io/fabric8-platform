@@ -37,7 +37,7 @@
     <module>fabric8-ui</module>
     <module>forge</module>
     <module>funktion-operator</module>
-    <module>keycloak-db</module>
+    <module>keycloak</module>
     <module>wit</module>
   </modules>
 
