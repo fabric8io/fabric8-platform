@@ -1,0 +1,38 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: fabric8/keycloak:${keycloak.version}
+        env:
+        - name: POSTGRES_HOSTNAME
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db
+              key: db.url
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db
+              key: db.user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db
+              key: db.password
+        - name: KEYCLOAK_USER
+          value: admin
+        - name: KEYCLOAK_PASSWORD
+          value: admin
+        readinessProbe:
+          httpGet:
+            path: "/auth"
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: "/auth"
+            port: 8080
+          initialDelaySeconds: 60
+          timeoutSeconds: 10

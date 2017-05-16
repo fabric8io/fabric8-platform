@@ -1,0 +1,8 @@
+metadata:
+  name: keycloak-postgresql-data
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
