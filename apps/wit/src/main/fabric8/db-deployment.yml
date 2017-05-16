@@ -1,19 +1,19 @@
 kind: DeploymentConfig
 apiVersion: v1
 metadata:
-  name: db
+  name: wit-db
   labels:
-    service: db
+    service: wit-db
   annotations:
     configmap.fabric8.io/update-on-change: "wit"
 spec:
   replicas: 1
   selector:
-    service: db
+    service: wit-db
   template:
     metadata:
       labels:
-        service: db
+        service: wit-db
     spec:
       containers:
       - image: registry.centos.org/postgresql/postgresql:9.6
@@ -24,15 +24,15 @@ spec:
               name: wit
               key: db.password
         imagePullPolicy: IfNotPresent
-        name: db
+        name: wit-db
         ports:
         - containerPort: 5432
           protocol: TCP
         volumeMounts:
         - mountPath: /var/lib/pgsql
-          name: keycloak-postgresql-data
+          name: wit-postgresql-data
           readOnly: false
       volumes:
-      - name: keycloak-postgresql-data
+      - name: wit-postgresql-data
         persistentVolumeClaim:
-          claimName: keycloak-postgresql-data
+          claimName: wit-postgresql-data
