@@ -7,6 +7,7 @@ metadata:
     expose: "true"
   annotations:
     api.service.kubernetes.io/path: "/api"
+    service.alpha.openshift.io/dependencies: '[{"name":"wit-db","namespace":"","kind":"Service"}]'
 spec:
   ports:
     - name: "8080"

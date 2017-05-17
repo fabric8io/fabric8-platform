@@ -1,6 +1,8 @@
 metadata:
   labels:
     expose: "true"
+  annotations:
+    service.alpha.openshift.io/dependencies: '[{"name":"keycloak-db","namespace":"","kind":"Service"}]'
 spec:
   ports:
   - name: "http"
