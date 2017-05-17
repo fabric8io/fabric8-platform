@@ -1,5 +1,3 @@
-kind: DeploymentConfig
-apiVersion: v1
 metadata:
   name: wit-db
   labels:
