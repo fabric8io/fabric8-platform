@@ -44,7 +44,7 @@
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>fabric8-ui</artifactId>
+      <artifactId>fabric8</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
