@@ -1,3 +1,49 @@
+metadata:
+  annotations:
+    expose.config.fabric8.io/apiserver-url-key: apiserver.url
+    expose.service-key.config.fabric8.io/keycloak: keycloak.url
+    expose.service-key.config.fabric8.io/wit: wit.api.url
 data:
   db.url: keycloak-db
   db.port: 5432
+  wit.api.url: http://wit
+  keycloak.url: http://keycloak
+  apiserver.url: http://kubernetes
+  fabric8-realm.json: |-
+    {
+      "realm": "fabric8",
+      "enabled": true,
+      "loginTheme": "fabric8",
+      "sslRequired": "external",
+      "clients": [
+        {
+          "clientId": "fabric8-online-platform",
+          "enabled": true,
+          "publicClient" : true,
+          "adminUrl": "/",
+          "baseUrl": "/",
+          "redirectUris": [
+            "${WIT_URL}/*"
+          ],
+          "webOrigins": [
+            "${KEYCLOAK_URL}/",
+            "${K8S_API_SERVER}/"
+          ]
+        }
+      ],
+      "identityProviders": [
+        {
+          "alias" : "openshift-v3",
+          "providerId" : "openshift-v3",
+          "enabled": true,
+          "updateProfileFirstLogin" : "true",
+          "storeToken" : "true",
+          "addReadTokenRoleOnCreate" : true,
+          "config": {
+            "baseUrl": "${K8S_API_SERVER}",
+            "clientId": "fabric8-online-platform",
+            "clientSecret": "fabric8"
+          }
+        }
+      ]
+    }
