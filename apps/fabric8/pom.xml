@@ -25,7 +25,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>fabric8-ui</artifactId>
+  <artifactId>fabric8</artifactId>
 
   <name>Fabric8 Package :: Apps :: UI</name>
 

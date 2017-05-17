@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  name: fabric8
   annotations:
     expose.config.fabric8.io/apiserver-key: apiserver.host
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
