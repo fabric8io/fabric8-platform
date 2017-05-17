@@ -2,6 +2,7 @@ metadata:
   name: fabric8
   annotations:
     fabric8.io/app-menu: development
+    service.alpha.openshift.io/dependencies: '[{"name":"forge","namespace":"","kind":"Service"}]'
 spec:
   ports:
   - name: "http"
