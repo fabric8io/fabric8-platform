@@ -23,7 +23,7 @@ data:
           "adminUrl": "/",
           "baseUrl": "/",
           "redirectUris": [
-            "${WIT_URL}/*"
+            "${WIT_URL}*"
           ],
           "webOrigins": [
             "${KEYCLOAK_URL}/",
