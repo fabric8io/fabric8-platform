@@ -1,9 +1,97 @@
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   template:
+    metadata:
+      annotations:
+        pod.beta.kubernetes.io/init-containers: |-
+          [{
+            "name": "openshift-ca-pemtokeystore",
+            "image": "jimmidyson/pemtokeystore:v0.2.0",
+            "imagePullPolicy": "IfNotPresent",
+            "args": [
+              "-keystore", "/tls-keystore/openshift-truststore.jks",
+              "-ca-file", "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt",
+              "-ca-file", "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt",
+              "-ca-dir", "/usr/share/ca-certificates/mozilla"
+            ],
+            "volumeMounts": [{
+              "name": "keycloak-tls",
+              "mountPath": "/tls-keystore"
+            }]
+          },
+          {
+            "name": "envvar-substitution",
+            "image": "fabric8/envsubst-file:1.0.0",
+            "imagePullPolicy": "IfNotPresent",
+            "args": [
+              "fabric8-realm.json"
+            ],
+            "env": [{
+              "name": "WIT_URL",
+              "valueFrom": {
+                      "configMapKeyRef": {
+                          "name": "keycloak",
+                          "key": "wit.api.url"
+                      }
+                  }
+            },
+            {
+              "name": "KEYCLOAK_URL",
+              "valueFrom": {
+                      "configMapKeyRef": {
+                          "name": "keycloak",
+                          "key": "keycloak.url"
+                      }
+                  }
+            },
+            {
+              "name": "K8S_API_SERVER",
+              "valueFrom": {
+                      "configMapKeyRef": {
+                          "name": "keycloak",
+                          "key": "apiserver.url"
+                      }
+                  }
+            }],
+            "volumeMounts": [
+            {
+              "name": "keycloak-config",
+              "mountPath": "/workdir/fabric8-realm.json",
+              "subPath": "config/fabric8-realm.json"
+            },
+            {
+              "name": "keycloak-subst-config",
+              "mountPath": "/processed"
+            }
+            ]
+          }]
     spec:
+      initContainers:
+      - name: openshift-ca-pemtokeystore
+        image: jimmidyson/pemtokeystore:v0.2.0
+        imagePullPolicy: IfNotPresent
+        args:
+        - -keystore
+        - /tls-keystore/openshift-truststore.jks
+        - -ca-file
+        - /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        - -ca-file
+        - /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+        - -ca-dir
+        - /usr/share/ca-certificates/mozilla
+        volumeMounts:
+        - name: keycloak-tls
+          mountPath: /tls-keystore
       containers:
       - image: fabric8/keycloak-postgres:${keycloak.version}
+        args:
+        - -b
+        - 0.0.0.0
+        - -Dkeycloak.import=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
+        - -Dkeycloak.migration.strategy=IGNORE_EXISTING
+        - -Djavax.net.ssl.trustStore=/opt/jboss/keycloak/standalone/configuration/tls/openshift-truststore.jks
         env:
         - name: POSTGRES_HOSTNAME
           value: keycloak-db
@@ -33,3 +121,19 @@ spec:
             port: 8080
           initialDelaySeconds: 60
           timeoutSeconds: 10
+        volumeMounts:
+        - name: keycloak-tls
+          mountPath: /opt/jboss/keycloak/standalone/configuration/tls
+        - name: keycloak-subst-config
+          mountPath: /opt/jboss/keycloak/standalone/configuration/import
+      volumes:
+      - name: keycloak-tls
+        emptyDir: {}
+      - name: keycloak-subst-config
+        emptyDir: {}
+      - name: keycloak-config
+        configMap:
+          name: keycloak
+          items:
+          - key: fabric8-realm.json
+            path: config/fabric8-realm.json
