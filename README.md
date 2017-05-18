@@ -187,5 +187,52 @@ The above-packaged docker images leverage some of these base Docker images:
 * [docker.io/fabric8/s2i-java](https://github.com/fabric8io-images/s2i/tree/master/java)
 * [docker.io/fabric8/s2i-karaf](https://github.com/fabric8io-images/s2i/tree/master/karaf)
 
+# v 4.x pre-release development
 
+Steps to run the in development 4.x fabric8-platform using the latest mnishift and gofabric8 versions:
 
+```
+minishift  start --vm-driver=xhyve --memory=6144 --cpus=4 --disk-size=50g
+git clone git@github.com:fabric8io/fabric8-platform.git
+cd fabric8-platform
+mvn clean install -Dfabric8.mode=kubernetes -DskipTests=true
+gofabric8 deploy --package=packages/fabric8-platform/target/classes/META-INF/fabric8/openshift.yml
+```
+Pods may be restarted a few times whilst configuration is updated and applied.
+
+Once all pods are seen running with `oc get pods`
+
+Apply manual step as an admin user:
+```
+oc login -u system:admin
+cat <<EOF | oc create -f -
+kind: OAuthClient
+apiVersion: v1
+metadata:
+  name: fabric8-online-platform
+secret: fabric8
+redirectURIs:
+- "http://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/openshift-v3/endpoint"
+grantMethod: prompt
+EOF
+oc login -u developer
+```
+Now test with a local fabric8 UI for now:
+```
+git clone git@github.com:fabric8io/fabric8-ui.git
+cd fabric8-ui
+source environments/local-cluster.sh
+npm install
+npm start
+```
+In an incognito chrome browser to avoid login caching issues attempt to log in:
+```
+http://fabric8-myproject.192.168.64.151.nip.io
+```
+Click the openshift button and login as developer/developer
+
+Next we expect to hit the Work Item Tracker error:
+```
+{"errors":[{"code":"internal","detail":"unable to parse the token crypto/rsa: verification error","id":"FYjdV3I4","status":"500","title":"Internal Server Error"}]}
+```
+More details in the WIT pod logs which contain this error https://gist.github.com/rawlingsj/aaa91efb023d4eb4d2bd41a53dc752da

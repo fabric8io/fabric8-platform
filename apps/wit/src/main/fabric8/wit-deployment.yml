@@ -46,6 +46,11 @@ spec:
             secretKeyRef:
               name: wit
               key: token.publickey
+        - name: ALMIGHTY_TOKEN_PRIVATEKEY
+          valueFrom:
+            secretKeyRef:
+              name: wit
+              key: token.privatekey
         - name: ALMIGHTY_KEYCLOAK_URL
           valueFrom:
             configMapKeyRef:
