@@ -93,7 +93,7 @@ spec:
         - -b
         - 0.0.0.0
         - -Dkeycloak.import=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
-        - -Dkeycloak.migration.strategy=IGNORE_EXISTING
+        - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
         - -Djavax.net.ssl.trustStore=/opt/jboss/keycloak/standalone/configuration/tls/openshift-truststore.jks
         env:
         - name: POSTGRES_HOSTNAME
