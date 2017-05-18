@@ -1,6 +1,6 @@
 metadata:
   annotations:
-    configmap.fabric8.io/update-on-change: "fabric8-ui"
+    configmap.fabric8.io/update-on-change: "fabric8"
 spec:
   replicas: 1
   template:
