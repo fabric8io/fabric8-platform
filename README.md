@@ -227,7 +227,7 @@ npm start
 ```
 In an incognito chrome browser to avoid login caching issues attempt to log in:
 ```
-http://fabric8-myproject.192.168.64.151.nip.io
+http://localhost:3000
 ```
 Click the openshift button and login as developer/developer
 
