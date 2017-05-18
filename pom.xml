@@ -73,7 +73,7 @@
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <exposecontroller.version>2.3.10</exposecontroller.version>
     <!-- TODO replace with real releases ASAP -->
-    <fabric8-ui.version>SNAPSHOT.va1b8d978</fabric8-ui.version>
+    <fabric8-ui.version>SNAPSHOT.v999d4a62</fabric8-ui.version>
     <forge.version>1.0.41</forge.version>
 
     <kubernetes-client.version>2.3.1</kubernetes-client.version>
