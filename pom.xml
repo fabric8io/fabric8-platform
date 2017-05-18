@@ -71,7 +71,7 @@
 
   <properties>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
-    <exposecontroller.version>2.3.9</exposecontroller.version>
+    <exposecontroller.version>2.3.10</exposecontroller.version>
     <!-- TODO replace with real releases ASAP -->
     <fabric8-ui.version>SNAPSHOT.va1b8d978</fabric8-ui.version>
     <forge.version>1.0.41</forge.version>
