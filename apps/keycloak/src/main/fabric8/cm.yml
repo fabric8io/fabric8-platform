@@ -1,14 +1,16 @@
 metadata:
   annotations:
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
+    expose.service-key.config.fabric8.io/fabric8: fabric8.url
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
     expose.service-key.config.fabric8.io/wit: wit.api.url
 data:
   db.url: keycloak-db
   db.port: 5432
-  wit.api.url: http://wit
-  keycloak.url: http://keycloak
   apiserver.url: http://kubernetes
+  fabric8.url: http://fabric8
+  keycloak.url: http://keycloak
+  wit.api.url: http://wit
   fabric8-realm.json: |-
     {
       "realm": "fabric8",
@@ -26,6 +28,7 @@ data:
             "${WIT_URL}*"
           ],
           "webOrigins": [
+            "${FABRIC8_URL}/",
             "${KEYCLOAK_URL}/",
             "${K8S_API_SERVER}/"
           ]

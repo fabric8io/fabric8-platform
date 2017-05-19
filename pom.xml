@@ -73,7 +73,7 @@
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <exposecontroller.version>2.3.10</exposecontroller.version>
     <!-- TODO replace with real releases ASAP -->
-    <fabric8-ui.version>SNAPSHOT.v999d4a62</fabric8-ui.version>
+    <fabric8-ui.version>SNAPSHOT.vab4dedb4</fabric8-ui.version>
     <forge.version>1.0.41</forge.version>
 
     <kubernetes-client.version>2.3.1</kubernetes-client.version>
@@ -92,6 +92,15 @@
     <maven.require.version>3.1.1</maven.require.version>
     <maven.enforcer.plugin.version>1.4</maven.enforcer.plugin.version>
     <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+
+    <!--
+    TODO  these hacks work around issues with fabric8-maven-plugin
+    we hopefully can remove them one day
+    -->
+    <!-- this works around this issue: https://github.com/fabric8io/fabric8-maven-plugin/issues/943 -->
+    <fabric8.mode>kubernetes</fabric8.mode>
+    <!-- lets let DCs wait about 2 hours to download all the images before barfing -->
+    <fabric8.openshift.deployTimeoutSeconds>7200</fabric8.openshift.deployTimeoutSeconds>
   </properties>
 
   <distributionManagement>

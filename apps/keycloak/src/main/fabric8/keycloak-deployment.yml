@@ -50,6 +50,15 @@ spec:
                   }
             },
             {
+              "name": "FABRIC8_URL",
+              "valueFrom": {
+                      "configMapKeyRef": {
+                          "name": "keycloak",
+                          "key": "fabric8.url"
+                      }
+                  }
+            },
+            {
               "name": "K8S_API_SERVER",
               "valueFrom": {
                       "configMapKeyRef": {
