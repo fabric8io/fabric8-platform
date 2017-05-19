@@ -3,8 +3,6 @@ metadata:
     configmap.fabric8.io/update-on-change: "keycloak"
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
   template:
     metadata:
       annotations:
