@@ -202,6 +202,8 @@ Pods may be restarted a few times whilst configuration is updated and applied.
 
 Once all pods are seen running with `oc get pods`
 
+_NOTE these next steps will be automated soon_
+
 Apply manual step as an admin user:
 ```
 oc login -u system:admin
@@ -231,8 +233,11 @@ http://localhost:3000
 ```
 Click the openshift button and login as developer/developer
 
-Next we expect to hit the Work Item Tracker error:
+After filling out some keycloak profile details like email, name etc you need to manually approve the user.
+
 ```
-{"errors":[{"code":"internal","detail":"unable to parse the token crypto/rsa: verification error","id":"FYjdV3I4","status":"500","title":"Internal Server Error"}]}
+open http://$(oc get route keycloak -o jsonpath="{.spec.host}")
 ```
-More details in the WIT pod logs which contain this error https://gist.github.com/rawlingsj/aaa91efb023d4eb4d2bd41a53dc752da
+Log in with username `admin` and password `admin`
+
+Navigate to the `Users` tab on the right hand side under `Manage`, click the `View all users` button then `edit`. Under the attributes tab add a new one for key: `approved`, value: `true`.

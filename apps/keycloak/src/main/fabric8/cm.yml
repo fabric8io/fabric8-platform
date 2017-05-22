@@ -27,6 +27,7 @@ data:
           "implicitFlowEnabled": false,
           "directAccessGrantsEnabled": true,
           "authorizationServicesEnabled" : true,
+          "fullScopeAllowed": true,
           "serviceAccountsEnabled": true,
           "clientAuthenticatorType": "client-secret",
           "secret": "${KEYCLOAK_CLIENTID_SECRET}",
@@ -34,15 +35,27 @@ data:
           "adminUrl": "/",
           "baseUrl": "/",
           "redirectUris": [
-            "${WIT_URL}*"
+            "http://localhost:8080/api/login/*",
+            "${WIT_URL}*",
+            "${KEYCLOAK_URL}/"
           ],
           "webOrigins": [
-            "${FABRIC8_URL}/",
-            "${KEYCLOAK_URL}/",
-            "${K8S_API_SERVER}/"
+            "*"
           ]
         }
       ],
+      "roles" : {
+        "realm" : [
+          {
+            "name": "read:space",
+            "description": "Read space"
+          },
+          {
+            "name": "admin:space",
+            "description": "Admin space"
+          }
+        ]
+      },
       "identityProviders": [
         {
           "alias" : "openshift-v3",
