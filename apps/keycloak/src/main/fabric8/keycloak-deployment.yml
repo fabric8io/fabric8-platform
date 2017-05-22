@@ -3,6 +3,8 @@ metadata:
     configmap.fabric8.io/update-on-change: "keycloak"
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   template:
     metadata:
       annotations:
@@ -53,6 +55,33 @@ spec:
                       "configMapKeyRef": {
                           "name": "keycloak",
                           "key": "fabric8.url"
+                      }
+                  }
+            },
+            {
+              "name": "KEYCLOAK_PRIVATEKEY",
+              "valueFrom": {
+                      "secretKeyRef": {
+                          "name": "keycloak",
+                          "key": "kc.private.key"
+                      }
+                  }
+            },
+            {
+              "name": "KEYCLOAK_PUBLICKEY",
+              "valueFrom": {
+                      "secretKeyRef": {
+                          "name": "keycloak",
+                          "key": "kc.public.key"
+                      }
+                  }
+            },
+            {
+              "name": "KEYCLOAK_CLIENTID_SECRET",
+              "valueFrom": {
+                      "secretKeyRef": {
+                          "name": "keycloak",
+                          "key": "kc.clientid.secret"
                       }
                   }
             },
@@ -119,6 +148,21 @@ spec:
             secretKeyRef:
               name: keycloak
               key: kc.password
+        - name: KEYCLOAK_CLIENTID_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: keycloak
+              key: kc.clientid.secret
+        - name: KEYCLOAK_PRIVATEKEY
+          valueFrom:
+            secretKeyRef:
+              name: keycloak
+              key: kc.private.key
+        - name: KEYCLOAK_PUBLICKEY
+          valueFrom:
+            secretKeyRef:
+              name: keycloak
+              key: kc.public.key
         readinessProbe:
           httpGet:
             path: "/auth"
