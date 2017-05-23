@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: init-tenant-db
+  labels:
+    service: init-tenant-db
+spec:
+  ports:
+    - name: "postgres"
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    service: init-tenant-db
+  type: ClusterIP

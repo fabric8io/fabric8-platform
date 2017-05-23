@@ -1,0 +1,119 @@
+metadata:
+  name: init-tenant
+  labels:
+    service: init-tenant
+  annotations:
+    configmap.fabric8.io/update-on-change: "init-tenant"
+spec:
+  replicas: 1
+  selector:
+    service: init-tenant
+  template:
+    metadata:
+      labels:
+        service: init-tenant
+    spec:
+      containers:
+      #- image: fabric8/fabric8-init-tenant:${init-tenant.version}
+      - image: fabric8/fabric8-init-tenant:vc519333
+        env:
+        - name: F8_KEYCLOAK_URL
+          valueFrom:
+            configMapKeyRef:
+              key: keycloak.url
+              name: f8tenant
+        # - name: F8_OPENSHIFT_SERVICE_TOKEN
+        #   valueFrom:
+        #     secretKeyRef:
+        #       key: dsaas-service-token
+        #       name: openshift-online-tokens
+        - name: F8_OPENSHIFT_TENANT_MASTERURL
+          valueFrom:
+            configMapKeyRef:
+              key: openshift.tenant.masterurl
+              name: f8tenant
+        - name: F8_OPENSHIFT_USE_CURRENT_CLUSTER
+          valueFrom:
+            configMapKeyRef:
+              key: openshift.use.current.cluster
+              name: f8tenant
+        - name: F8_API_SERVER_INSECURE_SKIP_TLS_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: api.server.insecure.skip.tls.verify
+              name: f8tenant
+        - name: F8_POSTGRES_CONNECTION_MAXIDLE
+          valueFrom:
+            configMapKeyRef:
+              key: postgres.connection.maxidle
+              name: f8tenant
+        - name: F8_POSTGRES_CONNECTION_MAXOPEN
+          valueFrom:
+            configMapKeyRef:
+              key: postgres.connection.maxopen
+              name: f8tenant
+        - name: F8_POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              key: postgres.host
+              name: f8tenant
+        - name: F8_POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: postgres.password
+              name: f8tenant
+        - name: F8_POSTGRES_PORT
+          valueFrom:
+            secretKeyRef:
+              key: postgres.port
+              name: f8tenant
+        - name: F8_POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              key: postgres.user
+              name: f8tenant
+        - name: F8_POSTGRES_DATABASE
+          valueFrom:
+            secretKeyRef:
+              key: postgres.database
+              name: f8tenant
+        - name: F8_TEMPLATE_DOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: template.domain
+              name: f8tenant
+        - name: F8_TEMPLATE_RECOMMENDER_EXTERNAL_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: template.recommender.external.name
+              name: f8tenant
+        - name: F8_TEMPLATE_RECOMMENDER_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: template.recommender.api.token
+              name: f8tenant
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /api/status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: f8tenant
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /api/status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1

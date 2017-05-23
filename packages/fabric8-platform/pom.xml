@@ -62,7 +62,11 @@
       <artifactId>keycloak</artifactId>
       <version>${project.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>init-tenant</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <!-- TODO add fabric8-tenant + fabric8-sassy -->
   </dependencies>
 
