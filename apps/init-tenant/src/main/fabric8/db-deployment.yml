@@ -1,0 +1,36 @@
+metadata:
+  name: init-tenant-db
+  labels:
+    service: init-tenant-db
+  annotations:
+    configmap.fabric8.io/update-on-change: "init-tenant"
+spec:
+  replicas: 1
+  selector:
+    service: init-tenant-db
+  template:
+    metadata:
+      labels:
+        service: init-tenant-db
+    spec:
+      containers:
+      - image: registry.centos.org/postgresql/postgresql:9.6
+        env:
+        - name: POSTGRESQL_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: init-tenant
+              key: postgres.password
+        imagePullPolicy: IfNotPresent
+        name: init-tenant-db
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/pgsql
+          name: init-tenant-postgresql-data
+          readOnly: false
+      volumes:
+      - name: init-tenant-postgresql-data
+        persistentVolumeClaim:
+          claimName: init-tenant-postgresql-data
