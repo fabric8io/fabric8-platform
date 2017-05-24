@@ -221,6 +221,28 @@ EOF
 oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:fabric8:init-tenant
 oc login -u developer -p developer
 ```
+
+## Configure Keycloak
+
+We now have GitHub integration which for now requires a manual OAuth setup to obtain a clientid and secret that we will give to keycloak.  Follow these steps using the output of:
+```
+echo http://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/github/endpoint
+```
+as the Authorization callback URL and `http://fabric8.io` as a sample homepage URL.
+
+https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+
+![Register OAuth App](./images/register-oauth.png)
+
+```
+open http://$(oc get route keycloak -o jsonpath="{.spec.host}")
+```
+Log in with username `admin` and password `admin`
+
+Now in Keycloak navigate to the GitHub Identity Provider and `edit` now you can replace the Client ID and Secret with the values you get from the GitHub setup above.
+
+![GitHub provider](./images/keycloak-github.png)
+
 Now test with a local fabric8 UI for now:
 ```
 git clone git@github.com:fabric8io/fabric8-ui.git
@@ -237,20 +259,7 @@ Click the openshift button and login as developer/developer
 
 After filling out some keycloak profile details like email, name etc you need to manually approve the user.
 
-```
-open http://$(oc get route keycloak -o jsonpath="{.spec.host}")
-```
-Log in with username `admin` and password `admin`
-
-Navigate to the `Users` tab on the right hand side under `Manage`, click the `View all users` button then `edit`. Under the attributes tab add a new one for key: `approved`, value: `true`.
+In the keycloak admin console we used above, navigate to the `Users` tab on the right hand side under `Manage`, click the `View all users` button then `edit`. Under the attributes tab add a new one for key: `approved`, value: `true`.
 
 ![Approve User](./images/keycloak-approve.png)
 
-We now have GitHub integration which for now requires a manual OAuth setup to obtain a clientid and secret that we will give to keycloak.  Follow these steps using the output of `` as the Authorization callback URL.
-https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
-
-![Register OAuth App](./images/register-oauth.png)
-
-Now in Keycloak navigate to the GitHub Identity Provider and `edit` now you can replace the Client ID and Secret with the values you get from the GitHub setup above.
-
-![GitHub provider](./images/keycloak-github.png)
