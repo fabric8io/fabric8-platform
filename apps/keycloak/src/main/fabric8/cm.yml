@@ -19,6 +19,14 @@ data:
       "privateKey": "${KEYCLOAK_PRIVATEKEY}",
       "publicKey": "${KEYCLOAK_PUBLICKEY}",
       "sslRequired": "external",
+      "accessTokenLifespan": 300,
+      "accessTokenLifespanForImplicitFlow": 300,
+      "ssoSessionIdleTimeout": 36000,
+      "ssoSessionMaxLifespan": 36000,
+      "offlineSessionIdleTimeout": 2592000,
+      "accessCodeLifespan": 60,
+      "accessCodeLifespanUserAction": 300,
+      "accessCodeLifespanLogin": 1800,
       "clients": [
         {
           "clientId": "fabric8-online-platform",
@@ -68,6 +76,21 @@ data:
             "baseUrl": "${K8S_API_SERVER}",
             "clientId": "fabric8-online-platform",
             "clientSecret": "fabric8"
+          }
+        },
+        {
+          "alias" : "github",
+          "providerId" : "github",
+          "enabled": true,
+          "updateProfileFirstLogin" : "true",
+          "storeToken" : "true",
+          "trustEmail": true,
+          "addReadTokenRoleOnCreate" : true,
+          "config": {
+            "clientSecret": "${GITHUB_OAUTH_CLIENT_SECRET}",
+            "clientId": "${GITHUB_OAUTH_CLIENT_ID}",
+            "defaultScope": "admin:repo_hook read:org repo user gist",
+            "useJwksUrl": "true"
           }
         }
       ]

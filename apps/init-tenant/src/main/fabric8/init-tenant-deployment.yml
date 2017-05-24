@@ -14,19 +14,13 @@ spec:
         service: init-tenant
     spec:
       containers:
-      #- image: fabric8/fabric8-init-tenant:${init-tenant.version}
-      - image: fabric8/fabric8-init-tenant:vc519333
+      - image: fabric8/fabric8-init-tenant:${init-tenant.version}
         env:
         - name: F8_KEYCLOAK_URL
           valueFrom:
             configMapKeyRef:
               key: keycloak.url
               name: f8tenant
-        # - name: F8_OPENSHIFT_SERVICE_TOKEN
-        #   valueFrom:
-        #     secretKeyRef:
-        #       key: dsaas-service-token
-        #       name: openshift-online-tokens
         - name: F8_OPENSHIFT_TENANT_MASTERURL
           valueFrom:
             configMapKeyRef:
@@ -117,3 +111,4 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
+      serviceAccountName: init-tenant
