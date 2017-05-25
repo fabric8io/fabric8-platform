@@ -6,7 +6,7 @@ metadata:
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
 type: Opaque
 data:
-  auth_notapproved_redirect: https://manage.openshift.com/openshiftio
+  auth_notapproved_redirect: ""
   chestarter.url: http://che-starter:10000
   keycloak.url: http://keycloak
   openshift.tenant.masterurl: http://kubernetes.default/
