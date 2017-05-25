@@ -242,24 +242,3 @@ Log in with username `admin` and password `admin`
 Now in Keycloak navigate to the GitHub Identity Provider and `edit` now you can replace the Client ID and Secret with the values you get from the GitHub setup above.
 
 ![GitHub provider](./images/keycloak-github.png)
-
-Now test with a local fabric8 UI for now:
-```
-git clone git@github.com:fabric8io/fabric8-ui.git
-cd fabric8-ui
-source environments/local-cluster.sh
-npm install
-npm start
-```
-In an incognito chrome browser to avoid login caching issues attempt to log in:
-```
-http://localhost:3000
-```
-Click the openshift button and login as developer/developer
-
-After filling out some keycloak profile details like email, name etc you need to manually approve the user.
-
-In the keycloak admin console we used above, navigate to the `Users` tab on the right hand side under `Manage`, click the `View all users` button then `edit`. Under the attributes tab add a new one for key: `approved`, value: `true`.
-
-![Approve User](./images/keycloak-approve.png)
-

@@ -19,14 +19,20 @@ data:
       "privateKey": "${KEYCLOAK_PRIVATEKEY}",
       "publicKey": "${KEYCLOAK_PUBLICKEY}",
       "sslRequired": "external",
-      "accessTokenLifespan": 300,
-      "accessTokenLifespanForImplicitFlow": 300,
-      "ssoSessionIdleTimeout": 36000,
-      "ssoSessionMaxLifespan": 36000,
-      "offlineSessionIdleTimeout": 2592000,
-      "accessCodeLifespan": 60,
-      "accessCodeLifespanUserAction": 300,
-      "accessCodeLifespanLogin": 1800,
+      "accessTokenLifespan" : 2592000,
+      "accessTokenLifespanForImplicitFlow" : 1296000,
+      "ssoSessionIdleTimeout" : 2592000,
+      "ssoSessionMaxLifespan" : 2592000,
+      "offlineSessionIdleTimeout" : 2592000,
+      "accessCodeLifespan" : 60,
+      "accessCodeLifespanUserAction" : 36000,
+      "accessCodeLifespanLogin" : 2592000,
+      "ssoSessionIdleTimeout" : 2592000,
+      "ssoSessionMaxLifespan" : 2592000,
+      "offlineSessionIdleTimeout" : 2592000,
+      "accessCodeLifespan" : 60,
+      "accessCodeLifespanUserAction" : 36000,
+      "accessCodeLifespanLogin" : 2592000,
       "clients": [
         {
           "clientId": "fabric8-online-platform",
@@ -91,6 +97,25 @@ data:
             "clientId": "${GITHUB_OAUTH_CLIENT_ID}",
             "defaultScope": "admin:repo_hook read:org repo user gist",
             "useJwksUrl": "true"
+          }
+        }
+      ],
+      "identityProviderMappers" : [
+        {
+          "name" : "approved",
+          "identityProviderAlias" : "openshift-v3",
+          "identityProviderMapper" : "hardcoded-attribute-idp-mapper",
+          "config" : {
+            "attribute.value" : "true",
+            "attribute" : "approved"
+          }
+        }, {
+          "name" : "approved",
+          "identityProviderAlias" : "github",
+          "identityProviderMapper" : "hardcoded-attribute-idp-mapper",
+          "config" : {
+            "attribute.value" : "true",
+            "attribute" : "approved"
           }
         }
       ]
