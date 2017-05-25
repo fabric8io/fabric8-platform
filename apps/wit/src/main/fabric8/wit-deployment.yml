@@ -112,7 +112,7 @@ spec:
             path: /api/status
             port: 8080
             scheme: HTTP
-          initialDelaySeconds: 1
+          initialDelaySeconds: 20
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
@@ -122,7 +122,7 @@ spec:
             path: /api/status
             port: 8080
             scheme: HTTP
-          initialDelaySeconds: 1
+          initialDelaySeconds: 20
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
