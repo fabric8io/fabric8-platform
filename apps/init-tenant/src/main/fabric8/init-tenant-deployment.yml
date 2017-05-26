@@ -86,6 +86,11 @@ spec:
             secretKeyRef:
               key: template.recommender.api.token
               name: f8tenant
+        - name: KEYCLOAK_SKIP_HOST_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: keycloak.skip.host.verify
+              name: f8tenant
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
