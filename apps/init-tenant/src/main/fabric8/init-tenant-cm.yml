@@ -15,3 +15,4 @@ data:
   postgres.connection.maxopen: "90"
   template.domain: d800.free-int.openshiftapps.com
   template.recommender.external.name: recommender.api.prod-preview.openshift.io
+  keycloak.skip.host.verify: true
