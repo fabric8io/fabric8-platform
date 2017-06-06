@@ -215,7 +215,7 @@ metadata:
   name: fabric8-online-platform
 secret: fabric8
 redirectURIs:
-- "http://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/openshift-v3/endpoint"
+- "https://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/openshift-v3/endpoint"
 grantMethod: prompt
 EOF
 oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:fabric8:init-tenant
