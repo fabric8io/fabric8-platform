@@ -126,8 +126,9 @@ spec:
       containers:
       - image: fabric8/keycloak-postgres:${keycloak.version}
         args:
-        - -b
-        - 0.0.0.0
+        - -b $(INTERNAL_POD_IP)
+        - -Djgroups.bind_addr=global
+        - -Djboss.node.name=$(INTERNAL_POD_IP)
         - -Dkeycloak.import=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
         - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
         - -Djavax.net.ssl.trustStore=/opt/jboss/keycloak/standalone/configuration/tls/openshift-truststore.jks
@@ -138,6 +139,12 @@ spec:
           value: keycloak
         - name: POSTGRES_PASSWORD
           value: keycloak
+        - name: OPERATING_MODE
+          value: standalone
+        - name: INTERNAL_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         - name: KEYCLOAK_USER
           valueFrom:
             secretKeyRef:
