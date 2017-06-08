@@ -76,7 +76,7 @@
     <!-- TODO replace with real releases ASAP -->
     <fabric8-ui.version>SNAPSHOT.v24b8bcd2</fabric8-ui.version>
     <forge.version>1.0.41</forge.version>
-    <init-tenant.version>v5164ca5</init-tenant.version>
+    <init-tenant.version>v98c03d5</init-tenant.version>
 
     <kubernetes-client.version>2.3.1</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
