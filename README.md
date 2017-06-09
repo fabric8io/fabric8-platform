@@ -194,7 +194,7 @@ Steps to run the in development 4.x fabric8-platform using the latest mnishift a
 ```
 minishift  start --vm-driver=xhyve --memory=6144 --cpus=4 --disk-size=50g
 oc new-project fabric8
-git clone git@github.com:fabric8io/fabric8-platform.git
+git clone https://github.com/fabric8io/fabric8-platform.git
 cd fabric8-platform
 mvn clean install -DskipTests=true
 gofabric8 deploy --package=packages/fabric8-platform/target/classes/META-INF/fabric8/openshift.yml
