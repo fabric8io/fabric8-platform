@@ -72,7 +72,7 @@
   <properties>
     <almighty-core.version>0.0.1</almighty-core.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
-    <exposecontroller.version>2.3.12</exposecontroller.version>
+    <exposecontroller.version>2.3.13</exposecontroller.version>
     <!-- TODO replace with real releases ASAP -->
     <fabric8-ui.version>SNAPSHOT.v24b8bcd2</fabric8-ui.version>
     <forge.version>1.0.41</forge.version>
