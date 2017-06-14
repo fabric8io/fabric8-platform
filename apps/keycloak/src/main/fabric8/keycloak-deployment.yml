@@ -141,6 +141,8 @@ spec:
           value: keycloak
         - name: OPERATING_MODE
           value: standalone
+        - name: POSTGRES_PORT_5432_TCP_ADDR
+          value: keycloak-db
         - name: INTERNAL_POD_IP
           valueFrom:
             fieldRef:

@@ -3,7 +3,7 @@ metadata:
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
     expose.service-key.config.fabric8.io/fabric8: fabric8.url
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
-    expose.service-key.config.fabric8.io/wit: wit.api.url
+    expose-full.service-key.config.fabric8.io/wit: wit.api.url
 data:
   db.url: keycloak-db
   db.port: 5432
@@ -51,7 +51,7 @@ data:
           "redirectUris": [
             "http://localhost:8080/api/login/*",
             "${WIT_URL}*",
-            "${KEYCLOAK_URL}/"
+            "${KEYCLOAK_URL}"
           ],
           "webOrigins": [
             "*"
