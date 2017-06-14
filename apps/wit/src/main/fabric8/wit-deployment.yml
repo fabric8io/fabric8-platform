@@ -14,7 +14,8 @@ spec:
         service: wit
     spec:
       containers:
-      - image: fabric8/almighty-core:${almighty-core.version}
+      #- image: fabric8/almighty-core:${almighty-core.version}
+      - image: fabric8/almighty-core:SNAPSHOT-PR-2-19
         env:
         - name: ALMIGHTY_POSTGRES_HOST
           valueFrom:

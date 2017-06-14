@@ -226,7 +226,7 @@ oc login -u developer -p developer
 
 We now have GitHub integration which for now requires a manual OAuth setup to obtain a clientid and secret that we will give to keycloak.  Follow these steps using the output of:
 ```
-echo http://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/github/endpoint
+echo https://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/github/endpoint
 ```
 as the Authorization callback URL and `http://fabric8.io` as a sample homepage URL.
 
@@ -235,7 +235,7 @@ https://developer.github.com/apps/building-integrations/setting-up-and-registeri
 ![Register OAuth App](./images/register-oauth.png)
 
 ```
-open http://$(oc get route keycloak -o jsonpath="{.spec.host}")
+open https://$(oc get route keycloak -o jsonpath="{.spec.host}")
 ```
 Log in with username `admin` and password `admin`
 
