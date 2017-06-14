@@ -86,7 +86,7 @@
     <fabric8.ipaas.version>2.2.168</fabric8.ipaas.version>
     <funktion-connectors.version>1.1.44</funktion-connectors.version>
     <funktion.version>1.0.12</funktion.version>
-    <keycloak.version>vac1aca8</keycloak.version>
+    <keycloak.version>vc40d985</keycloak.version>
     <kubeflix.version>1.0.28</kubeflix.version>
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
 
