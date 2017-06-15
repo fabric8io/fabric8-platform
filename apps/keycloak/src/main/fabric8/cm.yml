@@ -81,6 +81,7 @@ data:
           "config": {
             "baseUrl": "${K8S_API_SERVER}",
             "clientId": "fabric8-online-platform",
+            "defaultScope": "user:full",
             "clientSecret": "fabric8"
           }
         },
