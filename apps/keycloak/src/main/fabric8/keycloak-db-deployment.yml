@@ -1,5 +1,15 @@
+metadata:
+  name: keycloak-db
+  labels:
+    service: keycloak-db
 spec:
+  replicas: 1
+  selector:
+    service: keycloak-db
   template:
+    metadata:
+      labels:
+        service: keycloak-db
     spec:
       containers:
       - image: registry.centos.org/postgresql/postgresql:9.6
@@ -11,14 +21,15 @@ spec:
         - name: POSTGRESQL_USER
           value: keycloak
         imagePullPolicy: IfNotPresent
+        name: keycloak-db
         ports:
         - containerPort: 5432
           protocol: TCP
         volumeMounts:
         - mountPath: /var/lib/pgsql
-          name: keycloak-postgresql-data
+          name: keycloak-db-postgresql-data
           readOnly: false
       volumes:
-      - name: keycloak-postgresql-data
+      - name: keycloak-db-postgresql-data
         persistentVolumeClaim:
-          claimName: keycloak-postgresql-data
+          claimName: keycloak-db-postgresql-data
