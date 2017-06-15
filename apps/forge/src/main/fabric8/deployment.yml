@@ -7,6 +7,8 @@ spec:
       containers:
       - image: fabric8/generator-backend:${forge.version}
         env:
+        - name: LAUNCHPAD_BACKEND_CATALOG_GIT_REF
+          value: next
         - name: OPENSHIFT_API_URL
           valueFrom:
             configMapKeyRef:
@@ -17,8 +19,6 @@ spec:
             configMapKeyRef:
               name: forge
               key: keycloak.url
-        - name: LAUNCHPAD_BACKEND_CATALOG_GIT_REF
-          value: devtools-saas
         - name: KUBERNETES_NAMESPACE
           valueFrom:
             fieldRef:
