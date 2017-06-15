@@ -5,6 +5,8 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
+    recreateParams:
+      timeoutSeconds: 7200
   template:
     metadata:
       annotations:
