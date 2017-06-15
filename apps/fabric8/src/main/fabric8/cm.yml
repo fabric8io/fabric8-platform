@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: fabric8
   annotations:
+    # when using the proxy 
+    # apiserver.base.path: "/_p/oso"
+    expose.config.fabric8.io/url-key: proxy.pass.url
+    #expose.config.fabric8.io/host-key: proxy.pass.server
+    #expose.config.fabric8.io/url-key: apiserver.url
+    #expose.config.fabric8.io/host-key: apiserver.host
     expose.config.fabric8.io/apiserver-key: apiserver.host
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
     expose-full.service-key.config.fabric8.io/keycloak: keycloak.url
@@ -12,6 +18,9 @@ metadata:
 data:
   apiserver.host: kubernetes
   apiserver.url: http://kubernetes
+  apiserver.base.path: ""
+  proxy.pass.server: ""
+  proxy.pass.url: ""
   apiserver.protocol: http
   keycloak.url: http://keycloak
   forge.api.url: http://generator-backend

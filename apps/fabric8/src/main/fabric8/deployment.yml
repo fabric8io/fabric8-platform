@@ -61,19 +61,22 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: fabric8
-              key: apiserver.host
+              key: proxy.pass.server
         - name: "PROXY_PASS_URL"
           valueFrom:
             configMapKeyRef:
               name: fabric8
-              key: apiserver.url
+              key: proxy.pass.url
         - name: "K8S_API_SERVER_PROTOCOL"
           valueFrom:
             configMapKeyRef:
               name: fabric8
               key: apiserver.protocol
         - name: "K8S_API_SERVER_BASE_PATH"
-          value: "/_p/oso"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8
+              key: apiserver.base.path
 #        - name: "OAUTH_ISSUER"
 #          value: ${OAUTH_ISSUER}
 #        - name: "OAUTH_CLIENT_ID"
