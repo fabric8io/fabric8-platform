@@ -1,0 +1,62 @@
+spec:
+  template:
+    spec:
+      volumes:
+        - name: che-starter-volume-1
+          emptyDir: {}
+      containers:
+        - env:
+          - name: GITHUB_TOKEN_URL
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: github.tokenurl
+          - name: OPENSHIFT_TOKEN_URL
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: oso.tokenurl
+          - name: OSO_ADDRESS
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: oso.address
+          - name: OSO_DOMAIN_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: oso.domain.name
+          - name: KUBERNETES_CERTS_CA_FILE
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: kubes.certs.ca.file
+          name: che-starter
+          image: rhche/che-starter:${che-starter.version}
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /status
+              port: 10000
+              scheme: HTTP
+            initialDelaySeconds: 120
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /status
+              port: 10000
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          ports:
+            - containerPort: 10000
+              protocol: TCP
+          volumeMounts:
+            - name: che-starter-volume-1
+              mountPath: /tmp
+          imagePullPolicy: IfNotPresent

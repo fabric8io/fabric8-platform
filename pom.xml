@@ -71,6 +71,7 @@
 
   <properties>
     <almighty-core.version>0.0.1</almighty-core.version>
+    <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <exposecontroller.version>2.3.14</exposecontroller.version>
     <!-- TODO replace with real releases ASAP -->
