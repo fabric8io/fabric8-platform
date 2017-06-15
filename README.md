@@ -192,7 +192,8 @@ The above-packaged docker images leverage some of these base Docker images:
 Steps to run the in development 4.x fabric8-platform using the latest mnishift and gofabric8 versions:
 
 ```
-minishift  start --vm-driver=xhyve --memory=6144 --cpus=4 --disk-size=50g
+minishift  start --vm-driver=xhyve --memory=6144 --cpus=4 --disk-size=50g --openshift-version=v3.6.0-alpha.1
+minishift openshift config set --patch '{"corsAllowedOrigins": [".*"]}'
 oc new-project fabric8
 git clone https://github.com/fabric8io/fabric8-platform.git
 cd fabric8-platform
