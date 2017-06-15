@@ -1,0 +1,6 @@
+spec:
+  ports:
+    - name: 10000-tcp
+      protocol: TCP
+      port: 10000
+      targetPort: 10000
