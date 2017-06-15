@@ -9,6 +9,7 @@ metadata:
     #expose.config.fabric8.io/host-key: proxy.pass.server
     #expose.config.fabric8.io/url-key: apiserver.url
     #expose.config.fabric8.io/host-key: apiserver.host
+    expose.config.fabric8.io/console-url-key: openshift.console.url
     expose.config.fabric8.io/apiserver-key: apiserver.host
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
     expose-full.service-key.config.fabric8.io/keycloak: keycloak.url
