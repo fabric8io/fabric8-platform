@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: che-starter
   annotations:
-    expose.service-key.config.fabric8.io/keycloak: keycloak.url
+    expose.config.fabric8.io/apiserver-key: oso.address
 type: Opaque
 data:
-  oso.domain.name: 192.168.64.151
-  oso.address: 192.168.64.151:8443
+  oso.domain.name: localhost
+  oso.address: localhost:8443
   kubes.certs.ca.file: /opt/che-starter/tsrv.devshift.net.cer
   oso.tokenurl: http://keycloak/auth/realms/fabric8/broker/openshift-v3/token
   github.tokenurl: http://keycloak/auth/realms/fabric8/broker/github/token
