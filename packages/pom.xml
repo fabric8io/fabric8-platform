@@ -38,8 +38,6 @@
     <module>chat-irc</module>
     <module>chat-letschat</module>
     <module>chat-slack</module>
-    <module>funktion</module>
-    <module>funktion-platform</module>
     <module>logging</module>
     <module>management</module>
     <module>metrics</module>
