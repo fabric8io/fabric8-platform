@@ -26,10 +26,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.fabric8.platform.packages</groupId>
-  <artifactId>fabric8-platform</artifactId>
+  <artifactId>fabric8-system</artifactId>
 
-  <name>Fabric8 Platform :: Packages :: Platform</name>
-  <description>The Fabric8 Microservices Platform</description>
+  <name>Fabric8 Platform :: Packages :: System</name>
+  <description>The Fabric8 Microservices System</description>
 
   <dependencies>
     <dependency>

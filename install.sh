@@ -17,7 +17,7 @@ echo "Connecting to the API Server at: https://${APISERVER}"
 echo "Installing fabric8 version ${FABRIC8_VERSION}"
 
 # TODO use real released template!!!
-TEMPLATE="packages/fabric8-platform/target/classes/META-INF/fabric8/openshift.yml"
+TEMPLATE="packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
 
 echo "Applying the fabric8 template ${TEMPLATE}"
 oc process -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} | oc apply -f -
