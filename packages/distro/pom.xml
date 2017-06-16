@@ -112,11 +112,6 @@
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>funktion</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>social</artifactId>
       <version>${project.version}</version>
     </dependency>
