@@ -44,10 +44,10 @@ deployTemplate {
             def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
             pipeline.promoteYamls(stagedProject, yamlKube, yamlOS)
           }
-        } catch (err) {
-          hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"
-          error "${err}"
         }
+      } catch (err) {
+        hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"
+        error "${err}"
       }
     }
   }
