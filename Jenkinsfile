@@ -8,21 +8,33 @@ deployTemplate{
       sh "git remote set-url origin git@github.com:fabric8io/fabric8-platform.git"
 
       def pipeline = load 'release.groovy'
+      def stagedProject = null
+      def yamlKube = null
+      def yamlOS = null
 
-      stage 'Stage'
-      def stagedProject = pipeline.stage()
-
-      stage 'Deploy and run system tests'
-      def yaml = readFile file: "packages/fabric8-platform/target/classes/META-INF/fabric8/kubernetes.yml"
-      fabric8SystemTests {
-          packageYAML = yaml
+      stage ('Stage') {
+        stagedProject = pipeline.stage()
       }
 
-      stage 'Approve'
-      pipeline.approve(stagedProject)
+      stage ('Deploy and run system tests') {
+        def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
+        def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
+        fabric8SystemTests {
+            packageYAML = yamlKube
+        }
+      }
 
-      stage 'Promote'
-      pipeline.release(stagedProject)
+      stage ('Approve') {
+        pipeline.approve(stagedProject)
+      }
+
+      stage ('Promote') {
+        pipeline.release(stagedProject)
+      }
+
+      stage ('Promote YAMLs'){
+        pipeline.promoteYamls(releaseVersion, yamlKube, yamlOS)
+      }
     }
   }
 }
