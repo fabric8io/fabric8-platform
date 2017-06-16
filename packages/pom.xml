@@ -38,8 +38,6 @@
     <module>chat-irc</module>
     <module>chat-letschat</module>
     <module>chat-slack</module>
-    <module>funktion</module>
-    <module>funktion-platform</module>
     <module>logging</module>
     <module>management</module>
     <module>metrics</module>
@@ -51,7 +49,7 @@
     <module>console</module>
 -->
     <module>fabric8-team</module>
-    <module>fabric8-platform</module>
+    <module>fabric8-system</module>
     <module>distro</module>
   </modules>
 

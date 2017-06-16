@@ -4,6 +4,7 @@ metadata:
       fabric8.io/target-platform: "openshift"
 data:
   config.yml: |
-    exposer: Route
+    apiserver: ${APISERVER_HOSTPORT}
     watch-current-namespace: true
+    exposer: Route
     domain:

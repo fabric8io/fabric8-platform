@@ -92,7 +92,7 @@
     <!-- packages -->
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>fabric8-platform</artifactId>
+      <artifactId>fabric8-system</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -108,11 +108,6 @@
     <dependency>
       <groupId>io.fabric8.platform.packages</groupId>
       <artifactId>chat-slack</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.packages</groupId>
-      <artifactId>funktion</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

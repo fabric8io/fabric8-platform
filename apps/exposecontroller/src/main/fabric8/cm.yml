@@ -4,5 +4,7 @@ metadata:
       fabric8.io/target-platform: "kubernetes"
 data:
   config.yml: |
+    apiserver: ${APISERVER_HOSTPORT}
+    watch-current-namespace: true
     domain:
     exposer:

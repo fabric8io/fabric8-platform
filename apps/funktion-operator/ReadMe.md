@@ -1,1 +1,0 @@
-Provides Lambda style event based programming for Kubernetes 
