@@ -16,4 +16,4 @@ data:
   template.domain: d800.free-int.openshiftapps.com
   template.recommender.external.name: recommender.api.prod-preview.openshift.io
   keycloak.skip.host.verify: true
-  disable.oso.quotas: false
+  disable.oso.quotas: true
