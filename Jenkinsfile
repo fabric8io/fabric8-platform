@@ -1,54 +1,53 @@
 #!/usr/bin/groovy
 @Library('github.com/fabric8io/fabric8-pipeline-library@master')
 def utils = new io.fabric8.Utils()
-deployTemplate {
-  mavenNode {
-    ws {
-      try {
-        checkout scm
-        readTrusted 'release.groovy'
 
-        if (utils.isCI()) {
+mavenNode {
+  ws {
+    try {
+      checkout scm
+      readTrusted 'release.groovy'
 
-          echo 'CI is not handled by pipelines yet'
+      if (utils.isCI()) {
 
-        } else if (utils.isCD()) {
-          sh "git remote set-url origin git@github.com:fabric8io/fabric8-platform.git"
+        echo 'CI is not handled by pipelines yet'
 
-          def pipeline = load 'release.groovy'
-          def stagedProject
+      } else if (utils.isCD()) {
+        sh "git remote set-url origin git@github.com:fabric8io/fabric8-platform.git"
 
-          stage('Stage') {
-            stagedProject = pipeline.stage()
-          }
+        def pipeline = load 'release.groovy'
+        def stagedProject
 
-/*
-        stage('Deploy and run system tests') {
-          def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
-          fabric8SystemTests {
-            packageYAML = yamlKube
-          }
+        stage('Stage') {
+          stagedProject = pipeline.stage()
         }
 
-        stage('Approve') {
-          pipeline.approve(stagedProject)
-        }
-*/
 
-          stage('Promote') {
-            pipeline.release(stagedProject)
-          }
-
-          stage('Promote YAMLs') {
-            def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
-            def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
-            pipeline.promoteYamls(stagedProject, yamlKube, yamlOS)
-          }
+      stage('Deploy and run system tests') {
+        def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
+        fabric8SystemTests {
+          packageYAML = yamlKube
         }
-      } catch (err) {
-        hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"
-        error "${err}"
       }
+
+      stage('Approve') {
+        pipeline.approve(stagedProject)
+      }
+
+
+        stage('Promote') {
+          pipeline.release(stagedProject)
+        }
+
+        stage('Promote YAMLs') {
+          def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
+          def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
+          pipeline.promoteYamls(stagedProject, yamlKube, yamlOS)
+        }
+      }
+    } catch (err) {
+      hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"
+      error "${err}"
     }
   }
 }
