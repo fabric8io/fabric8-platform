@@ -17,8 +17,8 @@ deployTemplate{
       }
 
       stage ('Deploy and run system tests') {
-        def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
-        def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
+        yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
+        yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
         fabric8SystemTests {
             packageYAML = yamlKube
         }
