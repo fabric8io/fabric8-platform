@@ -5,35 +5,43 @@ deployTemplate{
   mavenNode {
     ws{
       checkout scm
-      sh "git remote set-url origin git@github.com:fabric8io/fabric8-platform.git"
+      readTrusted 'release.groovy'
 
-      def pipeline = load 'release.groovy'
-      def stagedProject
-      def yamlKube
-      def yamlOS
+      if (utils.isCI()){
 
-      stage ('Stage') {
-        stagedProject = pipeline.stage()
-      }
+        echo 'CI is not handled by pipelines yet'
 
-      stage ('Deploy and run system tests') {
-        yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
-        yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
-        fabric8SystemTests {
-            packageYAML = yamlKube
+      } else if (utils.isCD()) {
+        sh "git remote set-url origin git@github.com:fabric8io/fabric8-platform.git"
+        
+        def pipeline = load 'release.groovy'
+        def stagedProject
+        def yamlKube
+        def yamlOS
+
+        stage('Stage') {
+          stagedProject = pipeline.stage()
         }
-      }
 
-      stage ('Approve') {
-        pipeline.approve(stagedProject)
-      }
+        stage('Deploy and run system tests') {
+          yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
+          yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
+          fabric8SystemTests {
+            packageYAML = yamlKube
+          }
+        }
 
-      stage ('Promote') {
-        pipeline.release(stagedProject)
-      }
+        stage('Approve') {
+          pipeline.approve(stagedProject)
+        }
 
-      stage ('Promote YAMLs'){
-        pipeline.promoteYamls(releaseVersion, yamlKube, yamlOS)
+        stage('Promote') {
+          pipeline.release(stagedProject)
+        }
+
+        stage('Promote YAMLs') {
+          pipeline.promoteYamls(stagedProject, yamlKube, yamlOS)
+        }
       }
     }
   }
