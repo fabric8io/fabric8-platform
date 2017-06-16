@@ -91,6 +91,11 @@ spec:
             configMapKeyRef:
               key: keycloak.skip.host.verify
               name: f8tenant
+        - name: DISABLE_OSO_QUOTAS
+          valueFrom:
+            configMapKeyRef:
+              key: disable.oso.quotas
+              name: f8tenant
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
