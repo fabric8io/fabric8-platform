@@ -8,9 +8,9 @@ deployTemplate{
       sh "git remote set-url origin git@github.com:fabric8io/fabric8-platform.git"
 
       def pipeline = load 'release.groovy'
-      def stagedProject = null
-      def yamlKube = null
-      def yamlOS = null
+      def stagedProject
+      def yamlKube
+      def yamlOS
 
       stage ('Stage') {
         stagedProject = pipeline.stage()
