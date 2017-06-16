@@ -75,4 +75,40 @@ def approve(project){
 }
 
 
+def promoteYamls(releaseVersion, yamlKube, yamlOS) {
+  container(name: 'clients') {
+    def flow = new io.fabric8.Fabric8Commands()
+    sh 'chmod 600 /root/.ssh-git/ssh-key'
+    sh 'chmod 600 /root/.ssh-git/ssh-key.pub'
+    sh 'chmod 700 /root/.ssh-git'
+
+
+    sh 'git clone git@github.com:fabric8io/fabric8-resources.git'
+    sh 'cd fabric8-resources'
+
+    sh "git config user.email fabric8cd@gmail.com"
+    sh "git config user.name fabric8-cd"
+
+    def uid = UUID.randomUUID().toString()
+    sh "git checkout -b versionUpdate${uid}"
+
+    if (yamlKube) {
+      sh "echo ${yamlKube} > fabric8-system.yml"
+    }
+    if (yamlOS) {
+      sh "echo ${yamlOS} > fabric8-system-openshift.yml"
+    }
+    if (yamlKube || yamlOS) {
+      def message = "Update fabric8-system YAMLs to version ${releaseVersion}"
+      sh "git add *.yml"
+      sh "git commit -a -m \"${message}\""
+      sh "git push origin versionUpdate${uid}"
+      flow.createPullRequest(message,'fabric8io/fabric8-resources',"versionUpdate${uid}")
+    } else {
+      echo "WARNING no YAMLS to promote!"
+    }
+  }
+}
+
+
 return this;
