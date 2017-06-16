@@ -79,7 +79,7 @@
     <forge.version>1.0.41</forge.version>
     <init-tenant.version>v98c03d5</init-tenant.version>
 
-    <kubernetes-client.version>2.4.0</kubernetes-client.version>
+    <kubernetes-client.version>2.4.1</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
     <fabric8.console.version>2.2.199</fabric8.console.version>
     <fabric8.devops.version>2.2.331</fabric8.devops.version>
