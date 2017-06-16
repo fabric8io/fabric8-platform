@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 @Library('github.com/fabric8io/fabric8-pipeline-library@master')
-def dummy
+def utils = new io.fabric8.Utils()
 deployTemplate{
   mavenNode {
     ws{
