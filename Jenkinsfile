@@ -22,7 +22,7 @@ mavenNode {
           stagedProject = pipeline.stage()
         }
 
-
+/*
       stage('Deploy and run system tests') {
         def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
         fabric8SystemTests {
@@ -33,7 +33,7 @@ mavenNode {
       stage('Approve') {
         pipeline.approve(stagedProject)
       }
-
+*/
 
         stage('Promote') {
           pipeline.release(stagedProject)
