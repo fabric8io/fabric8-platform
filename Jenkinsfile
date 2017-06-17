@@ -42,7 +42,7 @@ mavenNode {
         stage('Promote YAMLs') {
           def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
           def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
-          pipeline.promoteYamls(stagedProject, yamlKube, yamlOS)
+          pipeline.promoteYamls(stagedProject[1], yamlKube, yamlOS)
         }
       }
     } catch (err) {
