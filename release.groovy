@@ -76,6 +76,7 @@ def approve(project){
 
 
 def promoteYamls(releaseVersion) {
+  def cwd=`pwd`
   container(name: 'clients') {
     def flow = new io.fabric8.Fabric8Commands()
     sh 'chmod 600 /root/.ssh-git/ssh-key'
@@ -92,8 +93,8 @@ def promoteYamls(releaseVersion) {
     def uid = UUID.randomUUID().toString()
     sh "git checkout -b versionUpdate${uid}"
 
-    sh "cp ../packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml fabric8-system.yml"
-    sh "cp ../packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml fabric8-system-openshift.yml"
+    sh "cp ${cwd}/packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml fabric8-system.yml"
+    sh "cp ${cwd}/packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml fabric8-system-openshift.yml"
 
     def message = "Update fabric8-system YAMLs to version ${releaseVersion}"
     sh "git add *.yml"
