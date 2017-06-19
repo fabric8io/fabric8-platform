@@ -11,16 +11,24 @@ oc new-project fabric8
 
 
 APISERVER=$(oc version | grep Server | sed -e 's/.*http:\/\///g' -e 's/.*https:\/\///g')
-FABRIC8_VERSION=$(curl -sL http://central.maven.org/maven2/io/fabric8/online/packages/fabric8-online-team/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
+NODE_IP=$(echo "${APISERVER}" | sed -e 's/:.*//g')
+#EXPOSER="NodePort"
+EXPOSER="Route"
+FABRIC8_VERSION=$(curl -sL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
 
 echo "Connecting to the API Server at: https://${APISERVER}"
-echo "Installing fabric8 version ${FABRIC8_VERSION}"
+echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
+echo "Installing fabric8 version: ${FABRIC8_VERSION}"
+echo "Using github client ID: ${GITHUB_OAUTH_CLIENT_ID} and secret: ${GITHUB_OAUTH_CLIENT_SECRET}"
 
 # TODO use real released template!!!
 TEMPLATE="packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
 
+GITHUB_ID="${GITHUB_OAUTH_CLIENT_ID}"
+GITHUB_SECRET="${GITHUB_OAUTH_CLIENT_SECRET}"
+
 echo "Applying the fabric8 template ${TEMPLATE}"
-oc process -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} | oc apply -f -
+oc process -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=${NODE_IP} -p EXPOSER=${EXPOSER} -p GITHUB_OAUTH_CLIENT_SECRET=${GITHUB_SECRET} -p GITHUB_OAUTH_CLIENT_ID=${GITHUB_ID} | oc apply -f -
 
 echo "Now adding the OAuthClient and cluster-admin role to the init-tenant service account"
 oc login -u system:admin
@@ -48,10 +56,10 @@ echo
 echo "When the pods are all running please click on the following URLs in your browser, then ADVANCED, then click the URL at the bottom"
 echo "To approve the certs"
 echo
-echo "  https://`oc get route fabric8 --template={{.spec.host}}`/"
 echo "  https://`oc get route keycloak --template={{.spec.host}}`/"
 echo "  https://`oc get route wit --template={{.spec.host}}`/api/status"
 echo "  https://`oc get route forge --template={{.spec.host}}`/forge/version"
+echo "  https://`oc get route fabric8 --template={{.spec.host}}`/"
 echo
 echo
 echo "Then you should be able the open the fabric8 console here:"

@@ -5,6 +5,7 @@ metadata:
 data:
   config.yml: |
     apiserver: ${APISERVER_HOSTPORT}
+    node-ip: ${NODE_IP}
     watch-current-namespace: true
     domain:
     exposer:
