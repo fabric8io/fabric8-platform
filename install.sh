@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ef
 
 echo "enabling CORS in minishift"
 minishift openshift config set --patch '{"corsAllowedOrigins": [".*"]}'
@@ -14,7 +15,7 @@ APISERVER=$(oc version | grep Server | sed -e 's/.*http:\/\///g' -e 's/.*https:\
 NODE_IP=$(echo "${APISERVER}" | sed -e 's/:.*//g')
 #EXPOSER="NodePort"
 EXPOSER="Route"
-FABRIC8_VERSION=$(curl -sL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
+FABRIC8_VERSION=$(curl -fsL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
 
 echo "Connecting to the API Server at: https://${APISERVER}"
 echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
