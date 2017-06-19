@@ -26,9 +26,7 @@ releaseNode {
       }
 
       stage('Promote YAMLs') {
-        def yamlKube = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/kubernetes.yml"
-        def yamlOS = readFile file: "packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
-        pipeline.promoteYamls(stagedProject[1], yamlKube, yamlOS)
+        pipeline.promoteYamls(stagedProject[1])
       }
     }
   } catch (err) {
