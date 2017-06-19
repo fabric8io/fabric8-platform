@@ -76,7 +76,7 @@ def approve(project){
 
 
 def promoteYamls(releaseVersion) {
-  def cwd=`pwd`
+  def cwd=sh(script: 'pwd', returnStdout: true).trim()
   container(name: 'clients') {
     def flow = new io.fabric8.Fabric8Commands()
     sh 'chmod 600 /root/.ssh-git/ssh-key'
