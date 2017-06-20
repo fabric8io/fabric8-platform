@@ -33,6 +33,14 @@ export GITHUB_OAUTH_CLIENT_SECRET=TODO
 
 where the above `TODO` text is replaced by the actual client id and secret from your github settings page!
 
+### Install requirements
+
+Before running the install script please make sure you have a recent (1.5 or later) distribution of the `oc` binary on your `$PATH`
+```
+oc version
+```
+If you have an old version or its not found please [download a distribution of the openshift-client-tools for your operating system](https://github.com/openshift/origin/releases/latest/) and copy the `oc` binary onto your `$PATH`
+
 ### Run the install script
 
 * now run the [install.sh](https://github.com/fabric8io/fabric8-platform/blob/master/install.sh) script on the command line:
