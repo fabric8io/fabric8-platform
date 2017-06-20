@@ -8,9 +8,12 @@ This project generates the distribution of the [fabric8 developer platform](http
    </a>
  </p>
 
-The fabric8 developer platform is based on lots of different open source projects. Here's the main fabric8 repositories:
+
+To install the early access of this on [Minishift check out the installation guide](INSTALL.md)
 
 ## Projects
+
+The fabric8 developer platform is based on lots of different open source projects. Here's the main fabric8 repositories:
 
 ### [Maven Tooling](https://maven.fabric8.io/)
 
