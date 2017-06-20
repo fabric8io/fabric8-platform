@@ -98,7 +98,8 @@ def promoteYamls(releaseVersion) {
     sh "git add *.yml"
     sh "git commit -a -m \"${message}\""
     sh "git push origin versionUpdate${uid}"
-    flow.createPullRequest(message,'fabric8io/fabric8-resources',"versionUpdate${uid}")
+    def prId = flow.createPullRequest(message,'fabric8io/fabric8-resources',"versionUpdate${uid}")
+    flow.mergePR(message,'fabric8io/fabric8-resources',prId)
   }
 }
 
