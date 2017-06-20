@@ -34,3 +34,11 @@ bash <(curl -s https://raw.githubusercontent.com/fabric8io/fabric8-platform/mast
 
 * if you want to install a specific version of the [fabric8 system template](http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/) then you can pass it on the command line as an argument. Or add the argument `local` to use a local build.
 
+
+### Accept the insecure URLs in your browser
+
+Currently there are 4 different URLS that Chrome will barf on and you'll have to explcitily click on the `ADVANCED` button then click on the URL to tell your browser its fine to trust the URLs before you can open and use the new fabric8 console
+
+The above script should list the 4 URLs you need to open separately and approve.
+
+We hope to figure out a nicer alternative to this issue! The problem is things like lenscript only work for public hosted URLs; whereas running locally on MiniShift we're local but use `nip.io` to provide a global URL to your local machine (to simplfiy having to do DNS magic on your laptop). If you fancy trying to help fix this [please check out this MiniShift issue](https://github.com/minishift/minishift/issues/1031)
