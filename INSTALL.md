@@ -2,6 +2,13 @@
 
 The following are the instructions for installing fabric8 on minishift:
 
+
+* Make sure you have a recent (1.5 or later) distribution of the `oc` binary on your `$PATH`
+```
+oc version
+```
+* If you have an old version or its not found please [download a distribution of the openshift-client-tools for your operating system](https://github.com/openshift/origin/releases/latest/) and copy the `oc` binary onto your `$PATH`
+
 * [download the minishift distribution for your platform](https://github.com/minishift/minishift/releases) extract it and place the `minishift` binary on your `$PATH` somewhere
 * start up minishift via something like this (on OS X):
 
@@ -32,14 +39,6 @@ export GITHUB_OAUTH_CLIENT_SECRET=TODO
 ```
 
 where the above `TODO` text is replaced by the actual client id and secret from your github settings page!
-
-### Install requirements
-
-Before running the install script please make sure you have a recent (1.5 or later) distribution of the `oc` binary on your `$PATH`
-```
-oc version
-```
-If you have an old version or its not found please [download a distribution of the openshift-client-tools for your operating system](https://github.com/openshift/origin/releases/latest/) and copy the `oc` binary onto your `$PATH`
 
 ### Run the install script
 
