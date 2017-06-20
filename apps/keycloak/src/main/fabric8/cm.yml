@@ -46,17 +46,25 @@ data:
           "clientAuthenticatorType": "client-secret",
           "secret": "${KEYCLOAK_CLIENTID_SECRET}",
           "publicClient" : true,
-          "adminUrl": "/",
-          "baseUrl": "/",
+          "adminUrl" : "",
+          "baseUrl" : "",
           "redirectUris": [
             "http://localhost:8080/api/login/*",
             "${WIT_URL}*",
-            "${KEYCLOAK_URL}"
+            "${KEYCLOAK_URL}/*"
           ],
           "webOrigins": [
             "*"
-          ]
-        }
+          ],
+          "authorizationSettings" : {
+            "allowRemoteResourceManagement" : true,
+            "policyEnforcementMode" : "ENFORCING",
+            "scopes" : [ {
+              "name" : "read:space"
+              }, {
+              "name" : "admin:space"
+            } ]
+          }
       ],
       "roles" : {
         "realm" : [
@@ -68,7 +76,13 @@ data:
             "name": "admin:space",
             "description": "Admin space"
           }
-        ]
+        ],
+        "clientRoles" : {
+          "realm-management" : [ "view-users", "manage-authorization" ],
+          "broker" : [ "read-token" ],
+          "fabric8-online-platform" : [ "uma_protection" ],
+          "account" : [ "manage-account", "view-profile" ]
+        },
       },
       "identityProviders": [
         {
