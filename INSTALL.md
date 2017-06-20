@@ -3,7 +3,7 @@
 The following are the instructions for installing fabric8 on minishift:
 
 
-* Make sure you have a recent (1.5 or later) distribution of the `oc` binary on your `$PATH`
+* Make sure you have a recent (3.5 of openshift or 1.5 of origin later) distribution of the `oc` binary on your `$PATH`
 ```
 oc version
 ```
