@@ -13,7 +13,16 @@ minishift start --vm-driver=xhyve --memory=7000 --cpus=4 --disk-size=50g
 
 We now have GitHub integration which for now requires a manual OAuth setup to obtain a clientid and secret that we will give to keycloak. 
 
+Follow these steps using the output of:
+```
+echo https://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/github/endpoint
+```
+as the Authorization callback URL and `http://fabric8.io` as a sample homepage URL.
+
+https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+
 ![Register OAuth App](./images/register-oauth.png)
+
 
 Once you have found your client ID and secret for the new fabric8 app on your github settings then type the following:
 
