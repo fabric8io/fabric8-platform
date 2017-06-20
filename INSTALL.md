@@ -32,4 +32,5 @@ where the above `TODO` text is replaced by the actual client id and secret from 
 bash <(curl -s https://raw.githubusercontent.com/fabric8io/fabric8-platform/master/install.sh)
 ```
 
+* if you want to install a specific version of the [fabric8 system template](http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/) then you can pass it on the command line as an argument. Or add the argument `local` to use a local build.
 
