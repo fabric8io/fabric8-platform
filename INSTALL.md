@@ -15,6 +15,11 @@ oc version
 ```
 minishift start --vm-driver=xhyve --memory=7000 --cpus=4 --disk-size=50g
 ```
+or on any other operating system (feel free to add the `--vm-driver` parameter of your choosing):
+
+```
+minishift start --memory=7000 --cpus=4 --disk-size=50g
+```
 
 ### Setup GitHub client ID and secret
 
