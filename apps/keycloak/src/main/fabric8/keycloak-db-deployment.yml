@@ -12,7 +12,9 @@ spec:
         service: keycloak-db
     spec:
       containers:
-      - image: registry.centos.org/postgresql/postgresql:9.6
+      - name: keycloak-db
+        image: registry.centos.org/postgresql/postgresql:9.6
+        imagePullPolicy: IfNotPresent
         env:
         - name: POSTGRESQL_DATABASE
           value: keycloak
@@ -20,8 +22,28 @@ spec:
           value: keycloak
         - name: POSTGRESQL_USER
           value: keycloak
-        imagePullPolicy: IfNotPresent
-        name: keycloak-db
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          periodSeconds: 5
         ports:
         - containerPort: 5432
           protocol: TCP
