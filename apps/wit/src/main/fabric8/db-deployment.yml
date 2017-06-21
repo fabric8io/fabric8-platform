@@ -14,15 +14,37 @@ spec:
         service: wit-db
     spec:
       containers:
-      - image: registry.centos.org/postgresql/postgresql:9.6
+      - name: wit-db
+        image: registry.centos.org/postgresql/postgresql:9.6
+        imagePullPolicy: IfNotPresent
         env:
         - name: POSTGRESQL_ADMIN_PASSWORD
           valueFrom:
             secretKeyRef:
               name: wit
               key: db.password
-        imagePullPolicy: IfNotPresent
-        name: wit-db
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          periodSeconds: 5
         ports:
         - containerPort: 5432
           protocol: TCP
