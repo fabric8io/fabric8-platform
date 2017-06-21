@@ -6,7 +6,7 @@ metadata:
     expose-full.service-key.config.fabric8.io/wit: wit.api.url
 data:
   db.url: keycloak-db
-  db.port: 5432
+  db.port: "5432"
   apiserver.url: http://kubernetes
   fabric8.url: http://fabric8
   keycloak.url: http://keycloak
@@ -22,17 +22,11 @@ data:
       "accessTokenLifespan" : 2592000,
       "accessTokenLifespanForImplicitFlow" : 1296000,
       "ssoSessionIdleTimeout" : 2592000,
+      "accessCodeLifespanUserAction" : 36000,
+      "accessCodeLifespanLogin" : 2592000,
       "ssoSessionMaxLifespan" : 2592000,
       "offlineSessionIdleTimeout" : 2592000,
       "accessCodeLifespan" : 60,
-      "accessCodeLifespanUserAction" : 36000,
-      "accessCodeLifespanLogin" : 2592000,
-      "ssoSessionIdleTimeout" : 2592000,
-      "ssoSessionMaxLifespan" : 2592000,
-      "offlineSessionIdleTimeout" : 2592000,
-      "accessCodeLifespan" : 60,
-      "accessCodeLifespanUserAction" : 36000,
-      "accessCodeLifespanLogin" : 2592000,
       "clients": [
         {
           "clientId": "fabric8-online-platform",
@@ -56,6 +50,7 @@ data:
           "webOrigins": [
             "*"
           ],
+          "defaultRoles": ["uma_protection"],
           "authorizationSettings" : {
             "allowRemoteResourceManagement" : true,
             "policyEnforcementMode" : "ENFORCING",
@@ -65,7 +60,26 @@ data:
               "name" : "admin:space"
             } ]
           }
+        },
       ],
+      "clientScopeMappings": {
+        "realm-management": [
+            {
+                "client": "hector-online-platform",
+                "roles": ["view-users"]
+            },
+            {
+                "client": "hector-online-platform",
+                "roles": ["manage-authorization"]
+            }
+        ],
+        "broker": [
+            {
+                "client": "hector-online-platform",
+                "roles": ["read-token"]
+            }
+        ]
+      }
       "roles" : {
         "realm" : [
           {
@@ -76,13 +90,7 @@ data:
             "name": "admin:space",
             "description": "Admin space"
           }
-        ],
-        "clientRoles" : {
-          "realm-management" : [ "view-users", "manage-authorization" ],
-          "broker" : [ "read-token" ],
-          "fabric8-online-platform" : [ "uma_protection" ],
-          "account" : [ "manage-account", "view-profile" ]
-        },
+        ]
       },
       "identityProviders": [
         {
