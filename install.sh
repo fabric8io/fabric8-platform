@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 set -ef
 
+LATEST="latest"
+FABRIC8_VERSION=${1:-$LATEST}
+
+if [ "$FABRIC8_VERSION" == "$LATEST" ] || [ "$FABRIC8_VERSION" == "" ] ; then
+  FABRIC8_VERSION=$(curl -fsL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
+fi
+
+TEMPLATE="packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
+
+if [ "$FABRIC8_VERSION" == "local" ] ; then
+  echo "Installing using a local build"
+else
+  echo "Installing fabric8 version: ${FABRIC8_VERSION}"
+  TEMPLATE="http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/${FABRIC8_VERSION}/fabric8-system-${FABRIC8_VERSION}-openshift.yml"
+fi
+echo "Using the fabric8 template: ${TEMPLATE}"
+
+
 echo "enabling CORS in minishift"
 minishift openshift config set --patch '{"corsAllowedOrigins": [".*"]}'
 sleep 5
@@ -15,15 +33,11 @@ APISERVER=$(oc version | grep Server | sed -e 's/.*http:\/\///g' -e 's/.*https:\
 NODE_IP=$(echo "${APISERVER}" | sed -e 's/:.*//g')
 #EXPOSER="NodePort"
 EXPOSER="Route"
-FABRIC8_VERSION=$(curl -fsL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
 
 echo "Connecting to the API Server at: https://${APISERVER}"
 echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
-echo "Installing fabric8 version: ${FABRIC8_VERSION}"
 echo "Using github client ID: ${GITHUB_OAUTH_CLIENT_ID} and secret: ${GITHUB_OAUTH_CLIENT_SECRET}"
 
-# TODO use real released template!!!
-TEMPLATE="packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
 
 GITHUB_ID="${GITHUB_OAUTH_CLIENT_ID}"
 GITHUB_SECRET="${GITHUB_OAUTH_CLIENT_SECRET}"
