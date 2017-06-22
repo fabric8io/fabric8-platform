@@ -131,9 +131,12 @@ spec:
         - -b $(INTERNAL_POD_IP)
         - -Djgroups.bind_addr=global
         - -Djboss.node.name=$(INTERNAL_POD_IP)
-        - -Dkeycloak.import=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
-        - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
         - -Djavax.net.ssl.trustStore=/opt/jboss/keycloak/standalone/configuration/tls/openshift-truststore.jks
+        - -Dkeycloak.migration.action=import
+        - -Dkeycloak.migration.provider=singleFile
+        - -Dkeycloak.migration.file=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
+        - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+
         env:
         - name: POSTGRES_HOSTNAME
           value: keycloak-db

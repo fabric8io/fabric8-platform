@@ -6,7 +6,7 @@ metadata:
     expose-full.service-key.config.fabric8.io/wit: wit.api.url
 data:
   db.url: keycloak-db
-  db.port: 5432
+  db.port: "5432"
   apiserver.url: http://kubernetes
   fabric8.url: http://fabric8
   keycloak.url: http://keycloak
@@ -22,17 +22,11 @@ data:
       "accessTokenLifespan" : 2592000,
       "accessTokenLifespanForImplicitFlow" : 1296000,
       "ssoSessionIdleTimeout" : 2592000,
+      "accessCodeLifespanUserAction" : 36000,
+      "accessCodeLifespanLogin" : 2592000,
       "ssoSessionMaxLifespan" : 2592000,
       "offlineSessionIdleTimeout" : 2592000,
       "accessCodeLifespan" : 60,
-      "accessCodeLifespanUserAction" : 36000,
-      "accessCodeLifespanLogin" : 2592000,
-      "ssoSessionIdleTimeout" : 2592000,
-      "ssoSessionMaxLifespan" : 2592000,
-      "offlineSessionIdleTimeout" : 2592000,
-      "accessCodeLifespan" : 60,
-      "accessCodeLifespanUserAction" : 36000,
-      "accessCodeLifespanLogin" : 2592000,
       "clients": [
         {
           "clientId": "fabric8-online-platform",
@@ -46,18 +40,65 @@ data:
           "clientAuthenticatorType": "client-secret",
           "secret": "${KEYCLOAK_CLIENTID_SECRET}",
           "publicClient" : true,
-          "adminUrl": "/",
-          "baseUrl": "/",
+          "adminUrl" : "",
+          "baseUrl" : "",
           "redirectUris": [
             "http://localhost:8080/api/login/*",
             "${WIT_URL}*",
-            "${KEYCLOAK_URL}"
+            "${KEYCLOAK_URL}/*"
           ],
           "webOrigins": [
             "*"
-          ]
+          ],
+          "defaultRoles": ["uma_protection"],
+          "authorizationSettings" : {
+            "allowRemoteResourceManagement" : true,
+            "policyEnforcementMode" : "ENFORCING",
+            "scopes" : [ {
+              "name" : "read:space"
+              }, {
+              "name" : "admin:space"
+            } ]
+          }
         }
       ],
+      "users": [{
+         "username": "service-account-fabric8-online-platform",
+         "enabled": true,
+         "totp": false,
+         "emailVerified": false,
+         "email": "service-account-fabric8-online-platform@placeholder.org",
+         "serviceAccountClientId": "fabric8-online-platform",
+         "credentials": [],
+         "disableableCredentialTypes": [],
+         "requiredActions": [],
+         "realmRoles": ["offline_access", "uma_authorization"],
+         "clientRoles": {
+            "realm-management": ["view-users", "manage-authorization"],
+            "broker": ["read-token"],
+            "fabric8-online-platform": ["uma_protection"],
+            "account": ["manage-account", "view-profile"]
+         },
+         "groups": []
+      }],
+      "clientScopeMappings": {
+        "realm-management": [
+            {
+                "client": "fabric8-online-platform",
+                "roles": ["view-users"]
+            },
+            {
+                "client": "fabric8-online-platform",
+                "roles": ["manage-authorization"]
+            }
+        ],
+        "broker": [
+            {
+                "client": "fabric8-online-platform",
+                "roles": ["read-token"]
+            }
+        ]
+      },
       "roles" : {
         "realm" : [
           {
