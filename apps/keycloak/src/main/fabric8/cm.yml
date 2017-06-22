@@ -60,26 +60,45 @@ data:
               "name" : "admin:space"
             } ]
           }
-        },
+        }
       ],
+      "users": [{
+         "username": "service-account-fabric8-online-platform",
+         "enabled": true,
+         "totp": false,
+         "emailVerified": false,
+         "email": "service-account-fabric8-online-platform@placeholder.org",
+         "serviceAccountClientId": "fabric8-online-platform",
+         "credentials": [],
+         "disableableCredentialTypes": [],
+         "requiredActions": [],
+         "realmRoles": ["offline_access", "uma_authorization"],
+         "clientRoles": {
+            "realm-management": ["view-users", "manage-authorization"],
+            "broker": ["read-token"],
+            "fabric8-online-platform": ["uma_protection"],
+            "account": ["manage-account", "view-profile"]
+         },
+         "groups": []
+      }],
       "clientScopeMappings": {
         "realm-management": [
             {
-                "client": "hector-online-platform",
+                "client": "fabric8-online-platform",
                 "roles": ["view-users"]
             },
             {
-                "client": "hector-online-platform",
+                "client": "fabric8-online-platform",
                 "roles": ["manage-authorization"]
             }
         ],
         "broker": [
             {
-                "client": "hector-online-platform",
+                "client": "fabric8-online-platform",
                 "roles": ["read-token"]
             }
         ]
-      }
+      },
       "roles" : {
         "realm" : [
           {
