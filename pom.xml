@@ -76,7 +76,7 @@
     <exposecontroller.version>2.3.16</exposecontroller.version>
     <!-- TODO replace with real releases ASAP -->
     <fabric8-ui.version>SNAPSHOT.v63135081</fabric8-ui.version>
-    <forge.version>1.0.41</forge.version>
+    <forge.version>1.0.48</forge.version>
     <init-tenant.version>va0f70fd</init-tenant.version>
 
     <kubernetes-client.version>2.4.1</kubernetes-client.version>
