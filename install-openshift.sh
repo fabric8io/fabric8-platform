@@ -45,7 +45,7 @@ redirectURIs:
 - "https://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/openshift-v3/endpoint"
 grantMethod: prompt
 EOF
-oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:fabric8:init-tenant
+oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:$(oc project -q):init-tenant
 
 echo "Please wait while the pods all startup!"
 echo
