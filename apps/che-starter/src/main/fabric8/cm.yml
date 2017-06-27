@@ -8,6 +8,6 @@ type: Opaque
 data:
   oso.domain.name: localhost
   oso.address: localhost:8443
-  kubes.certs.ca.file: /opt/che-starter/tsrv.devshift.net.cer
   oso.tokenurl: http://keycloak/auth/realms/fabric8/broker/openshift-v3/token
   github.tokenurl: http://keycloak/auth/realms/fabric8/broker/github/token
+  fabric8.dev.mode: true

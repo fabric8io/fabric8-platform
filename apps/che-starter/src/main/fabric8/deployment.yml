@@ -26,11 +26,11 @@ spec:
               configMapKeyRef:
                 name: che-starter
                 key: oso.domain.name
-          - name: KUBERNETES_CERTS_CA_FILE
+          - name: FABRIC8_PLATFORM_DEV_MODE
             valueFrom:
               configMapKeyRef:
                 name: che-starter
-                key: kubes.certs.ca.file
+                key: fabric8.dev.mode
           name: che-starter
           image: rhche/che-starter:${che-starter.version}
           livenessProbe:
