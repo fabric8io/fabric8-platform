@@ -22,6 +22,8 @@ spec:
           initialDelaySeconds: 120
           timeoutSeconds: 10
         env:
+        - name: "BRANDING"
+          value: "FABRIC8"
         - name: "K8S_API_SERVER"
           valueFrom:
             configMapKeyRef:
