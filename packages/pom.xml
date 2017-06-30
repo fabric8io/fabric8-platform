@@ -50,6 +50,7 @@
 -->
     <module>fabric8-team</module>
     <module>fabric8-system</module>
+    <module>fabric8-full</module>
     <module>distro</module>
   </modules>
 
