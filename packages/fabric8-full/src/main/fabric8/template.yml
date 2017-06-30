@@ -1,0 +1,8 @@
+kind: Template
+parameters:
+- name: APISERVER_HOSTPORT
+- name: NODE_IP
+- name: EXPOSER
+  value: Route
+- name: GITHUB_OAUTH_CLIENT_SECRET
+- name: GITHUB_OAUTH_CLIENT_ID
