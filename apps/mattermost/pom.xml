@@ -26,11 +26,11 @@
     <version>4.0-SNAPSHOT</version>
   </parent>
   
-  <artifactId>keycloak-db</artifactId>
+  <artifactId>mattermost</artifactId>
 
-  <name>Keycloak</name>
+  <name>mattermost</name>
   <description>
-    Keycloak for use with postgresql
+    mattermost
   </description>
 
   <build>

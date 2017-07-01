@@ -39,6 +39,9 @@
     <module>forge</module>
     <module>init-tenant</module>
     <module>keycloak</module>
+    <module>keycloak-db</module>
+    <module>mattermost</module>
+    <module>mattermost-db</module>
     <module>wit</module>
   </modules>
 
