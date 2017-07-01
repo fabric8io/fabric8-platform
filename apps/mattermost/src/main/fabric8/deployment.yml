@@ -1,0 +1,46 @@
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: mattermost-app
+      labels:
+        app: mattermost
+        tier: app
+    spec:
+      containers:
+      - name: mattermost-app
+        image: fabric8/mattermost:${mattermost.version}
+        env:
+        - name: MM_SQLSETTINGS_DATASOURCE
+          valueFrom:
+            secretKeyRef:
+              name: mattermost
+              key: mm-datasource
+        readinessProbe:
+          httpGet:
+            path: "/"
+            port: 8065
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 8065
+          initialDelaySeconds: 60
+          timeoutSeconds: 10
+        volumeMounts:
+        - name: mattermost-data
+          mountPath: /mattermost/data/
+          readOnly: true
+        - name: mattermost-config
+          mountPath: /mattermost/config/
+      volumes:
+      - name: mattermost-data
+        persistentVolumeClaim:
+          claimName: mattermost-data
+      - name: mattermost-config
+        configMap:
+          name: mattermost
+          items:
+          - key: config.json
+            path: config.json

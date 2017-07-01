@@ -1,0 +1,11 @@
+metadata:
+  labels:
+    expose: "true"
+  annotations:
+    service.alpha.openshift.io/dependencies: '[{"name":"mattermost-db","namespace":"","kind":"Service"}]'
+spec:
+  ports:
+  - name: "http"
+    port: 80
+    protocol: "TCP"
+    targetPort: 8065

@@ -88,7 +88,7 @@
     <keycloak.version>vc40d985</keycloak.version>
     <kubeflix.version>1.0.28</kubeflix.version>
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
-
+    <mattermost.version>vbc557c5</mattermost.version>
     <fabric8.maven.plugin.version>3.4.2</fabric8.maven.plugin.version>
     <maven.require.version>3.1.1</maven.require.version>
     <maven.enforcer.plugin.version>1.4</maven.enforcer.plugin.version>
