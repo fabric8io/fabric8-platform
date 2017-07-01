@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mattermost-db
+  labels:
+    service: mattermost-db
+spec:
+  ports:
+    - name: "postgres"
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    service: mattermost-db
+  type: ClusterIP
