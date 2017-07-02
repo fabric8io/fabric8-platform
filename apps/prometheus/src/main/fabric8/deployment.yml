@@ -1,0 +1,49 @@
+metadata:
+  annotations:
+    configmap.fabric8.io/update-on-change: "prometheus"
+spec:
+  template:
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus
+        readinessProbe:
+          httpGet:
+            path: "/"
+            port: 9090
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 9090
+          initialDelaySeconds: 60
+          timeoutSeconds: 10
+        volumeMounts:
+          - name: prometheus
+            mountPath: /etc/prometheus/
+        volumeMounts:
+        - mountPath: /prometheus
+          name: prometheus-volume-1
+      - name: cadvisor
+        image: google/cadvisor
+        readinessProbe:
+          httpGet:
+            path: "/"
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 8080
+          initialDelaySeconds: 60
+          timeoutSeconds: 10
+      volumes:
+      - name: prometheus
+        configMap:
+          name: prometheus
+          defaultMode: 420
+      volumes:
+      - emptyDir: {}
+        name: prometheus-volume-1
