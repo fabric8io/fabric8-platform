@@ -85,7 +85,7 @@
     <fabric8.devops.version>2.2.334</fabric8.devops.version>
     <fabric8.forge.version>2.3.88</fabric8.forge.version>
     <fabric8.ipaas.version>2.2.168</fabric8.ipaas.version>
-    <keycloak.version>vc40d985</keycloak.version>
+    <keycloak.version>v588b462</keycloak.version>
     <kubeflix.version>1.0.28</kubeflix.version>
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
     <mattermost.version>vbc557c5</mattermost.version>
