@@ -64,12 +64,27 @@
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>keycloak-db</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>init-tenant</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>che-starter</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>mattermost</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>mattermost-db</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -105,6 +120,11 @@
     <dependency>
       <groupId>io.fabric8.devops.apps</groupId>
       <artifactId>git-collector</artifactId>
+      <version>${fabric8.devops.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.devops.apps</groupId>
+      <artifactId>sonarqube</artifactId>
       <version>${fabric8.devops.version}</version>
     </dependency>
   </dependencies>

@@ -1,5 +1,5 @@
 metadata:
-  namespace: prometheus
+  namespace: fabric8-metrics
   annotations:
     configmap.fabric8.io/update-on-change: "prometheus"
 spec:

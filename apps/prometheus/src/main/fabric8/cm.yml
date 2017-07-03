@@ -1,5 +1,5 @@
 metadata:
-  namespace: prometheus
+  namespace: fabric8-metrics
 data:
   prometheus.yml: |
     # A scrape configuration for running Prometheus on a Kubernetes cluster.
