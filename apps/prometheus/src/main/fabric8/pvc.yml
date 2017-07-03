@@ -1,5 +1,6 @@
 metadata:
   name: prometheus
+  namespace: prometheus
 spec:
   accessModes:
   - ReadWriteOnce

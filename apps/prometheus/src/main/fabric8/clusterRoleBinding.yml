@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus-cluster-reader
+roleRef:
+  name: cluster-reader
+subjects:
+- kind: ServiceAccount
+  name: prometheus
+  namespace: prometheus
+userNames:
+- system:serviceaccount:prometheus:prometheus

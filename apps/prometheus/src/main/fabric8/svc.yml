@@ -1,4 +1,5 @@
 metadata:
+  namespace: prometheus
   labels:
     expose: "true"
 spec:
