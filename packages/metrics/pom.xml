@@ -44,23 +44,13 @@
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
+            <groupId>io.fabric8.platform.apps</groupId>
             <artifactId>prometheus</artifactId>
-            <version>${fabric8.devops.version}</version>
+            <version>${project.version}</version>
           </dependency>
           <dependency>
             <groupId>io.fabric8.devops.apps</groupId>
             <artifactId>prometheus-blackbox-exporter</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>prometheus-node-exporter</artifactId>
-            <version>${fabric8.devops.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.fabric8.devops.apps</groupId>
-            <artifactId>grafana</artifactId>
             <version>${fabric8.devops.version}</version>
           </dependency>
         </dependencies>
