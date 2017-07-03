@@ -1,0 +1,9 @@
+metadata:
+  name: prometheus
+  namespace: prometheus
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

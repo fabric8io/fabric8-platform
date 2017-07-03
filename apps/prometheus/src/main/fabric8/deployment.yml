@@ -1,0 +1,43 @@
+metadata:
+  namespace: prometheus
+  annotations:
+    configmap.fabric8.io/update-on-change: "prometheus"
+spec:
+  template:
+    spec:
+      containers:
+      - name: prometheus
+        args:
+        - -storage.local.retention=6h
+        - -storage.local.memory-chunks=500000
+        - -config.file=/etc/prometheus/prometheus.yml
+        image: prom/prometheus:latest
+        readinessProbe:
+          httpGet:
+            path: "/"
+            port: 9090
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 9090
+          initialDelaySeconds: 60
+          timeoutSeconds: 10
+        volumeMounts:
+        - mountPath: /etc/prometheus
+          name: prometheus-config
+        - mountPath: /prometheus
+          name: prometheus-data
+      serviceAccount: prometheus
+      serviceAccountName: prometheus
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: prometheus
+        name: prometheus-config
+        items:
+        - key: prometheus.yml
+          path: prometheus.yml
+      - emptyDir: {}
+        name: prometheus-data
