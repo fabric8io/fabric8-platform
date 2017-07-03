@@ -1,8 +1,9 @@
+metadata:
+  namespace: fabric8-metrics
 spec:
   to:
     kind: Service
     name: "prometheus"
-    namespace: prometheus
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect

@@ -6,7 +6,7 @@ roleRef:
   name: cluster-reader
 subjects:
 - kind: ServiceAccount
-  name: prometheus
+  name: fabric8-metrics
   namespace: prometheus
 userNames:
-- system:serviceaccount:prometheus:prometheus
+- system:serviceaccount:fabric8-metrics:prometheus
