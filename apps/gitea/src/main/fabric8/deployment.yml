@@ -1,0 +1,37 @@
+metadata:
+  annotations:
+    configmap.fabric8.io/update-on-change: "gitea"
+spec:
+  template:
+    spec:
+      containers:
+      - image: gitea/gitea:1.1.1
+        env:
+        - name: LAUNCHPAD_BACKEND_CATALOG_GIT_REF
+          value: next
+        - name: OPENSHIFT_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: gitea
+              key: apiserver.url
+        - name: KEYCLOAK_SAAS_URL
+          valueFrom:
+            configMapKeyRef:
+              name: gitea
+              key: keycloak.url
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        workingDir: /home
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: gitea
+          readonly: false
+      volumes:
+      - name: gitea
+        persistentVolumeClaim:
+          claimName: gitea
