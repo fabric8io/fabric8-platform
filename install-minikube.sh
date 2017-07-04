@@ -34,7 +34,8 @@ IFS=':' read KUBERNETES_SERVICE_HOST KUBERNETES_SERVICE_PORT <<< "$PARTS"
 
 APISERVER="${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}"
 NODE_IP="${KUBERNETES_SERVICE_HOST}"
-EXPOSER="NodePort"
+EXPOSER="Ingress"
+DOMAIN=$(minikube ip).nip.io
 
 echo "Connecting to the API Server at: https://${APISERVER}"
 echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
@@ -49,9 +50,10 @@ ROUTE_HOST="fabric8.${NODE_IP}.nic.io"
 
 kubectl create namespace developer
 kubectl create namespace fabric8
+kubectl label node minikube fabric8.io/externalIP=true --overwrite
 
 echo "Applying the fabric8 template ${TEMPLATE}"
-oc process --local -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=${NODE_IP} -p EXPOSER=${EXPOSER} -p GITHUB_OAUTH_CLIENT_SECRET=${GITHUB_SECRET} -p GITHUB_OAUTH_CLIENT_ID=${GITHUB_ID} | kubectl apply -n fabric8 -f -
+oc process --local -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=${NODE_IP} -p EXPOSER=${EXPOSER} -p GITHUB_OAUTH_CLIENT_SECRET=${GITHUB_SECRET} -p GITHUB_OAUTH_CLIENT_ID=${GITHUB_ID} -p DOMAIN=${DOMAIN} | kubectl apply -n fabric8 -f -
 
 #oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:fabric8:init-tenant
 #oc login -u developer -p developer

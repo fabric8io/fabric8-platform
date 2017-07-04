@@ -1,5 +1,5 @@
 metadata:
-  name: ${project.artifactId}
+  name: exposecontroller
   annotations:
       fabric8.io/target-platform: "kubernetes"
 data:
@@ -8,4 +8,4 @@ data:
     node-ip: ${NODE_IP}
     domain: ${DOMAIN}
     watch-current-namespace: true
-    exposer:
+    exposer: ${EXPOSER}
