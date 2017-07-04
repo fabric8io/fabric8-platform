@@ -1,0 +1,13 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: templates.template.openshift.io
+  annotations:
+    fabric8.io/target-platform: kubernetes
+spec:
+  group: template.openshift.io
+  version: v1
+  names:
+    kind: Template
+    plural: templates
+  scope: Namespaced

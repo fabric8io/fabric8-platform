@@ -42,6 +42,7 @@
     <module>keycloak-db</module>
     <module>mattermost</module>
     <module>mattermost-db</module>
+    <module>openshift-api-groups-for-k8s</module>
     <module>prometheus</module>
     <module>wit</module>
   </modules>
