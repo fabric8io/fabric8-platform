@@ -1,0 +1,23 @@
+metadata:
+  annotations:
+    configmap.fabric8.io/update-on-change: "nginx-config"
+    fabric8.io/target-platform: "kubernetes"
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: nginx-ingress
+        image: nginxdemos/nginx-ingress:0.3.1
+        args:
+          - -v=3
+          - -nginx-configmaps=fabric8-system/nginx-config
+        ports:
+        - containerPort: 80
+          hostPort: 80
+          protocol: TCP
+        - containerPort: 443
+          hostPort: 443
+          protocol: TCP
+      nodeSelector:
+          fabric8.io/externalIP: true

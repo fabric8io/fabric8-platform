@@ -82,6 +82,11 @@
       <artifactId>openshift-api-groups-for-k8s</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>ingress-nginx</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <!-- TODO add fabric8-tenant + fabric8-sassy -->
   </dependencies>
 
