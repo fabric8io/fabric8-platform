@@ -64,6 +64,11 @@
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>keycloak-db</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>init-tenant</artifactId>
       <version>${project.version}</version>
     </dependency>
