@@ -2,5 +2,6 @@ kind: Template
 parameters:
 - name: APISERVER_HOSTPORT
 - name: NODE_IP
+- name: DOMAIN
 - name: EXPOSER
   value: Route
