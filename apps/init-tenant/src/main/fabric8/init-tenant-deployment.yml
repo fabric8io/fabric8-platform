@@ -16,6 +16,11 @@ spec:
       containers:
       - image: fabric8/fabric8-init-tenant:${init-tenant.version}
         env:
+        - name: F8_KUBERNETES_MOE
+          valueFrom:
+            configMapKeyRef:
+              key: kubernetes.mode
+              name: f8tenant
         - name: F8_KEYCLOAK_URL
           valueFrom:
             configMapKeyRef:
