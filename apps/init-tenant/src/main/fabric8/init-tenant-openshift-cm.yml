@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: f8tenant
   annotations:
-    fabric8.io/target-platform: "kubernetes"
+    fabric8.io/target-platform: "openshift"
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
     # expose.config.fabric8.io/apiserver-url-key: openshift.tenant.masterurl
 type: Opaque
@@ -18,4 +18,3 @@ data:
   template.recommender.external.name: recommender.api.prod-preview.openshift.io
   keycloak.skip.host.verify: true
   disable.oso.quotas: true
-  kubernetes.mode: true
