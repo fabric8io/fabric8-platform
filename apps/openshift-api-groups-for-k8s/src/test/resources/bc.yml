@@ -2,7 +2,6 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: demo12
-  namespace: default
 spec:
   runPolicy: Serial
   source:
