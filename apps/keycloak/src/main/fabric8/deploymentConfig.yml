@@ -1,7 +1,7 @@
 metadata:
   annotations:
     configmap.fabric8.io/update-on-change: "keycloak"
-    fabric8.io/target-platform: "kubernetes"
+    fabric8.io/target-platform: "openshift"
 spec:
   replicas: 1
   strategy:
@@ -12,7 +12,21 @@ spec:
     metadata:
       annotations:
         pod.beta.kubernetes.io/init-containers: |-
-          [
+          [{
+            "name": "openshift-ca-pemtokeystore",
+            "image": "jimmidyson/pemtokeystore:v0.2.0",
+            "imagePullPolicy": "IfNotPresent",
+            "args": [
+              "-keystore", "/tls-keystore/openshift-truststore.jks",
+              "-ca-file", "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt",
+              "-ca-file", "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt",
+              "-ca-dir", "/usr/share/ca-certificates/mozilla"
+            ],
+            "volumeMounts": [{
+              "name": "keycloak-tls",
+              "mountPath": "/tls-keystore"
+            }]
+          },
           {
             "name": "envvar-substitution",
             "image": "fabric8/envsubst-file:1.0.0",
@@ -102,10 +116,12 @@ spec:
         - -b $(INTERNAL_POD_IP)
         - -Djgroups.bind_addr=global
         - -Djboss.node.name=$(INTERNAL_POD_IP)
+        - -Djavax.net.ssl.trustStore=/opt/jboss/keycloak/standalone/configuration/tls/openshift-truststore.jks
         - -Dkeycloak.migration.action=import
         - -Dkeycloak.migration.provider=singleFile
         - -Dkeycloak.migration.file=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
         - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+
         env:
         - name: POSTGRES_HOSTNAME
           value: keycloak-db
@@ -159,9 +175,13 @@ spec:
           initialDelaySeconds: 60
           timeoutSeconds: 10
         volumeMounts:
+        - name: keycloak-tls
+          mountPath: /opt/jboss/keycloak/standalone/configuration/tls
         - name: keycloak-subst-config
           mountPath: /opt/jboss/keycloak/standalone/configuration/import
       volumes:
+      - name: keycloak-tls
+        emptyDir: {}
       - name: keycloak-subst-config
         emptyDir: {}
       - name: keycloak-config
