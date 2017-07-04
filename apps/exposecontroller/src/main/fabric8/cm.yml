@@ -6,6 +6,6 @@ data:
   config.yml: |
     apiserver: ${APISERVER_HOSTPORT}
     node-ip: ${NODE_IP}
+    domain: ${DOMAIN}
     watch-current-namespace: true
-    domain:
     exposer:
