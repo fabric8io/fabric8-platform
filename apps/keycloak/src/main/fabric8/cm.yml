@@ -10,6 +10,7 @@ data:
   db.port: "5432"
   apiserver.url: http://kubernetes
   fabric8.url: http://fabric8
+  jenkins.url: http://jenkins
   keycloak.url: http://keycloak
   wit.api.url: http://wit
   fabric8-realm.json: |-

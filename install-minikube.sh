@@ -42,6 +42,14 @@ echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
 echo "Using github client ID: ${GITHUB_OAUTH_CLIENT_ID} and secret: ${GITHUB_OAUTH_CLIENT_SECRET}"
 
 
+STORAGECLASS=`kubectl get storageclass -oname`
+if [ "$STORAGECLASS" == "" ] ; then
+  echo "No storageclass is available yet in this cluster!!!"
+  echo "Please wait for `kubectl get storageclass` to find a storage class!"
+  exit 1
+fi
+
+
 GITHUB_ID="${GITHUB_OAUTH_CLIENT_ID}"
 GITHUB_SECRET="${GITHUB_OAUTH_CLIENT_SECRET}"
 
@@ -58,6 +66,8 @@ oc process --local -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=
 #oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:fabric8:init-tenant
 #oc login -u developer -p developer
 
+# TODO wait for exposecontroller to be ready!!!
+
 echo "Please wait while the pods all startup!"
 echo
 echo "To watch this happening you can type:"
@@ -69,14 +79,14 @@ echo
 echo "When the pods are all running please click on the following URLs in your browser, then ADVANCED, then click the URL at the bottom"
 echo "To approve the certs"
 echo
-echo "  https://`minikube service --url keycloak`/"
-echo "  https://`minikube service --url wit`/api/status"
-echo "  https://`minikube service --url forge`/forge/version"
-echo "  https://`minikube service --url fabric8`/"
+echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' keycloak`/"
+echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' wit`/api/status"
+echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' forge`/forge/version"
+echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' fabric8`/"
 echo
 echo
 echo "Then you should be able the open the fabric8 console here:"
-echo "  https://`minikube service --url fabric8`/"
+echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' fabric8`/"
 
 
 
