@@ -73,4 +73,14 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>latest</id>
+      <properties>
+        <init-tenant.version>latest</init-tenant.version>
+      </properties>
+    </profile>
+  </profiles>
+
 </project>
