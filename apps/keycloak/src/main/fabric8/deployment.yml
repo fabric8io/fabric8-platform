@@ -30,6 +30,15 @@ spec:
                   }
             },
             {
+              "name": "JENKINS_URL",
+              "valueFrom": {
+                      "configMapKeyRef": {
+                          "name": "keycloak",
+                          "key": "jenkins.url"
+                      }
+                  }
+            },
+            {
               "name": "KEYCLOAK_URL",
               "valueFrom": {
                       "configMapKeyRef": {
