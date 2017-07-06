@@ -1,0 +1,13 @@
+metadata:
+  name: sso
+  labels:
+    expose: "true"
+  annotations:
+    fabric8.io/target-platform: "openshift"
+    service.alpha.openshift.io/dependencies: '[{"name":"keycloak-db","namespace":"","kind":"Service"}]'
+spec:
+  ports:
+  - name: "http"
+    port: 80
+    protocol: "TCP"
+    targetPort: 8080
