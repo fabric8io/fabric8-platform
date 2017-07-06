@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sso
+  labels:
+    service: init-tenant
+    expose: "true"
+  annotations:
+    fabric8.io/target-platform: "kubernetes"
+    service.alpha.openshift.io/dependencies: '[{"name":"init-tenant-db","namespace":"","kind":"Service"}]'
+spec:
+  ports:
+    - name: "8080"
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    service: init-tenant
+  type: ClusterIP
