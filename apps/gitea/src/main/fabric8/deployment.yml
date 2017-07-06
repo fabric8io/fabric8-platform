@@ -5,7 +5,7 @@ spec:
   template:
     spec:
       containers:
-      - image: gitea/gitea:1.1.1
+      - image: fabric8/gitea::${gitea.version}
         env:
         - name: LAUNCHPAD_BACKEND_CATALOG_GIT_REF
           value: next
@@ -28,10 +28,10 @@ spec:
         - containerPort: 3000
           protocol: TCP
         volumeMounts:
-        - mountPath: /data
-          name: gitea
+        - mountPath: /gitea
+          name: gitea-data
           readonly: false
       volumes:
-      - name: gitea
+      - name: gitea-data
         persistentVolumeClaim:
-          claimName: gitea
+          claimName: gitea-data
