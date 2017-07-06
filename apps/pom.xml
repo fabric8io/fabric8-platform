@@ -37,6 +37,8 @@
     <module>exposecontroller</module>
     <module>fabric8</module>
     <module>forge</module>
+    <module>gitea-db</module>
+    <module>gitea</module>
     <module>init-tenant</module>
     <module>ingress-nginx</module>
     <module>keycloak</module>

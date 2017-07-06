@@ -1,5 +1,5 @@
 metadata:
-  name: gitea-data
+  name: gitea-db-postgresql-data
 spec:
   accessModes:
   - ReadWriteOnce

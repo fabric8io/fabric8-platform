@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gitea-db
+  labels:
+    service: gitea-db
+spec:
+  ports:
+    - name: "postgres"
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    service: gitea-db
+  type: ClusterIP

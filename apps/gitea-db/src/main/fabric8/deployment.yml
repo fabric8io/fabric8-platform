@@ -1,0 +1,57 @@
+metadata:
+  name: gitea-db
+  labels:
+    service: gitea-db
+spec:
+  replicas: 1
+  selector:
+    service: gitea-db
+  template:
+    metadata:
+      labels:
+        service: gitea-db
+    spec:
+      containers:
+      - name: gitea-db
+        image: registry.centos.org/postgresql/postgresql:9.6
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: POSTGRESQL_DATABASE
+          value: gitea
+        - name: POSTGRESQL_PASSWORD
+          value: mmuser_password
+        - name: POSTGRESQL_USER
+          value: mmuser
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          periodSeconds: 5
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/pgsql
+          name: gitea-db-postgresql-data
+          readOnly: false
+      volumes:
+      - name: gitea-db-postgresql-data
+        persistentVolumeClaim:
+          claimName: gitea-db-postgresql-data
