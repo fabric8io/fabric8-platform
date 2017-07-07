@@ -77,7 +77,7 @@
     <!-- TODO replace with real releases ASAP -->
     <fabric8-ui.version>vbbeab49</fabric8-ui.version>
     <forge.version>1.0.49</forge.version>
-    <init-tenant.version>vd4789d1</init-tenant.version>
+    <init-tenant.version>v4070643</init-tenant.version>
 
     <kubernetes-client.version>2.5.2</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
