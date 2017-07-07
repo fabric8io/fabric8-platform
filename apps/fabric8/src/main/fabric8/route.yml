@@ -2,6 +2,3 @@ spec:
   to:
     kind: Service
     name: "fabric8"
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect

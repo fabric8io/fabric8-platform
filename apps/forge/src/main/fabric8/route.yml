@@ -2,6 +2,3 @@ spec:
   to:
     kind: Service
     name: "forge"
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect

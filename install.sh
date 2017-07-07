@@ -53,7 +53,7 @@ metadata:
   name: fabric8-online-platform
 secret: fabric8
 redirectURIs:
-- "https://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/openshift-v3/endpoint"
+- "http://$(oc get route keycloak -o jsonpath="{.spec.host}")/auth/realms/fabric8/broker/openshift-v3/endpoint"
 grantMethod: prompt
 EOF
 oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:fabric8:init-tenant
@@ -67,17 +67,8 @@ echo
 echo "Or you can watch in the OpenShift console via:"
 echo "  minishift console"
 echo
-echo "When the pods are all running please click on the following URLs in your browser, then ADVANCED, then click the URL at the bottom"
-echo "To approve the certs"
-echo
-echo "  https://`oc get route keycloak --template={{.spec.host}}`/"
-echo "  https://`oc get route wit --template={{.spec.host}}`/api/status"
-echo "  https://`oc get route forge --template={{.spec.host}}`/forge/version"
-echo "  https://`oc get route fabric8 --template={{.spec.host}}`/"
-echo
-echo
 echo "Then you should be able the open the fabric8 console here:"
-echo "  https://`oc get route fabric8 --template={{.spec.host}}`/"
+echo "  http://`oc get route fabric8 --template={{.spec.host}}`/"
 
 
 

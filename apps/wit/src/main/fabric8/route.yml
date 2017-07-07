@@ -2,6 +2,3 @@ spec:
   to:
     kind: Service
     name: "wit"
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect

@@ -4,6 +4,3 @@ spec:
   to:
     kind: Service
     name: "prometheus"
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect

@@ -2,6 +2,3 @@ spec:
   to:
     kind: Service
     name: "mattermost"
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect
