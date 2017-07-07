@@ -27,7 +27,7 @@ We now have GitHub integration which for now requires a manual OAuth setup to ob
 
 Follow these steps using the output of:
 ```
-echo https://keycloak-fabric8.$(minishift ip).nip.io/auth/realms/fabric8/broker/github/endpoint
+echo http://keycloak-fabric8.$(minishift ip).nip.io/auth/realms/fabric8/broker/github/endpoint
 ```
 as the Authorization callback URL and `http://fabric8.io` as a sample homepage URL.
 

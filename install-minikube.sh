@@ -76,17 +76,8 @@ echo
 echo "Or you can watch in the OpenShift console via:"
 echo "  minikube dashboard"
 echo
-echo "When the pods are all running please click on the following URLs in your browser, then ADVANCED, then click the URL at the bottom"
-echo "To approve the certs"
-echo
-echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' keycloak`/"
-echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' wit`/api/status"
-echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' forge`/forge/version"
-echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' fabric8`/"
-echo
-echo
 echo "Then you should be able the open the fabric8 console here:"
-echo "  https://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' fabric8`/"
+echo "  http://`kubectl get ingress -n fabric8 --template='{{ (index .spec.rules 0).host}}' fabric8`/"
 
 
 
