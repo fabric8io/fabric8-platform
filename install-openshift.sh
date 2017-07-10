@@ -17,23 +17,25 @@ else
 fi
 echo "Using the fabric8 template: ${TEMPLATE}"
 
-
 APISERVER=$(oc version | grep Server | sed -e 's/.*http:\/\///g' -e 's/.*https:\/\///g')
 NODE_IP=$(echo "${APISERVER}" | sed -e 's/:.*//g')
-#EXPOSER="NodePort"
 EXPOSER="Route"
+DOMAIN=${NODE_IP}.nip.io
 
 echo "Connecting to the API Server at: https://${APISERVER}"
 echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
 echo "Using github client ID: ${GITHUB_OAUTH_CLIENT_ID} and secret: ${GITHUB_OAUTH_CLIENT_SECRET}"
 
-
 GITHUB_ID="${GITHUB_OAUTH_CLIENT_ID}"
 GITHUB_SECRET="${GITHUB_OAUTH_CLIENT_SECRET}"
 
-echo "Applying the fabric8 template ${TEMPLATE}"
-oc process -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=${NODE_IP} -p EXPOSER=${EXPOSER} -p GITHUB_OAUTH_CLIENT_SECRET=${GITHUB_SECRET} -p GITHUB_OAUTH_CLIENT_ID=${GITHUB_ID} | oc apply -f -
+oc new-project developer
+oc new-project fabric8-system
 
+echo "Applying the fabric8 template ${TEMPLATE}"
+oc process --local -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=${NODE_IP} -p EXPOSER=${EXPOSER} -p GITHUB_OAUTH_CLIENT_SECRET=${GITHUB_SECRET} -p GITHUB_OAUTH_CLIENT_ID=${GITHUB_ID} -p DOMAIN=${DOMAIN} | oc apply -n fabric8-system -f -
+
+oc login -u system:admin
 echo "Now adding the OAuthClient and cluster-admin role to the init-tenant service account"
 cat <<EOF | oc create -f -
 kind: OAuthClient
@@ -47,20 +49,12 @@ grantMethod: prompt
 EOF
 oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:$(oc project -q):init-tenant
 
+oc login -u developer
+
 echo "Please wait while the pods all startup!"
 echo
 echo "To watch this happening you can type:"
-echo "  oc get pod -l provider=fabric8 -w"
-echo
-echo "Or you can watch in the OpenShift console"
+echo "watch oc get pod -l provider=fabric8"
 echo
 echo "Then you should be able the open the fabric8 console here:"
-echo "  http://`oc get route fabric8 --template={{.spec.host}}`/"
-
-
-
-
-
-
-
-
+echo "  http://`oc get route fabric8 -o jsonpath='{.spec.host}'`"
