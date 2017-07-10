@@ -22,10 +22,8 @@ spec:
           initialDelaySeconds: 120
           timeoutSeconds: 10
         env:
-        - name: "KUBERNETES_MODE"
-          value: "true"
         - name: "BRANDING"
-          value: "fabric8"
+          value: "FABRIC8"
         - name: "K8S_API_SERVER"
           valueFrom:
             configMapKeyRef:
@@ -81,19 +79,4 @@ spec:
             configMapKeyRef:
               name: fabric8
               key: apiserver.base.path
-        - name: "WS_K8S_API_SERVER_BASE_PATH"
-          valueFrom:
-            configMapKeyRef:
-              name: fabric8
-              key: ws.apiserver.base.path
-        - name: "WS_K8S_API_SERVER_PROTOCOL"
-          valueFrom:
-            configMapKeyRef:
-              name: fabric8
-              key: ws.apiserver.protocol
-        - name: "WS_K8S_API_SERVER"
-          valueFrom:
-            configMapKeyRef:
-              name: fabric8
-              key: ws.apiserver.host
 

@@ -18,3 +18,4 @@ data:
   template.recommender.external.name: recommender.api.prod-preview.openshift.io
   keycloak.skip.host.verify: true
   disable.oso.quotas: true
+  kubernetes.mode: false

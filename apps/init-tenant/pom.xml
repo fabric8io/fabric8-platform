@@ -76,9 +76,9 @@
 
   <profiles>
     <profile>
-      <id>latest</id>
+      <id>dev</id>
       <properties>
-        <init-tenant.version>latest</init-tenant.version>
+        <init-tenant.version>dev</init-tenant.version>
       </properties>
     </profile>
   </profiles>
