@@ -8,4 +8,4 @@ data:
     node-ip: ${NODE_IP}
     exposer: Ingress
     watch-current-namespace: true
-    domain:
+    domain: ${DOMAIN}
