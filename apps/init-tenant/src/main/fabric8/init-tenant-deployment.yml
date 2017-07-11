@@ -14,7 +14,7 @@ spec:
         service: init-tenant
     spec:
       containers:
-      - image: fabric8/fabric8-init-tenant:${init-tenant.version}
+      - image: fabric8/fabric8-tenant:${init-tenant.version}
         env:
         - name: "KUBERNETES_NAMESPACE"
           valueFrom:
