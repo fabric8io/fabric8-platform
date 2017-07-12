@@ -37,7 +37,7 @@ spec:
         - name: "FABRIC8_SSO_API_URL"
           valueFrom:
             configMapKeyRef:
-              name: fabric8
+              name: sso
               key: keycloak.url
         - name: "FABRIC8_WIT_API_URL"
           valueFrom:

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sso
+  annotations:
+    fabric8.io/target-platform: "openshift"
+    expose-full.service-key.config.fabric8.io/keycloak: keycloak.url
+data:
+  keycloak.url: http://keycloak
