@@ -79,4 +79,19 @@ spec:
             configMapKeyRef:
               name: fabric8
               key: apiserver.base.path
+        - name: "WS_K8S_API_SERVER_BASE_PATH"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8
+              key: ws.apiserver.base.path
+        - name: "WS_K8S_API_SERVER_PROTOCOL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8
+              key: ws.apiserver.protocol
+        - name: "WS_K8S_API_SERVER"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8
+              key: ws.apiserver.host
 
