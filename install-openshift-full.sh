@@ -17,19 +17,18 @@ else
 fi
 echo "Using the fabric8 template: ${TEMPLATE}"
 
-
 APISERVER=$(oc version | grep Server | sed -e 's/.*http:\/\///g' -e 's/.*https:\/\///g')
 NODE_IP=$(echo "${APISERVER}" | sed -e 's/:.*//g')
-#EXPOSER="NodePort"
 EXPOSER="Route"
 
 echo "Connecting to the API Server at: https://${APISERVER}"
 echo "Using Node IP ${NODE_IP} and Exposer strategy: ${EXPOSER}"
 echo "Using github client ID: ${GITHUB_OAUTH_CLIENT_ID} and secret: ${GITHUB_OAUTH_CLIENT_SECRET}"
 
-
 GITHUB_ID="${GITHUB_OAUTH_CLIENT_ID}"
 GITHUB_SECRET="${GITHUB_OAUTH_CLIENT_SECRET}"
+
+oc new-project fabric8-system
 
 echo "Applying the fabric8 template ${TEMPLATE}"
 oc process -f ${TEMPLATE} -p APISERVER_HOSTPORT=${APISERVER} -p NODE_IP=${NODE_IP} -p EXPOSER=${EXPOSER} -p GITHUB_OAUTH_CLIENT_SECRET=${GITHUB_SECRET} -p GITHUB_OAUTH_CLIENT_ID=${GITHUB_ID} | oc apply -f -
@@ -54,7 +53,7 @@ if [ "$FABRIC8_VERSION" == "local" ] ; then
   echo "Installing using a local build"
 else
   echo "Installing fabric8 version: ${FABRIC8_VERSION}"
-  METRICS="http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-metrics/${FABRIC8_VERSION}/fabric8-metrics-${FABRIC8_VERSION}-openshift.yml"
+  METRICS="http://central.maven.org/maven2/io/fabric8/platform/packages/metrics/${FABRIC8_VERSION}/metrics-${FABRIC8_VERSION}-openshift.yml"
 fi
 
 oc apply -f ${METRICS}
