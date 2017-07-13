@@ -7,5 +7,5 @@ metadata:
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
     #expose.service-key.config.fabric8.io/sso: keycloak.url
 data:
-  keycloak.url: http://init-tenant
+  keycloak.url: http://f8tenant
   apiserver.url: http://kubernetes
