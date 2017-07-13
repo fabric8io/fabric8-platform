@@ -5,7 +5,7 @@ metadata:
   annotations:
     fabric8.io/target-platform: "openshift"
     expose.config.fabric8.io/apiserver-url-key: apiserver.url
-    #expose.service-key.config.fabric8.io/sso: keycloak.url
+    expose.service-key.config.fabric8.io/keycloak: keycloak.url
 data:
   keycloak.url: http://keycloak
   apiserver.url: http://kubernetes
