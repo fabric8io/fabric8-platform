@@ -41,7 +41,7 @@ spec:
             - sh
             - -c
             - exec pg_isready --host $POD_IP
-          initialDelaySeconds: 5
+          initialDelaySeconds: 20
           timeoutSeconds: 3
           periodSeconds: 5
         ports:
