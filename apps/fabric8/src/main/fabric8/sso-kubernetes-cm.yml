@@ -4,6 +4,6 @@ metadata:
   name: sso
   annotations:
     fabric8.io/target-platform: "kubernetes"
-    expose-full.service-key.config.fabric8.io/init-tenant: keycloak.url
+    expose-full.service-key.config.fabric8.io/f8tenant: keycloak.url
 data:
   keycloak.url: http://init-tenant
