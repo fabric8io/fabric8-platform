@@ -6,7 +6,7 @@ metadata:
     fabric8.io/target-platform: "kubernetes"
 data:
   client-max-body-size: 2000m
-  proxy-connect-timeout: 500s
-  proxy-read-timeout: 500s
+  proxy-connect-timeout: 2500s
+  proxy-read-timeout: 2500s
   server-names-hash-bucket-size: "256"
   server-names-hash-max-size: "1024"
