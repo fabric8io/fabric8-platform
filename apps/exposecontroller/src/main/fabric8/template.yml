@@ -4,4 +4,4 @@ parameters:
 - name: NODE_IP
 - name: DOMAIN
 - name: EXPOSER
-  value: Route
+  value: Auto     

@@ -25,6 +25,11 @@ spec:
             configMapKeyRef:
               key: kubernetes.mode
               name: f8tenant
+        - name: TENANT_EXPOSER
+          valueFrom:
+            configMapKeyRef:
+              key: tenant.exposer
+              name: f8tenant
         - name: F8_KEYCLOAK_URL
           valueFrom:
             configMapKeyRef:

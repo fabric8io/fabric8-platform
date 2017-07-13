@@ -19,3 +19,4 @@ data:
   keycloak.skip.host.verify: true
   disable.oso.quotas: true
   kubernetes.mode: false
+  tenant.exposer: Route
