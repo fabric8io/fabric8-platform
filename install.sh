@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+set -ef
 
 LATEST="latest"
 FABRIC8_VERSION=${1:-$LATEST}
 
 if [ "$FABRIC8_VERSION" == "$LATEST" ] || [ "$FABRIC8_VERSION" == "" ] ; then
-  FABRIC8_VERSION=$(curl -sL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
+  FABRIC8_VERSION=$(curl -fsL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
 fi
 
 TEMPLATE="packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml"
