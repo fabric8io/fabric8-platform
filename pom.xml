@@ -74,7 +74,7 @@
     <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <exposecontroller.version>2.3.16</exposecontroller.version>
-    <fabric8-ui.version>v92c47df</fabric8-ui.version>
+    <fabric8-ui.version>v49aa71a</fabric8-ui.version>
     <forge.version>1.0.51</forge.version>
     <init-tenant.version>v5b78f51</init-tenant.version>
 
