@@ -75,7 +75,7 @@
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <exposecontroller.version>2.3.16</exposecontroller.version>
     <fabric8-ui.version>v496d576</fabric8-ui.version>
-    <forge.version>1.0.51</forge.version>
+    <forge.version>1.0.52</forge.version>
     <init-tenant.version>v92cffae</init-tenant.version>
 
     <kubernetes-client.version>2.5.2</kubernetes-client.version>
