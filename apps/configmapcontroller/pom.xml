@@ -23,7 +23,7 @@
   <parent>
     <groupId>io.fabric8.platform.apps</groupId>
     <artifactId>apps</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>4.0.43</version>
   </parent>
 
   <artifactId>configmapcontroller</artifactId>
