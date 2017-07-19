@@ -21,7 +21,7 @@
   <parent>
     <groupId>io.fabric8.platform.packages</groupId>
     <artifactId>packages</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>4.0.41</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
