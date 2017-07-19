@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 LATEST="latest"
-FABRIC8_VERSION=${1:-$LATEST}
+FABRIC8_VERSION=${1:-${FABRIC8_VERSION-$LATEST}}
 
 if [ "$FABRIC8_VERSION" == "$LATEST" ] || [ "$FABRIC8_VERSION" == "" ] ; then
   FABRIC8_VERSION=$(curl -sL http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-full/maven-metadata.xml | grep '<latest' | cut -f2 -d">"|cut -f1 -d"<")
