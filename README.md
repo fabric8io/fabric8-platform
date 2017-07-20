@@ -89,7 +89,7 @@ The angular JS 1.x version of the [Developer Console](https://fabric8.io/guide/c
 * [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library) provides a set of reusable [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) steps and functions that you can reuse inside your `Jenkinsfile` via the [@Library annotation](https://github.com/fabric8io/fabric8-pipeline-library#how-to-use-this-library) 
 * [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) provides a set of reusable `Jenkinsfile` files you can use on your projects. The `Jenkisnfiles` resue the [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library and they are used by the [Developer Console](https://fabric8.io/guide/console.html) when creating projects or choosing pipelines.
 * [kubernetes-plugin](https://github.com/jenkinsci/kubernetes-plugin) is the Jenkins plugin which adds native Kubernetes support for defining build slave pods with custom pods, images, volumes and secrets. Its reused by the [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library)
-* [fabric8-jenkins-workflow-steps](https://github.com/fabric8io/fabric8-jenkins-workflow-steps) the Jenkins Pipeline steps for working with [Microservices Platform](https://fabric8.io/guide/fabric8DevOps.html)
+* [kubernetes-pipeline-plugin](https://github.com/fabric8io/kubernetes-pipeline-plugin) contains additional Jenkins Pipeline steps for working with fabric8
 
 ### [DevOps](https://fabric8.io/guide/fabric8DevOps.html)
 
