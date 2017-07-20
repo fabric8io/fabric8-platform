@@ -63,16 +63,25 @@ The fabric8 developer platform is based on lots of different open source project
 
 * [fabric8-maven-plugin](https://github.com/fabric8io/fabric8-maven-plugin) provides [Apache Maven](http://maven.apache.org/) support for Kubernetes, OpenShift and Fabric8
 
-### [Developer Console](https://fabric8.io/guide/console.html)
+### Developer Console
+
+#### Version 4.x or later
+
+The new shiny Angular console is here [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui) along with a bunch of other NPM modules in the [fabric8-ui organisation](https://github.com/fabric8-ui)
+
+The new console works directly with 
+
+* kubernetes/openshift REST API for kubernetes/openshift resources
+* [fabric8-wit](https://github.com/fabric8-services/fabric8-wit) for spaces and issue tracking
+* forge for new/import project wizards via the [backend](https://github.com/fabric8io/generator-backend) and [forge addon](https://github.com/fabric8io/fabric8-generator) 
+
+#### Version 3.x and earlier
+
+The angular JS 1.x version of the [Developer Console](https://fabric8.io/guide/console.html) is made up of:
 
 * [fabric8-console](https://github.com/fabric8io/fabric8-console) the web console for fabric8
 * [fabric8-forge](https://github.com/fabric8io/fabric8-forge) contains the main [JBoss Forge addons and REST service](https://fabric8.io/guide/forge.html) which provides developer wizards to create and edit projects
 
-We are working on migrating the consoles to [Angular 2](https://angular.io/). All the Angular 2 based UI work is hosted in the [fabric8-ui github organisation](https://github.com/fabric8-ui/). 
-
-Here are the Angular 2 versions of the consoles:
-
-* [fabric8-runtime-console](https://github.com/fabric8-ui/fabric8-runtime-console) the Angular 2 based web console for fabric8
 
 
 #### CI / CD 
