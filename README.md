@@ -11,6 +11,48 @@ This project generates the distribution of the [fabric8 developer platform](http
 
 To install the early access of this on [Minishift check out the installation guide](INSTALL.md)
 
+## Fabric8 Platform Overview
+
+These are a core set of shared services then a set of tennt services (i.e. services which are specific for each user/team):
+
+### Shared Services
+
+* [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui) provides the HTML / CSS / JavaScript from end using Angular and PatternFly to the system
+* [keycloak](https://github.com/fabric8-services/keycloak-deployment) KeyCloak manages SSO
+* [fabric8-tenant](https://github.com/fabric8-services/fabric8-tenant) manages installing and upgrading user tenant services
+* [fabric8-wit](https://github.com/fabric8-services/fabric8-wit) Work Item Tracker (database and REST API for spaces, work items etc)
+* forge via the [backend](https://github.com/fabric8io/generator-backend) and [forge addon](https://github.com/fabric8io/fabric8-generator) implements wizards for new projects or import projects etc. Uses the [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) to add pipelines to projects.
+
+when installing on premise we also use these microservices:
+
+* [exposecontroller](https://github.com/fabric8io/exposecontroller/) exposes services as public URLs on kubernetes or openshift clusters via various strategies (Route, Ingress, NodePort, LoadBalancer) depending on the cluster and injects public URLs into ConfigMaps
+* [configmapcontroller](https://github.com/fabric8io/configmapcontroller/) automates rolling upgrades as ConfigMaps are changed (either by users or via the [exposecontroller](https://github.com/fabric8io/exposecontroller/)
+
+
+### Tenant Services
+
+Each user/team can get their own [Jenkins](https://github.com/fabric8io/fabric8-online/tree/master/packages/fabric8-online-jenkins), Che and Content Repository.
+
+Our [Jenkins image](https://github.com/fabric8io/openshift-jenkins-s2i-config) includes the [jenkins sync plugin](https://github.com/fabric8io/jenkins-sync-plugin/tree/job-to-bc) and [kubernetes-pipeline-plugin](https://github.com/fabric8io/kubernetes-pipeline-plugin) along with the [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library)
+
+### Other components
+
+* [fabric8-platform](https://github.com/fabric8io/fabric8-platform) creates the various distributions (openshift + kubernetes manifests, templates etc)
+* [gofabric8](https://github.com/fabric8io/gofabric8) is a go based CLI tool for installing and managing fabric8
+
+
+## Github Organisations
+
+There are lots of github repositories which make up the full platform.
+
+* [fabric8-analytics](https://github.com/fabric8-analytics) the Fabric8 Analytics projects
+* [fabric8-ide](https://github.com/fabric8-ide) the Fabric8 IDE projects (e.g. Eclipse Che related repos)
+* [fabric8-quickstarts](https://github.com/fabric8-quickstarts) the fabric8 community quickstarts
+* [fabric8-services](https://github.com/fabric8-services) various Services used in the fabric8 platform
+* [fabric8-images](https://github.com/fabric8-images) various docker images
+* [fabric8-ui](https://github.com/fabric8-ui) contains all the HTML / CSS / JavaScript / Angular modules to create the web console for fabric8: [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui)
+* [fabric8io](https://github.com/fabric8io) general purpose organisation contains various things like the Java [kubernetes-client](https://github.com/fabric8io/fubernetes-client), [fabric8-maven-plugin](https://github.com/fabric8io/fabric8-maven-plugin), jenkins pipeline libraries but also numerous other things. Longer term stuff from here should probably move to more focussed organisations
+
 ## Projects
 
 The fabric8 developer platform is based on lots of different open source projects. Here's the main fabric8 repositories:
