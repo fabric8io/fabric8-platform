@@ -13,15 +13,15 @@ To install the early access of this on [Minishift check out the installation gui
 
 ## Fabric8 Platform Overview
 
-These are a core set of shared services then a set of tennt services (i.e. services which are specific for each user/team):
+There are a core set of _shared services_ which are shared by all users then a set of services created for each user/team which we refer to as _tenant services_.
 
 ### Shared Services
 
 * [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui) provides the HTML / CSS / JavaScript from end using Angular and PatternFly to the system
 * [keycloak](https://github.com/fabric8-services/keycloak-deployment) KeyCloak manages SSO
-* [fabric8-tenant](https://github.com/fabric8-services/fabric8-tenant) manages installing and upgrading user tenant services
+* [fabric8-tenant](https://github.com/fabric8-services/fabric8-tenant) manages installing and upgrading tenant services as users login etc
 * [fabric8-wit](https://github.com/fabric8-services/fabric8-wit) Work Item Tracker (database and REST API for spaces, work items etc)
-* forge via the [backend](https://github.com/fabric8io/generator-backend) and [forge addon](https://github.com/fabric8io/fabric8-generator) implements wizards for new projects or import projects etc. Uses the [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) to add pipelines to projects.
+* forge via the [backend](https://github.com/fabric8io/generator-backend) and [forge addon](https://github.com/fabric8io/fabric8-generator) implements wizards for new projects or import projects etc. Reuses the RHOAR quickstarts and uses the [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) to add pipelines for CI / CD to projects.
 
 when installing on premise we also use these microservices:
 
@@ -43,7 +43,9 @@ Our [Jenkins image](https://github.com/fabric8io/openshift-jenkins-s2i-config) i
 
 ## Github Organisations
 
-There are lots of github repositories which make up the full platform.
+There are lots of github repositories which make up the full platform!
+
+To make things easier to navigate we've created a few different organisations to contain the various parts of fabric8:
 
 * [fabric8-analytics](https://github.com/fabric8-analytics) the Fabric8 Analytics projects
 * [fabric8-ide](https://github.com/fabric8-ide) the Fabric8 IDE projects (e.g. Eclipse Che related repos)
@@ -53,9 +55,9 @@ There are lots of github repositories which make up the full platform.
 * [fabric8-ui](https://github.com/fabric8-ui) contains all the HTML / CSS / JavaScript / Angular modules to create the web console for fabric8: [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui)
 * [fabric8io](https://github.com/fabric8io) general purpose organisation contains various things like the Java [kubernetes-client](https://github.com/fabric8io/fubernetes-client), [fabric8-maven-plugin](https://github.com/fabric8io/fabric8-maven-plugin), jenkins pipeline libraries but also numerous other things. Longer term stuff from here should probably move to more focussed organisations
 
-## Projects
+## Detailed List of Projects
 
-The fabric8 developer platform is based on lots of different open source projects. Here's the main fabric8 repositories:
+The fabric8 developer platform is based on lots of different open source projects. Here's the main repositories:
 
 ### [Maven Tooling](https://maven.fabric8.io/)
 
@@ -128,8 +130,7 @@ Kubernetes provides the main REST API for working with the [Kubernetes Platform]
 * [kubernetes-assertions](https://github.com/fabric8io/fabric8/tree/master/components/kubernetes-assertions) provides a set of [assertj](http://joel-costigliola.github.io/assertj/) assertions of the form **assertThat(kubernetesResource)** for working with the [kubernetes-api](https://github.com/fabric8io/fabric8/tree/master/components/kubernetes-api)
 * [jolokia-assertions](https://github.com/fabric8io/fabric8/tree/master/components/jolokia-assertions) makes it easy to perform assertions on remote JVMs via JMX using  [Jolokia](http://jolokia.org/) over HTTP/JSON
 
-
-#### Spring
+### Spring
 
 * [spring-cloud-kubernetes](https://github.com/fabric8io/spring-cloud-kubernetes) provides <a href="http://kubernetes.io/">Kubernetes</a> integration with <a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a>
 * [kubernetes-zipkin](https://github.com/fabric8io/kubernetes-zipkin) provides <a href="http://kubernetes.io/">Kubernetes</a> integration with <a href="http://zipkin.io/">Zipkin</a> for tracing microservices
