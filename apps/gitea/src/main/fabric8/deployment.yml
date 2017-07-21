@@ -5,7 +5,7 @@ spec:
   template:
     spec:
       containers:
-      - image: fabric8/gitea::${gitea.version}
+      - image: fabric8/gitea:${gitea.version}
         env:
         - name: LAUNCHPAD_BACKEND_CATALOG_GIT_REF
           value: next
