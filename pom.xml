@@ -76,7 +76,7 @@
     <exposecontroller.version>2.3.16</exposecontroller.version>
     <fabric8-ui.version>vf0ca811</fabric8-ui.version>
     <forge.version>1.0.54</forge.version>
-    <init-tenant.version>veb0fdc7</init-tenant.version>
+    <init-tenant.version>v1e5af6a</init-tenant.version>
 
     <kubernetes-client.version>2.5.7</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
