@@ -76,7 +76,7 @@
     <exposecontroller.version>2.3.16</exposecontroller.version>
     <fabric8-ui.version>vf0ca811</fabric8-ui.version>
     <forge.version>1.0.54</forge.version>
-    <init-tenant.version>v531c495</init-tenant.version>
+    <init-tenant.version>v75996d1</init-tenant.version>
 
     <kubernetes-client.version>2.5.7</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
@@ -89,7 +89,7 @@
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
     <mattermost.version>vbc557c5</mattermost.version>
     <gitea.version>vbc557c5</gitea.version>
-    <fabric8.maven.plugin.version>3.5.14</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.5.17</fabric8.maven.plugin.version>
     <maven.require.version>3.1.1</maven.require.version>
     <maven.enforcer.plugin.version>1.4</maven.enforcer.plugin.version>
     <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
