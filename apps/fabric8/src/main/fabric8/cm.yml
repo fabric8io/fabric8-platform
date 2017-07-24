@@ -17,6 +17,7 @@ metadata:
     #expose.config.fabric8.io/apiserver-url-key: apiserver.url
     expose-full.service-key.config.fabric8.io/sso: keycloak.url
     expose-full.service-key.config.fabric8.io/wit: wit.api.url
+    expose-full.service-key.config.fabric8.io/f8tenant: f8tenant.api.url
     expose.service-key.config.fabric8.io/forge: forge.api.url
     #expose.config.fabric8.io/apiserver-protocol-key: apiserver.protocol
     expose.config.fabric8.io/protocol-key: apiserver.protocol
@@ -33,5 +34,6 @@ data:
   keycloak.url: http://keycloak
   forge.api.url: http://generator-backend
   wit.api.url: http://wit
+  f8tenant.api.url: http://f8tenant
   openshift.console.url: ""
   recommender.api.url: ""
