@@ -46,6 +46,11 @@ spec:
             configMapKeyRef:
               name: fabric8
               key: wit.api.url
+        - name: "FABRIC8_TENANT_API_URL"
+          valueFrom:
+            configMapKeyRef:
+              name: fabric8
+              key: f8tenant.api.url
         - name: "FABRIC8_FORGE_API_URL"
           valueFrom:
             configMapKeyRef:
