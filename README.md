@@ -69,11 +69,11 @@ The fabric8 developer platform is based on lots of different open source project
 
 The new shiny Angular console is here [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui) along with a bunch of other NPM modules in the [fabric8-ui organisation](https://github.com/fabric8-ui)
 
-The new console works directly with 
+The new console works directly with
 
 * kubernetes/openshift REST API for kubernetes/openshift resources
 * [fabric8-wit](https://github.com/fabric8-services/fabric8-wit) for spaces and issue tracking
-* forge for new/import project wizards via the [backend](https://github.com/fabric8io/generator-backend) and [forge addon](https://github.com/fabric8io/fabric8-generator) 
+* forge for new/import project wizards via the [backend](https://github.com/fabric8io/generator-backend) and [forge addon](https://github.com/fabric8io/fabric8-generator)
 
 #### Version 3.x and earlier
 
@@ -84,9 +84,9 @@ The angular JS 1.x version of the [Developer Console](https://fabric8.io/guide/c
 
 
 
-#### CI / CD 
+#### CI / CD
 
-* [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library) provides a set of reusable [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) steps and functions that you can reuse inside your `Jenkinsfile` via the [@Library annotation](https://github.com/fabric8io/fabric8-pipeline-library#how-to-use-this-library) 
+* [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library) provides a set of reusable [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) steps and functions that you can reuse inside your `Jenkinsfile` via the [@Library annotation](https://github.com/fabric8io/fabric8-pipeline-library#how-to-use-this-library)
 * [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) provides a set of reusable `Jenkinsfile` files you can use on your projects. The `Jenkisnfiles` resue the [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library and they are used by the [Developer Console](https://fabric8.io/guide/console.html) when creating projects or choosing pipelines.
 * [kubernetes-plugin](https://github.com/jenkinsci/kubernetes-plugin) is the Jenkins plugin which adds native Kubernetes support for defining build slave pods with custom pods, images, volumes and secrets. Its reused by the [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library)
 * [kubernetes-pipeline-plugin](https://github.com/fabric8io/kubernetes-pipeline-plugin) contains additional Jenkins Pipeline steps for working with fabric8
@@ -150,18 +150,18 @@ Kubernetes provides the main REST API for working with the [Kubernetes Platform]
 * [mq-client](https://github.com/fabric8io/fabric8-ipaas/tree/master/mq-client) provides the the **io.fabric8.mq.core.MQConnectionFactory** class which implements the JMS ConnectionFactory to connect to Apache ActiveMQ Artemis using the [Kubernetes Service](http://fabric8.io/guide/services.html) discovery mechanism which requires no user configuration (other than a single environment variable if you wish to switch to a non default service implementation)
 
 
-### Camel 
+### Camel
 
 * [camel-amq](https://github.com/fabric8io/fabric8-ipaas/tree/master/camel-amq) provides the [Camel](http://camel.apache.org/) **amq:** component which uses the [Kubernetes Service](http://fabric8.io/guide/services.html) discovery mechanism to discover and connect to the ActiveMQ Artemis brokers so that no configuration is required (other than a single environment variable if you wish to switch to a non default service implementation)
 
-* [camel-master](https://github.com/fabric8io/fabric8-ipaas/tree/master/camel-master) provides the [Camel](http://camel.apache.org/) **master:** component which provides a locking mechanism to ensure that only one pod implements a consumer at any time; if that pod dies then another one takes over. 
+* [camel-master](https://github.com/fabric8io/fabric8-ipaas/tree/master/camel-master) provides the [Camel](http://camel.apache.org/) **master:** component which provides a locking mechanism to ensure that only one pod implements a consumer at any time; if that pod dies then another one takes over.
 
 ### CDI
 
 * [fabric8-cdi](cdi.html) provides an easy way to work with Kubernetes [services](service.html) using the CDI Dependency Injection approach
-* [fabric8-apt](https://github.com/fabric8io/fabric8/tree/master/fabric8-apt) provides an APT code generator to create a JSON Schema file for each environment variable injected by the [@ConfigProperty](http://deltaspike.apache.org/documentation/configuration.html) annotation from [deltaspike](http://deltaspike.apache.org/) - giving dteails of the name, type, default value and description. This can then be used by the [fabric8:json maven goal](mavenplugin.html) to list all of the environment variables and their 
+* [fabric8-apt](https://github.com/fabric8io/fabric8/tree/master/fabric8-apt) provides an APT code generator to create a JSON Schema file for each environment variable injected by the [@ConfigProperty](http://deltaspike.apache.org/documentation/configuration.html) annotation from [deltaspike](http://deltaspike.apache.org/) - giving dteails of the name, type, default value and description. This can then be used by the [fabric8:json maven goal](mavenplugin.html) to list all of the environment variables and their
 
-### DevOps 
+### DevOps
 
 * [fabric8-devops-connector](https://github.com/fabric8io/fabric8/tree/master/components/fabric8-devops-connector) provides a Java library for connecting the various DevOps services like git hosting, chat, issue tracking and jenkins for a project reusing the optional `fabric8.yml` file
 
@@ -229,7 +229,7 @@ The above-packaged docker images leverage some of these base Docker images:
 #### Jetty
 * [docker.io/fabric8/jetty-9](https://github.com/fabric8io/base-images/tree/master/jetty/images/9)
 * [docker.io/fabric8/jetty-8](https://github.com/fabric8io/base-images/tree/master/jetty/images/8)
- 
+
 #### Karaf
 * [docker.io/fabric8/karaf-2.4](https://github.com/fabric8io/base-images/tree/master/karaf/images/2.4)
 * [docker.io/fabric8/karaf-3.0](https://github.com/fabric8io/base-images/tree/master/karaf/images/3)
@@ -254,7 +254,7 @@ oc new-project fabric8
 git clone https://github.com/fabric8io/fabric8-platform.git
 cd fabric8-platform
 mvn clean install -DskipTests=true
-gofabric8 deploy --package=packages/fabric8-platform/target/classes/META-INF/fabric8/openshift.yml
+gofabric8 deploy --package=packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml
 ```
 Pods may be restarted a few times whilst configuration is updated and applied.
 
