@@ -114,7 +114,7 @@ spec:
         - -Dkeycloak.migration.action=import
         - -Dkeycloak.migration.provider=singleFile
         - -Dkeycloak.migration.file=/opt/jboss/keycloak/standalone/configuration/import/fabric8-realm.json
-        - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+        - -Dkeycloak.migration.strategy=IGNORE_EXISTING
         env:
         - name: POSTGRES_HOSTNAME
           value: keycloak-db
