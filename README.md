@@ -13,7 +13,7 @@ To install the early access of this on [Minishift check out the installation gui
 
 ## Fabric8 Platform Overview
 
-There are a core set of _shared services_ which are shared by all users then a set of services created for each user/team which we refer to as _tenant services_.
+From version 4.x onwards of the fabric8 platform there are a core set of _shared services_ which are shared by all users then a set of services created for each user/team which we refer to as _tenant services_.
 
 ### Shared Services
 
@@ -40,6 +40,18 @@ Our [Jenkins image](https://github.com/fabric8io/openshift-jenkins-s2i-config) i
 * [fabric8-platform](https://github.com/fabric8io/fabric8-platform) creates the various distributions (openshift + kubernetes manifests, templates etc)
 * [gofabric8](https://github.com/fabric8io/gofabric8) is a go based CLI tool for installing and managing fabric8
 
+
+### Changes in 4.x
+
+Version 4.x of fabric8 differs a little bit from previous 3.x releases as follows:
+
+* a separation between shared services (like KeyCloak and the console) from tenant services (each tenant (user/team) gets its own jenkins master)
+* SSO is enabled on Kubernetes and OpenShift for using the console, Jenkins and GitHub (with more services coming soon)
+* defaults to using GitHub as the git hosting OOTB; we're hoping to add gogs/gitea/gitlab back soon as soon as the SSO is working
+* integrated issue tracker / kanban board / planning / work item tracking
+* integrated IDE via eclipse Che
+* integrated [analytics](https://github.com/fabric8-analytics) to help developers get insight into their code and libraries and versions they are using or should consider
+* new improved UI which covers project plannning, creation, analytics, editing/debugging, CI/CD
 
 ## Github Organisations
 
