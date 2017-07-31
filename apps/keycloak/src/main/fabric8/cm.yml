@@ -123,6 +123,7 @@ data:
           "storeToken" : "true",
           "addReadTokenRoleOnCreate" : true,
           "config": {
+            "hideOnLoginPage": "${HIDE_OPENSHIFT_BTN}",
             "baseUrl": "${K8S_API_SERVER}",
             "clientId": "fabric8-online-platform",
             "defaultScope": "user:full",
@@ -138,6 +139,7 @@ data:
           "trustEmail": true,
           "addReadTokenRoleOnCreate" : true,
           "config": {
+            "hideOnLoginPage": "${HIDE_GITHUB_BTN}",
             "clientSecret": "${GITHUB_OAUTH_CLIENT_SECRET}",
             "clientId": "${GITHUB_OAUTH_CLIENT_ID}",
             "defaultScope": "admin:repo_hook read:org repo user gist",

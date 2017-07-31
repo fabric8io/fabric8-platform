@@ -161,6 +161,10 @@ spec:
             secretKeyRef:
               name: keycloak
               key: kc.public.key
+        - name: HIDE_OPENSHIFT_BTN
+          value: "false"
+        - name: HIDE_GITHUB_BTN
+          value: "true"
         readinessProbe:
           httpGet:
             path: "/auth"
