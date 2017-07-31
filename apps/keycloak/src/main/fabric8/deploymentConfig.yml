@@ -161,6 +161,10 @@ spec:
             secretKeyRef:
               name: keycloak
               key: kc.public.key
+        - name: HIDE_OPENSHIFT_BTN
+          value: "false"
+        - name: HIDE_GITHUB_BTN
+          value: "true"
         readinessProbe:
           httpGet:
             path: "/auth"
@@ -174,13 +178,11 @@ spec:
           initialDelaySeconds: 60
           timeoutSeconds: 10
         volumeMounts:
-        - name: keycloak-tls
-          mountPath: /opt/jboss/keycloak/standalone/configuration/tls
         - name: keycloak-subst-config
           mountPath: /opt/jboss/keycloak/standalone/configuration/import
+        - name: keycloak-theme
+          mountPath: /opt/jboss/keycloak/themes/fabric8
       volumes:
-      - name: keycloak-tls
-        emptyDir: {}
       - name: keycloak-subst-config
         emptyDir: {}
       - name: keycloak-config
@@ -189,3 +191,8 @@ spec:
           items:
           - key: fabric8-realm.json
             path: config/fabric8-realm.json
+      - name: keycloak-theme
+        gitRepo:
+          repository: https://github.com/fabric8io/fabric8-keycloak-theme.git
+          revision: 61b08f0a2f4be2395bb0bbb6d16a8538f4f2b836
+          directory: login
