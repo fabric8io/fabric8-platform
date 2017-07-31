@@ -178,11 +178,15 @@ spec:
           initialDelaySeconds: 60
           timeoutSeconds: 10
         volumeMounts:
+        - name: keycloak-tls
+          mountPath: /opt/jboss/keycloak/standalone/configuration/tls
         - name: keycloak-subst-config
           mountPath: /opt/jboss/keycloak/standalone/configuration/import
         - name: keycloak-theme
           mountPath: /opt/jboss/keycloak/themes/fabric8
       volumes:
+      - name: keycloak-tls
+        emptyDir: {}
       - name: keycloak-subst-config
         emptyDir: {}
       - name: keycloak-config
