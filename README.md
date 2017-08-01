@@ -63,7 +63,7 @@ To make things easier to navigate we've created a few different organisations to
 * [fabric8-ide](https://github.com/fabric8-ide) the Fabric8 IDE projects (e.g. Eclipse Che related repos)
 * [fabric8-quickstarts](https://github.com/fabric8-quickstarts) the fabric8 community quickstarts
 * [fabric8-services](https://github.com/fabric8-services) various Services used in the fabric8 platform
-* [fabric8-images](https://github.com/fabric8-images) various docker images
+* [fabric8io-images](https://github.com/fabric8io-images) various docker images
 * [fabric8-ui](https://github.com/fabric8-ui) contains all the HTML / CSS / JavaScript / Angular modules to create the web console for fabric8: [fabric8-ui](https://github.com/fabric8-ui/fabric8-ui)
 * [fabric8io](https://github.com/fabric8io) general purpose organisation contains various things like the Java [kubernetes-client](https://github.com/fabric8io/fubernetes-client), [fabric8-maven-plugin](https://github.com/fabric8io/fabric8-maven-plugin), jenkins pipeline libraries but also numerous other things. Longer term stuff from here should probably move to more focussed organisations
 

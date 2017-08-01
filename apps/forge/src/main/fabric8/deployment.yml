@@ -41,9 +41,9 @@ spec:
             path: "forge/version"
             port: 8080
         livenessProbe:
-          timeoutSeconds: 3
-          initialDelaySeconds: 120
-          failureThreshold: 10
+          timeoutSeconds: 10
+          initialDelaySeconds: 300
+          failureThreshold: 30
           httpGet:
             path: "forge/version"
             port: 8080
