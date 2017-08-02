@@ -5,3 +5,5 @@ data:
     exposer: ${EXPOSER}
     domain: ${DOMAIN}
     watch-current-namespace: true
+    http: ${HTTP}
+    tls-acme: ${TLS_ACME}

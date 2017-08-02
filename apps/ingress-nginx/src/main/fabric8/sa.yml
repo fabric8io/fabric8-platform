@@ -1,0 +1,5 @@
+metadata:
+  name: nginx-ingress-serviceaccount
+  namespace: nginx-ingress
+  annotations:
+    fabric8.io/target-platform: "kubernetes"

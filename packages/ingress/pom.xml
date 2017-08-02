@@ -26,63 +26,27 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.fabric8.platform.packages</groupId>
-  <artifactId>fabric8-system</artifactId>
+  <artifactId>ingress</artifactId>
 
-  <name>Fabric8 Platform :: Packages :: System</name>
-  <description>The Fabric8 Microservices System</description>
+  <name>Fabric8 Platform :: Packages :: Ingress</name>
+  <description>The Fabric8 Microservices Ingress</description>
 
   <dependencies>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>configmapcontroller</artifactId>
+      <artifactId>ingress-nginx</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>exposecontroller</artifactId>
+      <artifactId>kube-lego</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>fabric8</artifactId>
+      <artifactId>ingress-default-backend</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>wit</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>forge</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>keycloak</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>keycloak-db</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>init-tenant</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>che-starter</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>openshift-api-groups-for-k8s</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <!-- TODO add fabric8-tenant + fabric8-sassy -->
   </dependencies>
 
   <build>
