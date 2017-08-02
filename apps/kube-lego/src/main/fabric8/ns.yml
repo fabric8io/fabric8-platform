@@ -1,0 +1,4 @@
+metadata:
+  annotations:
+    fabric8.io/target-platform: "kubernetes"
+  name: kube-lego
