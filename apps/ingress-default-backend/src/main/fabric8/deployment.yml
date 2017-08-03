@@ -1,16 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
-  name: nginx-ingress
   namespace: nginx-ingress
   annotations:
     fabric8.io/target-platform: "kubernetes"
-    configmap.fabric8.io/update-on-change: "nginx-config"
 spec:
   replicas: 2
   revisionHistoryLimit: 3
   template:
-    metadata:
-      labels:
-        k8s-app: nginx-ingress-lb
     spec:
       terminationGracePeriodSeconds: 60
       serviceAccount: nginx-ingress-serviceaccount

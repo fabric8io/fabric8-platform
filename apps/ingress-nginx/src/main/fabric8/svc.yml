@@ -1,0 +1,13 @@
+metadata:
+  name: nginx-ingress
+  namespace: nginx-ingress
+  annotations:
+    fabric8.io/target-platform: "kubernetes"
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      name: http
+    - port: 443
+      name: https

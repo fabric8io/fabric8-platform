@@ -40,9 +40,11 @@
     <module>gitea-db</module>
     <module>gitea</module>
     <module>init-tenant</module>
+    <module>ingress-default-backend</module>
     <module>ingress-nginx</module>
     <module>keycloak</module>
     <module>keycloak-db</module>
+    <module>kube-lego</module>
     <module>mattermost</module>
     <module>mattermost-db</module>
     <module>openshift-api-groups-for-k8s</module>

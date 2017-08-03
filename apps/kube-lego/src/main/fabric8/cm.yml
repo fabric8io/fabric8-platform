@@ -1,0 +1,9 @@
+metadata:
+  name: kube-lego
+  namespace: kube-lego
+  annotations:
+    fabric8.io/target-platform: "kubernetes"
+data:
+  lego.email: ${TLS_ACME_EMAIL}
+  # configure letsencrypt's production api
+  lego.url: "https://acme-v01.api.letsencrypt.org/directory"
