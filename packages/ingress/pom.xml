@@ -39,11 +39,6 @@
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>kube-lego</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>ingress-default-backend</artifactId>
       <version>${project.version}</version>
     </dependency>
