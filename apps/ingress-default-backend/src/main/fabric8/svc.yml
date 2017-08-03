@@ -1,5 +1,6 @@
 metadata:
   namespace: nginx-ingress
+  name: default-backend
   annotations:
     fabric8.io/target-platform: "kubernetes"
 spec:

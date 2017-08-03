@@ -5,7 +5,7 @@ metadata:
     fabric8.io/target-platform: "kubernetes"
     configmap.fabric8.io/update-on-change: "nginx-config"
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 3
   template:
     metadata:
