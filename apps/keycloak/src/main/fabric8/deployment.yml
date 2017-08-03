@@ -91,6 +91,14 @@ spec:
                           "key": "apiserver.url"
                       }
                   }
+            },
+            {
+              "name": "HIDE_OPENSHIFT_BTN",
+              "value": "true"
+            },
+            {
+              "name": "HIDE_GITHUB_BTN",
+              "value": "false"
             }],
             "volumeMounts": [
             {
