@@ -19,4 +19,4 @@ data:
   keycloak.skip.host.verify: true
   disable.oso.quotas: true
   kubernetes.mode: true
-  tenant.exposer: NodePort
+  tenant.exposer: Ingress
