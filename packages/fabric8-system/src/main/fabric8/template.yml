@@ -7,4 +7,4 @@ parameters:
 - name: GITHUB_OAUTH_CLIENT_SECRET
 - name: GITHUB_OAUTH_CLIENT_ID
 - name: HTTP
-- name: TLS_ACME_DATA
+- name: TLS_ACME
