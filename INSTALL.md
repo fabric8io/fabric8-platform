@@ -48,7 +48,7 @@ The following are the instructions for installing fabric8 on minikube:
 ```
 minikube start --vm-driver=xhyve --cpus=5 --disk-size=50g --memory=5000 --kubernetes-version v1.7.0
 minikube addons enable ingress
-gofabric8 deploy --package system --github-client-id 12345 --github-client-secret 123abc -n fabric8
+gofabric8 deploy --package system -n fabric8
 ```
 
 ### Installing on MiniShift
