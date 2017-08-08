@@ -18,14 +18,24 @@ source ~/.zshrc or ~/.bashrc
 
 ## Setup GitHub client ID and secret
 
-We now have GitHub integration which for now requires a manual OAuth setup to obtain a clientid and secret that we will give to keycloak so that we can browse github repos, create new repos and edit existing repos. 
+We now have GitHub integration letting you browser repositories, create new repositories, edit projects and setup automated CI / CD jobs with webhooks on github. 
 
-So we need to [setup a new OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) on your GitHub settings for fabric8 as shown below:
+This requires an [OAuth application to be setup on your github account](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) for fabric8 and you need to obtain the client ID and secret for the OAuth application.
+
+
+You will need to register the redirect URI in the OAuth application to point to the output of this command:
+
+```
+echo http://keycloak-fabric8.$(minishift ip).nip.io/auth/realms/fabric8/broker/github/endpoint
+```
+
+So please follow the following steps using the above redirect URL and `http://fabric8.io` as a sample homepage URL:
+
 
 ![Register OAuth App](./images/register-oauth.png)
 
 
-Once you have found your client ID and secret for the new fabric8 app on your github settings then type the following:
+Once you have created the OAuth application for fabric8 in your github settings and found your client ID and secret then type the following:
 
 ```
 export GITHUB_OAUTH_CLIENT_ID=TODO
