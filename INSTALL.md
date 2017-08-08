@@ -18,7 +18,7 @@ source ~/.zshrc or ~/.bashrc
 
 ## Setup GitHub client ID and secret
 
-We now have GitHub integration letting you browser repositories, create new repositories, edit projects and setup automated CI / CD jobs with webhooks on github. 
+We now have GitHub integration letting you browse repositories, create new repositories, edit projects and setup automated CI / CD jobs with webhooks on github. 
 
 This requires an [OAuth application to be setup on your github account](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) for fabric8 and you need to obtain the client ID and secret for the OAuth application.
 
