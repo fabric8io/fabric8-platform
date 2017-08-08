@@ -48,3 +48,10 @@ spec:
           ports:
             - containerPort: 80
             - containerPort: 443
+          volumeMounts:
+          - name: nginx-tmpl
+            mountPath: /etc/nginx/template
+      volumes:
+      - name: nginx-tmpl
+        configMap:
+          name: nginx-tmpl
