@@ -130,6 +130,12 @@ spec:
               "mountPath": "/processed"
             }
             ]
+          },
+          {
+              "name": "init-dependencyservice",
+              "image": "sathishvj/fabric8-dependency-wait-service",
+              "imagePullPolicy": "IfNotPresent",
+              "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 postgres://keycloak-db:5432"]
           }]
     spec:
       containers:

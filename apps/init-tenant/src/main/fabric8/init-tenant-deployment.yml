@@ -10,6 +10,22 @@ spec:
     service: init-tenant
   template:
     metadata:
+      annotations:
+        pod.beta.kubernetes.io/init-containers: |-
+          [
+          {
+            "name": "init-dependencyservice",
+            "image": "sathishvj/fabric8-dependency-wait-service",
+            "imagePullPolicy": "IfNotPresent",
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 postgres://init-tenant-db:5432"]
+          },
+          {
+            "name": "init-dependencyservice",
+            "image": "sathishvj/fabric8-dependency-wait-service",
+            "imagePullPolicy": "IfNotPresent",
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://keycloak:80"]
+          }
+          ]
       labels:
         service: init-tenant
     spec:

@@ -4,6 +4,23 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        pod.beta.kubernetes.io/init-containers: |- 
+          [
+          {
+            "name": "init-dependencyservice",
+            "image": "sathishvj/fabric8-dependency-wait-service",
+            "imagePullPolicy": "IfNotPresent",
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://init-tenant:80"]
+          },
+          {
+            "name": "init-dependencyservice",
+            "image": "sathishvj/fabric8-dependency-wait-service",
+            "imagePullPolicy": "IfNotPresent",
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80"]
+          }
+          ]
     spec:
       containers:
       - image: "fabric8/fabric8-ui:${fabric8-ui.version}"
