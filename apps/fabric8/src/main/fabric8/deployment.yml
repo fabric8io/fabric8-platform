@@ -9,16 +9,16 @@ spec:
         pod.beta.kubernetes.io/init-containers: |- 
           [
           {
-            "name": "init-dependencyservice",
+            "name": "init-dependencyservice1",
             "image": "sathishvj/fabric8-dependency-wait-service",
             "imagePullPolicy": "IfNotPresent",
-            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://init-tenant:80"]
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://f8tenant:80/api/status"]
           },
           {
-            "name": "init-dependencyservice",
+            "name": "init-dependencyservice2",
             "image": "sathishvj/fabric8-dependency-wait-service",
             "imagePullPolicy": "IfNotPresent",
-            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80"]
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80/api/status"]
           }
           ]
     spec:
