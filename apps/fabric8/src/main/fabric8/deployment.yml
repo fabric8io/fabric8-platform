@@ -10,13 +10,13 @@ spec:
           [
           {
             "name": "init-dependencyservice1",
-            "image": "sathishvj/fabric8-dependency-wait-service",
+            "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
             "imagePullPolicy": "IfNotPresent",
             "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://f8tenant:80/api/status"]
           },
           {
             "name": "init-dependencyservice2",
-            "image": "sathishvj/fabric8-dependency-wait-service",
+            "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
             "imagePullPolicy": "IfNotPresent",
             "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80/api/status"]
           }
