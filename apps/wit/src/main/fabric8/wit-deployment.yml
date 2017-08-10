@@ -15,84 +15,84 @@ spec:
     spec:
       containers:
       #- image: fabric8/almighty-core:${almighty-core.version}
-      - image: fabric8/almighty-core:SNAPSHOT-PR-4-2
+      - image: fabric8/fabric8-wit:SNAPSHOT-PR-4-2
         env:
-        - name: ALMIGHTY_POSTGRES_HOST
+        - name: F8_POSTGRES_HOST
           valueFrom:
             secretKeyRef:
               name: wit
               key: db.host
-        - name: ALMIGHTY_POSTGRES_PORT
+        - name: F8_POSTGRES_PORT
           valueFrom:
             secretKeyRef:
               name: wit
               key: db.port
-        - name: ALMIGHTY_POSTGRES_USER
+        - name: F8_POSTGRES_USER
           valueFrom:
             secretKeyRef:
               name: wit
               key: db.user
-        - name: ALMIGHTY_POSTGRES_PASSWORD
+        - name: F8_POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: wit
               key: db.password
-        - name: ALMIGHTY_KEYCLOAK_REALM
+        - name: F8_KEYCLOAK_REALM
           valueFrom:
             secretKeyRef:
               name: wit
               key: keycloak.realm
-        - name: ALMIGHTY_TOKEN_PUBLICKEY
+        - name: F8_TOKEN_PUBLICKEY
           valueFrom:
             secretKeyRef:
               name: wit
               key: token.publickey
-        - name: ALMIGHTY_KEYCLOAK_URL
+        - name: F8_KEYCLOAK_URL
           valueFrom:
             configMapKeyRef:
               name: wit
               key: keycloak.url
-        - name: ALMIGHTY_KEYCLOAK_SECRET
+        - name: F8_KEYCLOAK_SECRET
           valueFrom:
             secretKeyRef:
               name: wit
               key: keycloak.secret
-        - name: ALMIGHTY_POSTGRES_SSLMODE
+        - name: F8_POSTGRES_SSLMODE
           valueFrom:
             configMapKeyRef:
               name: wit
               key: postgres.sslmode
-        - name: ALMIGHTY_POSTGRES_CONNECTION_MAXIDLE
+        - name: F8_POSTGRES_CONNECTION_MAXIDLE
           valueFrom:
             configMapKeyRef:
               name: wit
               key: postgres.connection.maxidle
-        - name: ALMIGHTY_POSTGRES_CONNECTION_MAXOPEN
+        - name: F8_POSTGRES_CONNECTION_MAXOPEN
           valueFrom:
             configMapKeyRef:
               name: wit
               key: postgres.connection.maxopen
-        - name: ALMIGHTY_AUTH_NOTAPPROVED_REDIRECT
+        - name: F8_AUTH_NOTAPPROVED_REDIRECT
           valueFrom:
             configMapKeyRef:
               name: wit
               key: auth_notapproved_redirect
-        - name: ALMIGHTY_TENANT_SERVICEURL
+        - name: F8_TENANT_SERVICEURL
           valueFrom:
             secretKeyRef:
               name: wit
               key: tenantsvc.url
-        - name: ALMIGHTY_CHESTARTERURL
+        - name: F8_CHESTARTERURL
           valueFrom:
             configMapKeyRef:
               name: wit
               key: chestarter.url
-        - name: ALMIGHTY_REDIRECT_VALID
+        - name: F8_REDIRECT_VALID
           valueFrom:
             configMapKeyRef:
               name: wit
               key: redirect.valid
-        - name: ALMIGHTY_OPENSHIFT_TENANT_MASTERURL
+        - name: F8_OPENSHIFT_TENANT_MASTERURL
           valueFrom:
             configMapKeyRef:
               name: wit
