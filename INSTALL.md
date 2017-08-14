@@ -82,7 +82,12 @@ minishift start --memory=7000 --cpus=4 --disk-size=50g
 bash <(curl -s https://raw.githubusercontent.com/fabric8io/fabric8-platform/master/install.sh)
 ```
 
-* if you want to install a specific version of the [fabric8 system template](http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/) then you can pass it on the command line as an argument. Or add the argument `local` to use a local build.
+* if you want to install a specific version of the [fabric8 system template](http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/) then type the following:
+
+```
+export FABRIC8_VERSION=4.X.XXX
+```
+Or add the argument `local` to use a local build.
 
 ### Installing on remote public Kubernetes clusters
 Get a connection to your cluster so that the following command works:
