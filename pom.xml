@@ -76,7 +76,7 @@
     <dependency-wait-service.version>v9e22382</dependency-wait-service.version>
     <exposecontroller.version>2.3.19</exposecontroller.version>
     <fabric8-ui.version>vfa5c967</fabric8-ui.version>
-    <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
+    <fabric8-docker-registry.version>1.0.0</fabric8-docker-registry.version>
     <forge.version>1.0.63</forge.version>
     <init-tenant.version>vafa2f01</init-tenant.version>
 
