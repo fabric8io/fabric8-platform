@@ -75,7 +75,7 @@
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <dependency-wait-service.version>v9e22382</dependency-wait-service.version>
     <exposecontroller.version>2.3.19</exposecontroller.version>
-    <fabric8-ui.version>vde127e6</fabric8-ui.version>
+    <fabric8-ui.version>v1e80d1c</fabric8-ui.version>
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
     <forge.version>1.0.64</forge.version>
     <init-tenant.version>v7cc17f6</init-tenant.version>
