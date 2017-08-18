@@ -76,10 +76,10 @@ or on any other operating system (feel free to add the `--vm-driver` parameter o
 ```
 minishift start --memory=7000 --cpus=4 --disk-size=50g
 ```
-* now run the [install.sh](https://github.com/fabric8io/fabric8-platform/blob/master/install.sh) script on the command line:
+* now use gofabric8
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/fabric8io/fabric8-platform/master/install.sh)
+gofabric8 deploy --package system -n fabric8
 ```
 
 * if you want to install a specific version of the [fabric8 system template](http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/) then type the following:
@@ -104,6 +104,21 @@ To have https signed certs generated automatically for your domain run this inst
 ```
 export TLS_ACME_EMAIL=email.address@for.certbot.com
 gofabric8 deploy --package system --domain example.domain.fabirc8.io -n fabric8
+```
+### Local development
+
+If you are developing locally and want to deploy custom version of YAML then you can clone this repo and run:
+
+```
+mvn clean install  -DskipTests=true
+```
+MiniKube / Kubernetes 
+```
+gofabric8 deploy --namespace fabric8 --legacy=false -y --package=packages/fabric8-system/target/classes/META-INF/fabric8/k8s-template.yml
+```
+MiniShift / OpenShift
+```
+gofabric8 deploy --namespace fabric8 --legacy=false -y --package=packages/fabric8-system/target/classes/META-INF/fabric8/openshift.yml
 ```
 
 ### Accept the insecure URLs in your browser - remote OpenShift clusters ONLY
