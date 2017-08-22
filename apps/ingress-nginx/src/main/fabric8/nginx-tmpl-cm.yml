@@ -308,6 +308,9 @@ data:
             {{ if $IsIPV6Enabled }}listen [::]:80{{ if $cfg.UseProxyProtocol }} proxy_protocol{{ end }}{{ if eq $server.Hostname "_"}} default_server reuseport backlog={{ $backlogSize }}{{ end }};{{ end }}
             set $proxy_upstream_name "-";
 
+            chunked_transfer_encoding on;
+            proxy_request_buffering off;
+            client_max_body_size 5000m;
             {{/* Listen on 442 because port 443 is used in the TLS sni server */}}
             {{/* This listener must always have proxy_protocol enabled, because the SNI listener forwards on source IP info in it. */}}
             {{ if not (empty $server.SSLCertificate) }}listen 442 proxy_protocol{{ if eq $server.Hostname "_"}} default_server reuseport backlog={{ $backlogSize }}{{end}} ssl {{ if $cfg.UseHTTP2 }}http2{{ end }};
@@ -359,7 +362,7 @@ data:
                 proxy_set_header            Host {{ $location.ExternalAuth.Host }};
                 proxy_ssl_server_name       on;
 
-                client_max_body_size        "{{ $location.Proxy.BodySize }}";
+                client_max_body_size        5000m;
 
 
                 set $target {{ $location.ExternalAuth.URL }};
@@ -418,7 +421,7 @@ data:
                 {{ template "CORS" }}
                 {{ end }}
 
-                client_max_body_size                    "{{ $location.Proxy.BodySize }}";
+                client_max_body_size                    5000m;
 
                 proxy_set_header Host                   $best_http_host;
 
@@ -514,7 +517,9 @@ data:
             listen 18080 default_server reuseport backlog={{ .BacklogSize }};
             {{ if $IsIPV6Enabled }}listen [::]:18080 default_server reuseport backlog={{ .BacklogSize }};{{ end }}
             set $proxy_upstream_name "-";
-
+            chunked_transfer_encoding on;
+            client_max_body_size 5000m;
+            proxy_request_buffering off;
             location {{ $healthzURI }} {
                 access_log off;
                 return 200;
