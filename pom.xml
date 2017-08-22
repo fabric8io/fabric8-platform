@@ -74,7 +74,7 @@
     <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <dependency-wait-service.version>vbb8cb75</dependency-wait-service.version>
-    <exposecontroller.version>2.3.21</exposecontroller.version>
+    <exposecontroller.version>2.3.22</exposecontroller.version>
     <fabric8-ui.version>v38947f5</fabric8-ui.version>
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
     <forge.version>1.0.64</forge.version>
