@@ -73,12 +73,12 @@
     <almighty-core.version>0.0.1</almighty-core.version>
     <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
-    <dependency-wait-service.version>v9e22382</dependency-wait-service.version>
-    <exposecontroller.version>2.3.19</exposecontroller.version>
-    <fabric8-ui.version>v0b2d2d7</fabric8-ui.version>
+    <dependency-wait-service.version>v3496ac2</dependency-wait-service.version>
+    <exposecontroller.version>2.3.21</exposecontroller.version>
+    <fabric8-ui.version>v191e420</fabric8-ui.version>
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
-    <forge.version>1.0.60</forge.version>
-    <init-tenant.version>vdc84a11</init-tenant.version>
+    <forge.version>1.0.64</forge.version>
+    <init-tenant.version>v655572e</init-tenant.version>
 
     <kubernetes-client.version>2.6.1</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
@@ -91,7 +91,7 @@
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
     <mattermost.version>vbc557c5</mattermost.version>
     <gitea.version>vbc557c5</gitea.version>
-    <fabric8.maven.plugin.version>3.5.22</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.5.25</fabric8.maven.plugin.version>
     <maven.require.version>3.1.1</maven.require.version>
     <maven.enforcer.plugin.version>1.4</maven.enforcer.plugin.version>
     <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
