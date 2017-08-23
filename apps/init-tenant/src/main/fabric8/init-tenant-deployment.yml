@@ -56,6 +56,8 @@ spec:
             configMapKeyRef:
               key: openshift.tenant.masterurl
               name: f8tenant
+        - name: F8_OPENSHIFT_TEAM_VERSION
+          value: "1.0.293"
         - name: F8_OPENSHIFT_USE_CURRENT_CLUSTER
           valueFrom:
             configMapKeyRef:
@@ -125,6 +127,11 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: disable.oso.quotas
+              name: f8tenant
+        - name: EXTERNAL_DOCKER_REGISTRY_URL
+          valueFrom:
+            configMapKeyRef:
+              key: external-docker-registry-external.url
               name: f8tenant
         imagePullPolicy: IfNotPresent
         livenessProbe:

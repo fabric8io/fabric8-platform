@@ -9,6 +9,7 @@ metadata:
 type: Opaque
 data:
   keycloak.url: http://keycloak
+  external-docker-registry-external.url: ""
   openshift.tenant.masterurl: https://kubernetes.default:443
   openshift.use.current.cluster: true
   api.server.insecure.skip.tls.verify: true
