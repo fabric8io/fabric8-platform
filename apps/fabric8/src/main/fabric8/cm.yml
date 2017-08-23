@@ -19,8 +19,7 @@ metadata:
     expose-full.service-key.config.fabric8.io/wit: wit.api.url
     expose-full.service-key.config.fabric8.io/f8tenant: f8tenant.api.url
     expose.service-key.config.fabric8.io/forge: forge.api.url
-    #expose.config.fabric8.io/apiserver-protocol-key: apiserver.protocol
-    expose.config.fabric8.io/protocol-key: apiserver.protocol
+    expose.config.fabric8.io/url-protocol: apiserver.protocol
 data:
   apiserver.host: kubernetes
   apiserver.url: http://kubernetes
