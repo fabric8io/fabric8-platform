@@ -17,7 +17,7 @@ spec:
             "name": "init-dependencyservice1",
             "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
             "imagePullPolicy": "IfNotPresent",
-            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 postgres://wit-db:5432"]
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 postgres://wit@wit-db:5432"]
           },
           {
             "name": "init-dependencyservice2",
