@@ -116,7 +116,14 @@ spec:
               "name": "init-dependencyservice",
               "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
               "imagePullPolicy": "IfNotPresent",
-              "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 postgres://keycloak@keycloak-db:5432"]
+              "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 postgres://keycloak@keycloak-db:5432"],
+              "env": [{
+                "name": "DEPENDENCY_POLL_INTERVAL",
+                "value": "1"
+              }, {
+                "name": "DEPENDENCY_LOG_VERBOSE",
+                "value": "true"
+              }]
           }]
     spec:
       containers:
