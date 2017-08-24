@@ -3,7 +3,7 @@ metadata:
   labels:
     service: init-tenant
   annotations:
-    configmap.fabric8.io/update-on-change: "init-tenant"
+    configmap.fabric8.io/update-on-change: "f8tenant"
 spec:
   replicas: 1
   selector:
