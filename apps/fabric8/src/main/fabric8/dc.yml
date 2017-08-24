@@ -12,13 +12,27 @@ spec:
             "name": "init-dependencyservice1",
             "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
             "imagePullPolicy": "IfNotPresent",
-            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://f8tenant:80/api/status"]
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://f8tenant:80/api/status"],
+            "env": [{
+              "name": "DEPENDENCY_POLL_INTERVAL",
+              "value": "1"
+            }, {
+              "name": "DEPENDENCY_LOG_VERBOSE",
+              "value": "true"
+            }]
           },
           {
             "name": "init-dependencyservice2",
             "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
             "imagePullPolicy": "IfNotPresent",
-            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80/api/status"]
+            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80/api/status"],
+            "env": [{
+              "name": "DEPENDENCY_POLL_INTERVAL",
+              "value": "1"
+            }, {
+              "name": "DEPENDENCY_LOG_VERBOSE",
+              "value": "true"
+            }]
           }
           ]
     spec:
