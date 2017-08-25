@@ -75,8 +75,6 @@ spec:
             configMapKeyRef:
               key: openshift.tenant.masterurl
               name: f8tenant
-        - name: F8_OPENSHIFT_TEAM_VERSION
-          value: "1.0.293"
         - name: F8_OPENSHIFT_USE_CURRENT_CLUSTER
           valueFrom:
             configMapKeyRef:
