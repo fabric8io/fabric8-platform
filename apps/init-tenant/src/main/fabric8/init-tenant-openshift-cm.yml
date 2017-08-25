@@ -5,10 +5,12 @@ metadata:
   annotations:
     fabric8.io/target-platform: "openshift"
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
+    expose.service-key.config.fabric8.io/wit: wit.url
     # expose.config.fabric8.io/apiserver-url-key: openshift.tenant.masterurl
 type: Opaque
 data:
   keycloak.url: http://keycloak
+  wit.url: http://wit
   external-docker-registry-external.url: ""
   openshift.tenant.masterurl: https://kubernetes.default:443
   openshift.use.current.cluster: true
