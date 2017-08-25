@@ -60,6 +60,11 @@ spec:
             configMapKeyRef:
               key: tenant.exposer
               name: f8tenant
+        - name: F8_WIT_URL
+          valueFrom:
+            configMapKeyRef:
+              key: wit.url
+              name: f8tenant
         - name: F8_KEYCLOAK_URL
           valueFrom:
             configMapKeyRef:
