@@ -90,7 +90,7 @@
     <keycloak.version>v15751c8</keycloak.version>
     <kubeflix.version>1.0.28</kubeflix.version>
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
-    <mattermost.version>vbc557c5</mattermost.version>
+    <mattermost.version/>
     <gitea.version>vbc557c5</gitea.version>
     <fabric8.maven.plugin.version>3.5.25</fabric8.maven.plugin.version>
     <maven.require.version>3.1.1</maven.require.version>
