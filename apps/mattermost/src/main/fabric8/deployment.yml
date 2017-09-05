@@ -31,7 +31,6 @@ spec:
         volumeMounts:
         - name: mattermost-data
           mountPath: /mattermost/data/
-          readOnly: true
         - name: mattermost-config
           mountPath: /mattermost/config/
       volumes:
