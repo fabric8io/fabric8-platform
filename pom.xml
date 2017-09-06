@@ -81,7 +81,7 @@
     <init-tenant.version>v2c4b0d9</init-tenant.version>
     <wit.version>va04304f</wit.version>
 
-    <kubernetes-client.version>2.6.2</kubernetes-client.version>
+    <kubernetes-client.version>2.6.3</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
     <fabric8.console.version>2.2.199</fabric8.console.version>
     <fabric8.devops.version>2.2.335</fabric8.devops.version>
