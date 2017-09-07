@@ -78,7 +78,7 @@
     <fabric8-ui.version>ve70dc4e</fabric8-ui.version>
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
     <forge.version>1.0.66</forge.version>
-    <init-tenant.version>v2bdf843</init-tenant.version>
+    <init-tenant.version>ve3c1596</init-tenant.version>
     <wit.version>v88afcc5</wit.version>
 
     <!-- TODO temporary hack until this issue is resolved: https://github.com/fabric8-services/fabric8-wit/issues/1613 -->
