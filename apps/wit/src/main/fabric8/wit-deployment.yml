@@ -56,8 +56,9 @@ spec:
         service: wit
     spec:
       containers:
-      #- image: fabric8/almighty-core:${almighty-core.version}
-      - image: fabric8/fabric8-wit:${wit.version}
+      # TODO temporary hack until this issue is resolved: https://github.com/fabric8-services/fabric8-wit/issues/1613
+      #- image: fabric8/fabric8-wit:${wit.version}
+      - image: fabric8/fabric8-wit:${wit-old.version}
         env:
         - name: F8_POSTGRES_HOST
           valueFrom:
