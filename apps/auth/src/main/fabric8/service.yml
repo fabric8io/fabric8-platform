@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: auth
+  labels:
+    service: auth
+    expose: "true"
+  annotations:
+    api.service.kubernetes.io/path: "/api/"
+    service.alpha.openshift.io/dependencies: '[{"name":"auth-db","namespace":"","kind":"Service"}]'
+spec:
+  ports:
+    - name: "8080"
+      protocol: TCP
+      port: 80
+      targetPort: 8089
+  selector:
+    service: auth
+  type: ClusterIP

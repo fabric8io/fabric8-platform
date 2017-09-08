@@ -1,0 +1,57 @@
+metadata:
+  name: auth-db
+  labels:
+    service: auth-db
+spec:
+  replicas: 1
+  selector:
+    service: auth-db
+  template:
+    metadata:
+      labels:
+        service: auth-db
+    spec:
+      containers:
+      - name: auth-db
+        image: registry.centos.org/postgresql/postgresql:9.6
+        imagePullPolicy: IfNotPresent
+        env:
+        env:
+        - name: POSTGRESQL_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: db.password
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - exec pg_isready --host $POD_IP
+          initialDelaySeconds: 20
+          timeoutSeconds: 3
+          periodSeconds: 5
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/pgsql
+          name: auth-db-postgresql-data
+          readOnly: false
+      volumes:
+      - name: auth-db-postgresql-data
+        persistentVolumeClaim:
+          claimName: auth-db-postgresql-data

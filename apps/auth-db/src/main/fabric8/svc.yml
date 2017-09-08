@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: auth-db
+  labels:
+    service: auth-db
+spec:
+  ports:
+    - name: "postgres"
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    service: auth-db
+  type: ClusterIP

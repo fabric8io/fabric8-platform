@@ -32,6 +32,8 @@
   <name>Fabric8 :: Platform :: Apps</name>
 
   <modules>
+    <module>auth</module>
+    <module>auth-db</module>
     <module>che-starter</module>
     <module>configmapcontroller</module>
     <module>exposecontroller</module>

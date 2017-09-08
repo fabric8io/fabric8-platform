@@ -34,6 +34,16 @@
   <dependencies>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>auth</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
+      <artifactId>auth-db</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>configmapcontroller</artifactId>
       <version>${project.version}</version>
     </dependency>
