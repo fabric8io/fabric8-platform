@@ -1,18 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wit
+  name: auth
   annotations:
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
 type: Opaque
 data:
-  db.host: wit-db
+  db.host: auth-db
   db.port: 5432
   auth_notapproved_redirect: ""
   chestarter.url: http://che-starter:10000
-  auth.url: http://auth
-  authz.enabled: "true"
   keycloak.url: http://keycloak
+  wit.url: http://wit
   openshift.tenant.masterurl: http://kubernetes.default/
   postgres.connection.maxidle: "90"
   postgres.connection.maxopen: "90"

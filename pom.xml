@@ -70,7 +70,7 @@
   </scm>
 
   <properties>
-    <almighty-core.version>0.0.1</almighty-core.version>
+    <auth.version>v6a56c54</auth.version>
     <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <dependency-wait-service.version>v6632df1</dependency-wait-service.version>
@@ -80,9 +80,6 @@
     <forge.version>1.0.66</forge.version>
     <init-tenant.version>ve3c1596</init-tenant.version>
     <wit.version>v88afcc5</wit.version>
-
-    <!-- TODO temporary hack until this issue is resolved: https://github.com/fabric8-services/fabric8-wit/issues/1613 -->
-    <wit-old.version>v2992287</wit-old.version>
 
     <kubernetes-client.version>2.6.3</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
