@@ -18,7 +18,7 @@ source ~/.zshrc or ~/.bashrc
 
 ## Setup GitHub client ID and secret
 
-We now have GitHub integration letting you browse repositories, create new repositories, edit projects and setup automated CI / CD jobs with webhooks on github. 
+We now have GitHub integration letting you browse repositories, create new repositories, edit projects and setup automated CI / CD jobs with webhooks on github.
 
 This requires an [OAuth application to be setup on your github account](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) for fabric8 and you need to obtain the client ID and secret for the OAuth application.
 
@@ -105,6 +105,23 @@ To have https signed certs generated automatically for your domain run this inst
 export TLS_ACME_EMAIL=email.address@for.certbot.com
 gofabric8 deploy --package system --domain example.domain.fabirc8.io -n fabric8
 ```
+
+### Installing on remote public OpenShift clusters
+
+Installing on a remote public OpenShift clusters will be the same process as the Kubernetes install. You make sure you are logged in into the remote OpenShift cluster first before deploying :
+
+```
+oc login
+```
+
+And deploy as per the instructions for Kubernetes remote install.
+
+If you have deployed with the [oc cluster up](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md) command you may run into some selinux issues and you have to run this command to change the context of the local volumes to allow to write to it :
+
+```
+chcon -Rt svirt_sandbox_file_t /var/lib/origin/openshift.local.volumes/
+```
+
 ### Local development
 
 If you are developing locally and want to deploy custom version of YAML then you can clone this repo and run:
@@ -112,7 +129,7 @@ If you are developing locally and want to deploy custom version of YAML then you
 ```
 mvn clean install  -DskipTests=true
 ```
-MiniKube / Kubernetes 
+MiniKube / Kubernetes
 ```
 gofabric8 deploy --namespace fabric8 --legacy=false -y --package=packages/fabric8-system/target/classes/META-INF/fabric8/k8s-template.yml
 ```
