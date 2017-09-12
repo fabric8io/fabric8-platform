@@ -128,3 +128,11 @@ Currently there are 4 different URLS that Chrome will barf on and you'll have to
 The above script should list the 4 URLs you need to open separately and approve.
 
 We hope to figure out a nicer alternative to this issue! The problem is things like lenscript only work for public hosted URLs; whereas running locally on MiniShift we're local but use `nip.io` to provide a global URL to your local machine (to simplify having to do DNS magic on your laptop). If you fancy trying to help fix this [please check out this MiniShift issue](https://github.com/minishift/minishift/issues/1031)
+
+### Troubleshooting
+
+* __Pods fail to start__ - init container issues: check the init container logs
+```
+oc logs foo -c init-container-name
+```
+* __Networking issues__ - cannot connect to github for example: see https://docs.openshift.com/container-platform/3.6/admin_guide/sdn_troubleshooting.html
