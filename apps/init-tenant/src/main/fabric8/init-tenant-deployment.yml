@@ -44,7 +44,8 @@ spec:
         service: init-tenant
     spec:
       containers:
-      - image: fabric8/fabric8-tenant:${init-tenant.version}
+      #- image: fabric8/fabric8-tenant:${init-tenant.version}
+      - image: fabric8/fabric8-tenant:SNAPSHOT-PR-327-1
         env:
         - name: "KUBERNETES_NAMESPACE"
           valueFrom:
@@ -144,11 +145,6 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: disable.oso.quotas
-              name: f8tenant
-        - name: EXTERNAL_DOCKER_REGISTRY_URL
-          valueFrom:
-            configMapKeyRef:
-              key: external-docker-registry-external.url
               name: f8tenant
         imagePullPolicy: IfNotPresent
         livenessProbe:
