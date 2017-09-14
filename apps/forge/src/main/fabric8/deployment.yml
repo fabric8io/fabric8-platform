@@ -19,6 +19,11 @@ spec:
             configMapKeyRef:
               name: forge
               key: keycloak.url
+        - name: WIT_URL
+          valueFrom:
+            configMapKeyRef:
+              name: forge
+              key: wit.url
         - name: KUBERNETES_NAMESPACE
           valueFrom:
             fieldRef:
