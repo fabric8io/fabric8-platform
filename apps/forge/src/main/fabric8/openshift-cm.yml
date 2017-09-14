@@ -8,4 +8,5 @@ metadata:
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
 data:
   keycloak.url: http://keycloak
+  wit.url: http://wit
   apiserver.url: http://kubernetes
