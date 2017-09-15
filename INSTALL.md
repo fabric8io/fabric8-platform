@@ -111,8 +111,14 @@ By default we will use the magic domain `nip.io` when generating ingress rules w
 To use this option and have https signed certs generated automatically for your domain run this instead:
 ```
 export TLS_ACME_EMAIL=email.address@for.certbot.com
-gofabric8 deploy --package system --domain example.domain.fabirc8.io --legacy=false -n fabric8
+gofabric8 deploy --package system --domain example.domain.fabric8.io --legacy=false -n fabric8
 ```
+
+Though please be aware that if you omit the `--http=true` CLI flag then HTTPS will be used with cert generation via kube-lego; which works great but you will get rate limited if you try to reinstall fabric8 a few times into the same domain which will [result in this error](https://github.com/fabric8-services/fabric8-auth/issues/105). 
+
+Sticking with HTTP instead of HTTPS is our best option [until kube-lego supports wildcard DNS](https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html) or can reuse the same Certs across reinstalls of fabric8. 
+
+
 ### Local development
 
 If you are developing locally and want to deploy custom version of YAML then you can clone this repo and run:
