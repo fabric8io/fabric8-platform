@@ -28,10 +28,6 @@ releaseNode {
       stage('Promote YAMLs') {
         pipeline.promoteYamls(stagedProject[1])
       }
-
-      stage ('PR on init service'){
-        pipeline.updateInitService(stagedProject[1])
-      }
     }
   } catch (err) {
     hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"

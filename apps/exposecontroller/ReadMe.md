@@ -1,1 +1,0 @@
-Expose Controller is a daemon, deployed as a Kubernetes Pod, that watches services and exposes them as Ingress, Route, Load Balancer or NodePorts
