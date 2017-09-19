@@ -19,7 +19,7 @@ spec:
             "command": [ "/bin/bash" ],
             "args": [
               "-c",
-              "git clone https://github.com/fabric8io/fabric8-keycloak-theme.git /keycloak-theme/login && cd /keycloak-theme/login && git checkout 61b08f0a2f4be2395bb0bbb6d16a8538f4f2b836"
+              "rm -rf /keycloak-theme/login && git clone https://github.com/fabric8io/fabric8-keycloak-theme.git /keycloak-theme/login && cd /keycloak-theme/login && git checkout 61b08f0a2f4be2395bb0bbb6d16a8538f4f2b836"
             ],
             "volumeMounts": [{
               "name": "keycloak-theme",
