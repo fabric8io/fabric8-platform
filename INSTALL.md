@@ -42,7 +42,9 @@ export GITHUB_OAUTH_CLIENT_SECRET=123abc
 
 ### Quickstart
 
-If you're starting from scratch and don't have minishift / minikube or the client binaries used to interact with them or drivers even, then simply run:
+If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
+
+If you're starting from scratch and don't have minishift / minikube installed or the client binaries used to interact with them or drivers even, then simply run:
 
 __Minikube__
 ```
@@ -53,24 +55,50 @@ __Minishift__
 gofabric8 start --minishift --package=system  --namespace fabric8
 ```
 
+Which should download all you need, start a kubernetes cluster and install fabric8 on top. 
+
+Otherwise please read on for more detail on the different options.
+
+
 ### Deploying to Minikube
 
-The following are the instructions for installing fabric8 on Minikube:
+We require a recent version of minikube. If you are upgrading from an old installation of minikube we recommend you run something like this for minikube:
 
 ```
-minikube start --vm-driver=xhyve --cpus=5 --disk-size=50g --memory=5000 --kubernetes-version v1.7.0
+minikube delete
+sudo rm -rf ~/.minikube
+```
+
+Then [download the latest minikube release](https://github.com/kubernetes/minikube/releases) and put it into your `PATH`.
+
+Then to start minikube and install fabric8 type:
+
+```
+minikube start --vm-driver=xhyve --cpus=5 --disk-size=50g --memory=8000
 minikube addons enable ingress
 gofabric8 deploy --package system -n fabric8
 ```
 
+If the `minikube start` command fails please see the [minikube instructions](https://github.com/kubernetes/minikube#quickstart)
+
+
 ### Deploying to Minishift
 
-The following are the instructions for installing fabric8 on minishift:
+If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
+
+We require a [recent release of minishift](https://github.com/minishift/minishift/releases). If you are upgrading from an old installation of minishift we recommend you run something like this for minikube:
+
+```
+minishift delete
+sudo rm -rf ~/.minishift
+minishift update
+```
 
 * Make sure you have a recent (3.5 of openshift or 1.5 of origin later) distribution of the `oc` binary on your `$PATH`
 ```
 oc version
 ```
+
 * If you have an old version or its not found please [download a distribution of the openshift-client-tools for your operating system](https://github.com/openshift/origin/releases/latest/) and copy the `oc` binary onto your `$PATH`
 
 * [download the minishift distribution for your platform](https://github.com/minishift/minishift/releases) extract it and place the `minishift` binary on your `$PATH` somewhere
@@ -84,20 +112,18 @@ or on any other operating system (feel free to add the `--vm-driver` parameter o
 ```
 minishift start --memory=7000 --cpus=4 --disk-size=50g
 ```
+
+If the `minishift start` command fails please see the [minishift instructions](https://docs.openshift.org/latest/minishift/getting-started/index.html)
+
 * now use gofabric8
 
 ```
 gofabric8 deploy --package system -n fabric8
 ```
 
-* if you want to install a specific version of the [fabric8 system template](http://central.maven.org/maven2/io/fabric8/platform/packages/fabric8-system/) then type the following:
-
-```
-export FABRIC8_VERSION=4.X.XXX
-```
-Or add the argument `local` to use a local build.
 
 ### Installing on remote public Kubernetes clusters
+
 Get a connection to your cluster so that the following command works:
 ```
 kubectl get nodes
