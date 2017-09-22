@@ -4,6 +4,7 @@ metadata:
   name: wit
   annotations:
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
+    expose-no-path.service-key.config.fabric8.io/auth: auth.url
 type: Opaque
 data:
   db.host: wit-db
