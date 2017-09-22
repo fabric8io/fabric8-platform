@@ -31,6 +31,21 @@ spec:
               configMapKeyRef:
                 name: che-starter
                 key: fabric8.dev.mode
+          - name: CHE_KEYCLOAK_AUTH__SERVER__URL
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: che.keycloak.auth.server.url
+          - name: CHE_KEYCLOAK_REALM
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: che.keycloak.realm
+          - name: CHE_KEYCLOAK_CLIENT__ID
+            valueFrom:
+              configMapKeyRef:
+                name: che-starter
+                key: che.keycloak.client.id
           name: che-starter
           image: rhche/che-starter:${che-starter.version}
           livenessProbe:

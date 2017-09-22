@@ -49,6 +49,15 @@ spec:
               "fabric8-realm.json"
             ],
             "env": [{
+              "name": "CHE_URL",
+              "valueFrom": {
+                      "configMapKeyRef": {
+                          "name": "keycloak",
+                          "key": "che.starter.url"
+                      }
+                  }
+            },
+            {
               "name": "WIT_URL",
               "valueFrom": {
                       "configMapKeyRef": {

@@ -1,0 +1,4 @@
+spec:
+  to:
+    kind: Service
+    name: "che-starter"
