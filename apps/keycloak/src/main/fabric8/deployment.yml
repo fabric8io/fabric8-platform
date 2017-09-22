@@ -29,6 +29,7 @@ spec:
                       }
                   }
             },
+            {
               "name": "WIT_URL",
               "valueFrom": {
                       "configMapKeyRef": {
