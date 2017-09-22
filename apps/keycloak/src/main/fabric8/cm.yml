@@ -63,6 +63,18 @@ data:
               "name" : "admin:space"
             } ]
           }
+        },
+        {
+          "clientId": "che",
+          "enabled": true,
+          "redirectUris": [
+            "*"
+          ],
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": true,
+          "publicClient": true,
+          "protocol": "openid-connect",
+          "fullScopeAllowed": true
         }
       ],
       "users": [{
