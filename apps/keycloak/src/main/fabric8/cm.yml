@@ -5,6 +5,7 @@ metadata:
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
     expose.service-key.config.fabric8.io/jenkins: jenkins.url
     expose-full.service-key.config.fabric8.io/wit: wit.api.url
+    expose-no-path.service-key.config.fabric8.io/auth: auth.url
 data:
   db.url: keycloak-db
   db.port: "5432"
@@ -12,6 +13,7 @@ data:
   fabric8.url: http://fabric8
   jenkins.url: http://jenkins
   keycloak.url: http://keycloak
+  auth.api.url: http://auth
   wit.api.url: http://wit
   fabric8-realm.json: |-
     {
@@ -46,6 +48,7 @@ data:
           "baseUrl" : "",
           "redirectUris": [
             "http://localhost:8080/api/login/*",
+            "${AUTH_URL}*",
             "${WIT_URL}*",
             "${JENKINS_URL}/securityRealm/finishLogin",
             "${KEYCLOAK_URL}/*"
