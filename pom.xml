@@ -79,7 +79,7 @@
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
     <forge.version>1.0.76</forge.version>
     <init-tenant.version>vdd32fe8</init-tenant.version>
-    <wit.version>v4c8d3ed</wit.version>
+    <wit.version>v95b853e</wit.version>
 
     <kubernetes-client.version>2.6.3</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
