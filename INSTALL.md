@@ -4,6 +4,8 @@ fabric8 uses a CLI that makes installing fabric8 locally or on remote Kubernetes
 
 gofabric8 also has lots of handy commands that makes it easier to work with fabric8 and OpenShift / Kubernetes
 
+## Download gofabric8
+
 Download the latest gofabric8 release from [GitHub](https://github.com/fabric8io/gofabric8/releases/latest/) or run this script:
 ```
 curl -sS https://get.fabric8.io/download.txt | bash
@@ -27,7 +29,12 @@ This requires an [OAuth application to be setup on your github account](https://
 
 We need to set up an oauth client in GitHub so we can reuse their authentication, initially with a dummy redirect URI until gofabric8 gives us the correct one once the external keycloak URL is avaialble.
 
-So please follow the steps below using the a dummy redirect URL such as `http://test` and `https://fabric8.io` as the sample homepage URL:
+So please follow the steps below using the a redirect URL such as:
+```
+http://keycloak-fabric8.{minishift ipv4 value}.nip.io/auth/realms/fabric8/broker/openshift-v3/endpoint
+```
+
+and `https://fabric8.io` as the sample homepage URL:
 
 
 ![Register OAuth App](./images/register-oauth.png)
@@ -44,6 +51,24 @@ export GITHUB_OAUTH_CLIENT_SECRET=123abc
 
 If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
 
+
+Create endpint definition with these commands:
+
+```
+oc login -u system:admin
+
+cat <<EOF | oc create -f -
+kind: OAuthClient
+apiVersion: v1
+metadata:
+  name: fabric8-online-platform
+secret: fabric8
+redirectURIs:
+- "http://keycloak-fabric8.192.168.42.26.nip.io/auth/realms/fabric8/broker/openshift-v3/endpoint"
+grantMethod: prompt
+EOF
+```
+
 If you're starting from scratch and don't have minishift / minikube installed or the client binaries used to interact with them or drivers even, then simply run:
 
 __Minikube__
@@ -55,7 +80,7 @@ __Minishift__
 gofabric8 start --minishift --package=system  --namespace fabric8
 ```
 
-Which should download all you need, start a kubernetes cluster and install fabric8 on top. 
+Which should download all you need, start a kubernetes cluster and install fabric8 on top. Log into fabirc8 as "developer/developer"
 
 Otherwise please read on for more detail on the different options.
 
