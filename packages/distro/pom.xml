@@ -67,11 +67,6 @@
       <artifactId>forge</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>keycloak</artifactId>
-      <version>${project.version}</version>
-    </dependency>
 
     <dependency>
       <groupId>io.fabric8.devops.apps</groupId>

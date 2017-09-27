@@ -58,14 +58,14 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
+      <groupId>io.fabric8.apps</groupId>
       <artifactId>keycloak</artifactId>
-      <version>${project.version}</version>
+      <version>${keycloak-app.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
+      <groupId>io.fabric8.apps</groupId>
       <artifactId>keycloak-db</artifactId>
-      <version>${project.version}</version>
+      <version>${keycloak-app.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
