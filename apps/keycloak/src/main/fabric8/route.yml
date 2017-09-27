@@ -1,4 +1,0 @@
-spec:
-  to:
-    kind: Service
-    name: "keycloak"
