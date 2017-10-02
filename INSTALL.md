@@ -52,7 +52,7 @@ export GITHUB_OAUTH_CLIENT_SECRET=123abc
 If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
 
 
-Create endpint definition with these commands:
+Create endpoint definition with these commands:
 
 ```
 oc login -u system:admin
