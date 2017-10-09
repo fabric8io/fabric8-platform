@@ -31,7 +31,7 @@ We need to set up an oauth client in GitHub so we can reuse their authentication
 
 So please follow the steps below using the a redirect URL such as:
 ```
-http://keycloak-fabric8.{minishift ipv4 value}.nip.io/auth/realms/fabric8/broker/openshift-v3/endpoint
+http://keycloak-fabric8.{minishift ipv4 value}.nip.io/auth/realms/fabric8/broker/github/endpoint
 ```
 
 and `https://fabric8.io` as the sample homepage URL:
