@@ -49,25 +49,7 @@ export GITHUB_OAUTH_CLIENT_SECRET=123abc
 
 ### Quickstart
 
-If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
-
-
-Create endpoint definition with these commands:
-
-```
-oc login -u system:admin
-
-cat <<EOF | oc create -f -
-kind: OAuthClient
-apiVersion: v1
-metadata:
-  name: fabric8-online-platform
-secret: fabric8
-redirectURIs:
-- "http://keycloak-fabric8.192.168.42.26.nip.io/auth/realms/fabric8/broker/openshift-v3/endpoint"
-grantMethod: prompt
-EOF
-```
+According to your Operating System, first [install driver plug-in](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#setting-up-the-driver-plug-in).
 
 If you're starting from scratch and don't have minishift / minikube installed or the client binaries used to interact with them or drivers even, then simply run:
 
