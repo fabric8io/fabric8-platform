@@ -153,6 +153,21 @@ Though please be aware that if you omit the `--http=true` CLI flag then HTTPS wi
 
 Sticking with HTTP instead of HTTPS is our best option [until kube-lego supports wildcard DNS](https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html) or can reuse the same Certs across reinstalls of fabric8. 
 
+### Installing on remote public OpenShift clusters
+
+Installing on a remote public OpenShift clusters will be the same process as the Kubernetes install. You make sure you are logged in into the remote OpenShift cluster first before deploying :
+
+```
+oc login
+```
+
+And deploy as per the instructions for Kubernetes remote install.
+
+If you have deployed with the [oc cluster up](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md) command you may run into some selinux issues and you have to run this command to change the context of the local volumes to allow to write to it :
+
+```
+chcon -Rt svirt_sandbox_file_t /var/lib/origin/openshift.local.volumes/
+```
 
 ### Local development
 
@@ -161,7 +176,7 @@ If you are developing locally and want to deploy custom version of YAML then you
 ```
 mvn clean install  -DskipTests=true
 ```
-MiniKube / Kubernetes 
+MiniKube / Kubernetes
 ```
 gofabric8 deploy --namespace fabric8 --legacy=false -y --package=packages/fabric8-system/target/classes/META-INF/fabric8/k8s-template.yml
 ```
