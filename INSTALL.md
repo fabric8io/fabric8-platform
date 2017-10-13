@@ -21,6 +21,10 @@ echo 'export PATH=$PATH:~/.fabric8/bin' >> ~/.zshrc
 source ~/.zshrc
 ```
 
+### Linux
+
+If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
+
 ## Setup GitHub client ID and secret
 
 We now have GitHub integration letting you browse + create new repositories, edit projects and setup automated CI / CD jobs with webhooks on github.
@@ -48,26 +52,6 @@ export GITHUB_OAUTH_CLIENT_SECRET=123abc
 ```
 
 ### Quickstart
-
-If you are on linux then first you must [install the KVM driver](https://github.com/minishift/minishift/blob/master/docs/source/getting-started/setting-up-driver-plugin.adoc#kvm-driver-install).
-
-
-Create endpoint definition with these commands:
-
-```
-oc login -u system:admin
-
-cat <<EOF | oc create -f -
-kind: OAuthClient
-apiVersion: v1
-metadata:
-  name: fabric8-online-platform
-secret: fabric8
-redirectURIs:
-- "http://keycloak-fabric8.192.168.42.26.nip.io/auth/realms/fabric8/broker/openshift-v3/endpoint"
-grantMethod: prompt
-EOF
-```
 
 If you're starting from scratch and don't have minishift / minikube installed or the client binaries used to interact with them or drivers even, then simply run:
 
@@ -201,3 +185,24 @@ We hope to figure out a nicer alternative to this issue! The problem is things l
 oc logs foo -c init-container-name
 ```
 * __Networking issues__ - cannot connect to github for example: see https://docs.openshift.com/container-platform/3.6/admin_guide/sdn_troubleshooting.html
+
+### FAQ
+
+### I need to manually create the OAuthCLient
+
+Creating OAuthClients requires cluster permissions so not everyone has this.  If you need to manually create or request the OAuthclient be created you can use this (remember to replace `$YOUR_DOMAIN` with your domain)
+
+```
+oc login -u system:admin
+
+cat <<EOF | oc create -f -
+kind: OAuthClient
+apiVersion: v1
+metadata:
+  name: fabric8-online-platform
+secret: fabric8
+redirectURIs:
+- "http://keycloak-fabric8.$YOUR_DOMAIN/auth/realms/fabric8/broker/openshift-v3/endpoint"
+grantMethod: prompt
+EOF
+```
