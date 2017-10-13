@@ -48,9 +48,9 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>exposecontroller</artifactId>
-      <version>${project.version}</version>
+      <groupId>io.fabric8.apps</groupId>
+      <artifactId>exposecontroller-app</artifactId>
+      <version>${exposecontroller.version}</version>
     </dependency>
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
@@ -65,11 +65,6 @@
     <dependency>
       <groupId>io.fabric8.platform.apps</groupId>
       <artifactId>forge</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.platform.apps</groupId>
-      <artifactId>keycloak</artifactId>
       <version>${project.version}</version>
     </dependency>
 

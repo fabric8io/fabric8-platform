@@ -145,11 +145,6 @@ spec:
             configMapKeyRef:
               key: disable.oso.quotas
               name: f8tenant
-        - name: EXTERNAL_DOCKER_REGISTRY_URL
-          valueFrom:
-            configMapKeyRef:
-              key: external-docker-registry-external.url
-              name: f8tenant
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3

@@ -38,19 +38,6 @@ spec:
               "name": "DEPENDENCY_LOG_VERBOSE",
               "value": "true"
             }]
-          },
-          {
-            "name": "wait-for-wit",
-            "image": "fabric8/fabric8-dependency-wait-service:${dependency-wait-service.version}",
-            "imagePullPolicy": "IfNotPresent",
-            "command": ["sh", "-c", "fabric8-dependency-wait-service-linux-amd64 http://wit:80/api/status"],
-            "env": [{
-              "name": "DEPENDENCY_POLL_INTERVAL",
-              "value": "1"
-            }, {
-              "name": "DEPENDENCY_LOG_VERBOSE",
-              "value": "true"
-            }]
           }]
       labels:
         service: auth

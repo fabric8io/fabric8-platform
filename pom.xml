@@ -70,24 +70,24 @@
   </scm>
 
   <properties>
-    <auth.version>v6a56c54</auth.version>
+    <auth.version>v693b405</auth.version>
     <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <dependency-wait-service.version>v6632df1</dependency-wait-service.version>
-    <exposecontroller.version>2.3.23</exposecontroller.version>
-    <fabric8-ui.version>v2451119</fabric8-ui.version>
+    <exposecontroller.version>3.0.7</exposecontroller.version>
+    <fabric8-ui.version>v21dd925</fabric8-ui.version>
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
-    <forge.version>1.0.66</forge.version>
-    <init-tenant.version>va7102cd</init-tenant.version>
-    <wit.version>v3b47a3d</wit.version>
+    <forge.version>1.0.80</forge.version>
+    <init-tenant.version>v1dc51b5</init-tenant.version>
+    <wit.version>ve269f19</wit.version>
 
-    <kubernetes-client.version>2.6.3</kubernetes-client.version>
+    <kubernetes-client.version>3.0.0</kubernetes-client.version>
     <fabric8.version>2.2.192</fabric8.version>
     <fabric8.console.version>2.2.199</fabric8.console.version>
     <fabric8.devops.version>2.2.335</fabric8.devops.version>
     <fabric8.forge.version>2.3.88</fabric8.forge.version>
     <fabric8.ipaas.version>2.2.168</fabric8.ipaas.version>
-    <keycloak.version>v15751c8</keycloak.version>
+    <keycloak-app.version>1.0.2</keycloak-app.version>
     <kubeflix.version>1.0.28</kubeflix.version>
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
     <mattermost.version>vad68f0d</mattermost.version>

@@ -36,7 +36,6 @@
     <module>auth-db</module>
     <module>che-starter</module>
     <module>configmapcontroller</module>
-    <module>exposecontroller</module>
     <module>fabric8</module>
     <module>forge</module>
     <module>gitea-db</module>
@@ -44,8 +43,6 @@
     <module>init-tenant</module>
     <module>ingress-default-backend</module>
     <module>ingress-nginx</module>
-    <module>keycloak</module>
-    <module>keycloak-db</module>
     <module>kube-lego</module>
     <module>mattermost</module>
     <module>mattermost-db</module>
