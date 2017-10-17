@@ -77,7 +77,7 @@
     <exposecontroller.version>3.0.7</exposecontroller.version>
     <fabric8-ui.version>vab1039b</fabric8-ui.version>
     <fabric8-docker-registry.version>1.0.1</fabric8-docker-registry.version>
-    <forge.version>1.0.81</forge.version>
+    <forge.version>1.0.83</forge.version>
     <init-tenant.version>v9ae5b58</init-tenant.version>
     <wit.version>v1e802c1</wit.version>
 
