@@ -6,6 +6,7 @@ spec:
   template:
     metadata:
       annotations:
+        fabric8.io/service-dependencies: "f8tenant,auth,wit"
         pod.beta.kubernetes.io/init-containers: |- 
           [
           {
@@ -143,4 +144,3 @@ spec:
             configMapKeyRef:
               name: fabric8
               key: ws.apiserver.host
-
