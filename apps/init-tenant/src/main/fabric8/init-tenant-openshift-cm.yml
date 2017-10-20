@@ -7,8 +7,10 @@ metadata:
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
     expose.service-key.config.fabric8.io/wit: wit.url
     # expose.config.fabric8.io/apiserver-url-key: openshift.tenant.masterurl
+    expose.service-key.config.fabric8.io/fabric8: console.url
 type: Opaque
 data:
+  console.url: http://fabric8
   keycloak.url: http://keycloak
   wit.url: http://wit
   external-docker-registry-external.url: ""

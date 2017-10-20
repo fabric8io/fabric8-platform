@@ -61,6 +61,16 @@ spec:
             configMapKeyRef:
               key: tenant.exposer
               name: f8tenant
+        - name: F8_CONSOLE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: console.url
+              name: f8tenant
+        - name: F8_KEYCLOAK_URL
+          valueFrom:
+            configMapKeyRef:
+              key: keycloak.url
+              name: f8tenant
         - name: F8_WIT_URL
           valueFrom:
             configMapKeyRef:

@@ -6,9 +6,11 @@ metadata:
     fabric8.io/target-platform: "kubernetes"
     expose.service-key.config.fabric8.io/keycloak: keycloak.url
     expose.service-key.config.fabric8.io/wit: wit.url
+    expose.service-key.config.fabric8.io/fabric8: console.url
 type: Opaque
 data:
   keycloak.url: http://keycloak
+  console.url: http://fabric8
   wit.url: http://wit
   openshift.tenant.masterurl: https://kubernetes.default:443
   openshift.use.current.cluster: true
