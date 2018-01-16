@@ -51,7 +51,7 @@ Version 4.x of fabric8 differs a little bit from previous 3.x releases as follow
 * integrated issue tracker / kanban board / planning / work item tracking
 * integrated IDE via eclipse Che
 * integrated [analytics](https://github.com/fabric8-analytics) to help developers get insight into their code and libraries and versions they are using or should consider
-* new improved UI which covers project plannning, creation, analytics, editing/debugging, CI/CD
+* new improved UI which covers project planning, creation, analytics, editing/debugging, CI/CD
 
 ## Github Organisations
 
@@ -99,7 +99,7 @@ The angular JS 1.x version of the [Developer Console](https://fabric8.io/guide/c
 #### CI / CD
 
 * [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library) provides a set of reusable [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) steps and functions that you can reuse inside your `Jenkinsfile` via the [@Library annotation](https://github.com/fabric8io/fabric8-pipeline-library#how-to-use-this-library)
-* [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) provides a set of reusable `Jenkinsfile` files you can use on your projects. The `Jenkisnfiles` resue the [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library and they are used by the [Developer Console](https://fabric8.io/guide/console.html) when creating projects or choosing pipelines.
+* [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library) provides a set of reusable `Jenkinsfile` files you can use on your projects. The `Jenkinsfiles` reuse the [fabric8-pipeline-library](https://github.com/fabric8io/fabric8-pipeline-library and they are used by the [Developer Console](https://fabric8.io/guide/console.html) when creating projects or choosing pipelines.
 * [kubernetes-plugin](https://github.com/jenkinsci/kubernetes-plugin) is the Jenkins plugin which adds native Kubernetes support for defining build slave pods with custom pods, images, volumes and secrets. Its reused by the [fabric8-jenkinsfiles-library](https://github.com/fabric8io/fabric8-jenkinsfile-library)
 * [kubernetes-pipeline-plugin](https://github.com/fabric8io/kubernetes-pipeline-plugin) contains additional Jenkins Pipeline steps for working with fabric8
 
@@ -171,7 +171,7 @@ Kubernetes provides the main REST API for working with the [Kubernetes Platform]
 ### CDI
 
 * [fabric8-cdi](cdi.html) provides an easy way to work with Kubernetes [services](service.html) using the CDI Dependency Injection approach
-* [fabric8-apt](https://github.com/fabric8io/fabric8/tree/master/fabric8-apt) provides an APT code generator to create a JSON Schema file for each environment variable injected by the [@ConfigProperty](http://deltaspike.apache.org/documentation/configuration.html) annotation from [deltaspike](http://deltaspike.apache.org/) - giving dteails of the name, type, default value and description. This can then be used by the [fabric8:json maven goal](mavenplugin.html) to list all of the environment variables and their
+* [fabric8-apt](https://github.com/fabric8io/fabric8/tree/master/fabric8-apt) provides an APT code generator to create a JSON Schema file for each environment variable injected by the [@ConfigProperty](http://deltaspike.apache.org/documentation/configuration.html) annotation from [deltaspike](http://deltaspike.apache.org/) - giving details of the name, type, default value and description. This can then be used by the [fabric8:json maven goal](mavenplugin.html) to list all of the environment variables and their
 
 ### DevOps
 
@@ -256,7 +256,7 @@ The above-packaged docker images leverage some of these base Docker images:
 
 # v 4.x pre-release development
 
-Steps to run the in development 4.x fabric8-platform using the latest mnishift please see the new [Install Guide](INSTALL.md)
+Steps to run the in development 4.x fabric8-platform using the latest minishift please see the new [Install Guide](INSTALL.md)
 
 Here's the old way we were installing it via gofabric8:
 ```
