@@ -92,7 +92,7 @@
     <kubernetes.zipkin.version>0.1.8</kubernetes.zipkin.version>
     <mattermost.version>vad68f0d</mattermost.version>
     <gitea.version>vbc557c5</gitea.version>
-    <fabric8.maven.plugin.version>3.5.30</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.5.34</fabric8.maven.plugin.version>
     <maven.require.version>3.1.1</maven.require.version>
     <maven.enforcer.plugin.version>1.4</maven.enforcer.plugin.version>
     <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
