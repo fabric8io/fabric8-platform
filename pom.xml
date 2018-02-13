@@ -70,7 +70,7 @@
   </scm>
 
   <properties>
-    <auth.version>v7867c11</auth.version>
+    <auth.version>v4a68642</auth.version>
     <che-starter.version>7a6345</che-starter.version>
     <configmapcontroller.version>2.3.7</configmapcontroller.version>
     <dependency-wait-service.version>v6632df1</dependency-wait-service.version>
