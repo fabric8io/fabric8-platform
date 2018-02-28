@@ -16,7 +16,6 @@ spec:
         image: registry.centos.org/postgresql/postgresql:9.6
         imagePullPolicy: IfNotPresent
         env:
-        env:
         - name: POSTGRESQL_ADMIN_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -48,7 +47,7 @@ spec:
         - containerPort: 5432
           protocol: TCP
         volumeMounts:
-        - mountPath: /var/lib/pgsql
+        - mountPath: /var/lib/pgsql/data
           name: auth-db-postgresql-data
           readOnly: false
       volumes:
