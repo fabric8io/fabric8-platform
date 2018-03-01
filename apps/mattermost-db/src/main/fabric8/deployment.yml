@@ -51,6 +51,8 @@ spec:
         - mountPath: /var/lib/pgsql/data
           name: mattermost-db-postgresql-data
           readOnly: false
+      securityContext:
+        fsGroup: 0
       volumes:
       - name: mattermost-db-postgresql-data
         persistentVolumeClaim:
