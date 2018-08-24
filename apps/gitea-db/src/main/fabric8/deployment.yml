@@ -48,9 +48,11 @@ spec:
         - containerPort: 5432
           protocol: TCP
         volumeMounts:
-        - mountPath: /var/lib/pgsql
+        - mountPath: /var/lib/pgsql/data
           name: gitea-db-postgresql-data
           readOnly: false
+      securityContext:
+        fsGroup: 0
       volumes:
       - name: gitea-db-postgresql-data
         persistentVolumeClaim:
